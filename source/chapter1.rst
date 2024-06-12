@@ -81,15 +81,20 @@ The problem definition in RAT is done by making an instance of a *projectClass* 
 set up the parameters, layers and so on this instance. The details of setting up a *projectClass* object is
 discussed in chapter 2, but for now, we'll look at a pre-prepared example.
 
-.. code-block:: MATLAB
+.. tab-set-code::
+    .. code-block:: Matlab
 
-    % Load in a pre-made problem Definition class
-    problem = load('twoContrastExample.mat');
-    problem = problem.problem;
+        % Load in a pre-made problem Definition class
+        problem = load('twoContrastExample.mat');
+        problem = problem.problem;
 
-    % Have a look at what we have
-    disp(problem)
+        % Have a look at what we have
+        disp(problem)
 
+    .. code-block:: Python
+
+        problem = get_problem()
+        print(problem)
 
 .. image:: images/userManual/chapter1/lipidModel-1.png
     :width: 700
@@ -157,10 +162,15 @@ Once we've run our model through RAT, then the second output (we call *results* 
 
 This contains the results of our calculations, so for us including the SLD profiles and reflectivities calculated from our *problemDef* class. We can now plot the output, either manually (by taking the relevant parts from the *results* array), or using one of the supplied plotting utilities:
 
-.. code-block:: MATLAB
+.. tab-set-code::
+    .. code-block:: Matlab
 
-    fig(1); clf;
-    plotRefSLD(problem, results)
+        fig(1); clf;
+        plotRefSLD(problem, results)
+
+    .. code-block:: Python
+
+        plot_ref_sld(problem, results)   
 
 .. image:: images/userManual/chapter1/plots.png
     :alt: reflectivity and SLD plots

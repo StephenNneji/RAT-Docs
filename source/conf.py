@@ -32,7 +32,7 @@ release = '0.0.0'
 
 # -- General configuration ---------------------------------------------------
 # extensions = ['sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx_design']
-extensions = ['sphinx.ext.autodoc']
+extensions = ['sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx_design']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

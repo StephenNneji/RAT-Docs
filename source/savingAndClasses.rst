@@ -22,9 +22,10 @@ just a matter of saving these to file. It's good practice to keep everything tog
 
 Then, you only need to save the struct to a file to save all of your work:
 
-.. code-block:: MATLAB
+.. tab-set-code::
+    .. code-block:: Matlab
 
-    save('myResultsFile','myResults');
+        save('myResultsFile','myResults');
 
 
 At a later date, you only need to load back in your struct, split it up into it's components and away you go:
@@ -66,53 +67,55 @@ Exporting as a Script
 Although saving a binary version of the class is useful, sometimes it would be better to have a script version which will reproduce the class. This is done using the
 'toScript' method of projectClass:
 
-.. code-block:: MATLAB
+.. tab-set-code::
+    .. code-block:: Matlab
 
-    problem = projectClass();
-    problem.writeScript(script = "myProjectScript");
+        problem = projectClass();
+        problem.writeScript(script = "myProjectScript");
 
 Then, RAT will create a file containing all the statements needed to re-create your project:
 
-.. code-block:: MATLAB
+.. tab-set-code::
+    .. code-block:: Matlab
 
-    % THIS FILE IS GENERATED FROM RAT VIA THE "WRITESCRIPT" ROUTINE. IT IS NOT PART OF THE RAT CODE.
+        % THIS FILE IS GENERATED FROM RAT VIA THE "WRITESCRIPT" ROUTINE. IT IS NOT PART OF THE RAT CODE.
 
-    project = createProject(name='', calcType='non polarised', model='standard layers', geometry='air/substrate', absorption=false);
+        project = createProject(name='', calcType='non polarised', model='standard layers', geometry='air/substrate', absorption=false);
 
-    project.setParameterValue(1, 20);
-    project.setParameterLimits(1, 1, 5);
-    project.setParameterFit(1, true);
-    project.setParameterPrior(1, 'uniform', 0, Inf);
+        project.setParameterValue(1, 20);
+        project.setParameterLimits(1, 1, 5);
+        project.setParameterFit(1, true);
+        project.setParameterPrior(1, 'uniform', 0, Inf);
 
 
-    project.removeBulkIn(1);
-    project.addBulkIn('SLD Air', 0, 0, 0, false, 'uniform', 0, Inf);
+        project.removeBulkIn(1);
+        project.addBulkIn('SLD Air', 0, 0, 0, false, 'uniform', 0, Inf);
 
-    project.removeBulkOut(1);
-    project.addBulkOut('SLD D2O', 6.2e-06, 6.35e-06, 6.35e-06, false, 'uniform', 0, Inf);
+        project.removeBulkOut(1);
+        project.addBulkOut('SLD D2O', 6.2e-06, 6.35e-06, 6.35e-06, false, 'uniform', 0, Inf);
 
-    project.removeScalefactor(1);
-    project.addScalefactor('Scalefactor 1', 0.02, 0.23, 0.25, false, 'uniform', 0, Inf);
+        project.removeScalefactor(1);
+        project.addScalefactor('Scalefactor 1', 0.02, 0.23, 0.25, false, 'uniform', 0, Inf);
 
-    project.removeQzshift(1);
-    project.addQzshift('Qz shift 1', -0.0001, 0, 0.0001, false, 'uniform', 0, Inf);
+        project.removeQzshift(1);
+        project.addQzshift('Qz shift 1', -0.0001, 0, 0.0001, false, 'uniform', 0, Inf);
 
-    project.removeBackgroundParam(1);
-    project.addBackgroundParam('Background Param 1', 1e-07, 1e-06, 1e-05, false, 'uniform', 0, Inf);
+        project.removeBackgroundParam(1);
+        project.addBackgroundParam('Background Param 1', 1e-07, 1e-06, 1e-05, false, 'uniform', 0, Inf);
 
-    project.removeResolutionParam(1);
-    project.addResolutionParam('Resolution par 1', 0.01, 0.03, 0.05, false, 'uniform', 0, Inf);
+        project.removeResolutionParam(1);
+        project.addResolutionParam('Resolution par 1', 0.01, 0.03, 0.05, false, 'uniform', 0, Inf);
 
-    project.removeBackground(1);
-    project.removeResolution(1);
+        project.removeBackground(1);
+        project.removeResolution(1);
 
-    project.addBackground('Background 1', 'constant', 'Background Param 1', '', '', '', '');
+        project.addBackground('Background 1', 'constant', 'Background Param 1', '', '', '', '');
 
-    project.addResolution('Resolution 1', 'constant', 'Resolution par 1', '', '', '', '');
+        project.addResolution('Resolution 1', 'constant', 'Resolution par 1', '', '', '', '');
 
-    project.removeData(1);
-    project.addData('Simulation');
-    project.setData(1, 'simRange', [0.005 0.7]);
+        project.removeData(1);
+        project.addData('Simulation');
+        project.setData(1, 'simRange', [0.005 0.7]);
 
 
 This is useful because you can then edit this file as you wish, to re-use it as a template for further projects.

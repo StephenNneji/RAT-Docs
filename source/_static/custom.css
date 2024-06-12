@@ -24,3 +24,11 @@ html[data-theme=dark] {
   margin-top: 0px !important;
   margin-bottom: 0px !important;
 }
+
+.sd-tab-label{
+  text-transform: lowercase;
+}
+ 
+.sd-tab-label::first-letter {
+  text-transform: uppercase;
+}
