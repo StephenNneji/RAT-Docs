@@ -1,48 +1,13 @@
-# List of untracked files to ignore
-old
-*.pptx
-*.pdf
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
 
-# IDE folders and files
-.vscode/
-.idea/
-*.asv
-*.bak
-*.m~
-
-# System files
-desktop.ini
-.DS_Store
-.bash_profile
-
-# Unit test / coverage reports
-htmlcov/
-
-# Dev folders..
-devProjects/
+# Editor Folders
+.idea
+.vscode
 
 # Build
--lang*
-paramonte_out/
-codegen/
-cppDeploy/
-*.mexa64
-*.mexw64
-*.mexmaci64
-*.mexmaca64
-*.mlappinstall
-*.mltbx
-_build/
-docs/build/
-docs/.buildinfo
-docs/*.inv
-DREAM_diagnostics.txt
-__pycache__/
-*.o
-*.a
-*.obj
-*.exp
-*.dll
-*.lib
-*.dylib
-*.prj
+build/
+source/.buildinfo
+source/*.inv

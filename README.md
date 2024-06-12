@@ -1,9 +1,17 @@
-[![license](https://img.shields.io/github/license/RascalSoftware/RAT.svg)](https://github.com/RascalSoftware/RAT/blob/master/LICENSE)
-[![release](https://img.shields.io/github/release/RascalSoftware/RAT.svg)](https://github.com/RascalSoftware/RAT/releases)
-[![Unit Tests](https://github.com/RascalSoftware/RAT/actions/workflows/runTests.yml/badge.svg)](https://github.com/RascalSoftware/RAT/actions/workflows/runTests.yml)
+Documentation
+=============
+This is the documentation for the [Matlab](https://github.com/RascalSoftware/RAT) and [Python](https://github.com/RascalSoftware/python-RAT) version of the RAT project. 
 
-RAT
-===
-RAT is an acronym for Reflectivity Algorithms Toolbox for Rascal. This is a MATLAB toolbox for analysing non-polarized neutron reflectivity data at multiple contrasts. This is designed to fit multiple contrast neutron reflectivity data, primarily using the Abeles layer model but user-defined model function are also supported.
+Build docs
+----------
+The documentation should be built using the provided Sphinx make file. The reStructuredText source is in the source 
+folder while the build will be placed in a build folder. The build requires a python executable and the python packages 
+in the requirements.txt. 
 
-This is currently still in development. We are working towards a first release of the toolbox. In the meantime, please note that usage may change and that releases are not yet stable.
+    conda create -n RAT python=3.9
+    conda activate RAT
+    pip install -r requirements.txt
+
+In the terminal with access to the python executable 
+
+    make html
