@@ -1,7 +1,7 @@
-|RAT banner|
-
 .. _RAT: 
 
+.. image:: _static/banner.png
+    :alt: RAT banner
 
 RAT is an acronym for Reflectivity Algorithms Toolbox, which is the calculation engine for the forthcoming RasCAL2. As
 with the original RasCAL, RAT is a toolbox for analysising neutron reflectivity data at multiple contrasts. It is designed
@@ -47,5 +47,5 @@ Home
    
    install
    guide
-   reference
+   reference/index
    support

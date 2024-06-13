@@ -6,7 +6,7 @@ User Guide
 .. toctree::
    :maxdepth: 2
    
-   tutorial
+   tutorial/index
    algorithms
    advanced
    calcTypes

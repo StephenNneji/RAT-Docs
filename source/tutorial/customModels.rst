@@ -43,7 +43,7 @@ In terms of the SLD's, because the volume and composition of each layer is known
 
 The figure shows the system we are measuring. We have a single, hydrogenated DSPC bilayer supported on a silicon surface. The silicon is, as always, coated with an oxide layer. The bilayer may or may not be complete (i.e. partially hydrated) so we will need hydration parameters, and there is the possibility of a thin water layer between the bilayer and the substrate. We also need some roughness parameters, both for the substrate and the bilayer itself. We will build a custom model for this and use it to analyse the bilayer data at three contrasts.
 
-.. image:: images/userManual/chapter3/bilayer.png
+.. image:: ../images/userManual/chapter3/bilayer.png
     :alt: Bilayer on silicon diagram
 
 Looking at our system, we can see that we are going to need 8 parameters in total:
@@ -107,6 +107,10 @@ The custom file that we are going to use is called *customBilayer.m*. This is a 
 
         % name filename language path
         problem.addCustomFile('DSPC Model', 'customBilayer.m' ,'matlab',  pwd);
+
+    .. code-block:: Matlab
+
+        problem.custom_files.append(name="DSPC Model", filename="customBilayer.m", language="matlab")
 
 
 The custom files are in exactly the same format at those in RasCAL. To add it to our project in RAT we always need to specify four things:
@@ -410,9 +414,9 @@ Our final projectClass looks like this:
 
         disp(problem)
 
-.. image:: images/userManual/chapter3/dispProblem1.png
+.. image:: ../images/userManual/chapter3/dispProblem1.png
     :alt: Displays project class (first half)
-.. image:: images/userManual/chapter3/dispProblem2.png
+.. image:: ../images/userManual/chapter3/dispProblem2.png
     :alt: Displays project class (second half)
 
 To run this, we make a controls block as before, and pass this to RAT. This time we will do a DREAM analysis (we will discuss the controls block and available algorithms in more detail in Chapter 4).
@@ -424,7 +428,7 @@ To run this, we make a controls block as before, and pass this to RAT. This time
         controls.parallel = 'contrasts';
         disp(controls)
 
-.. image:: images/userManual/chapter3/dispControls.png
+.. image:: ../images/userManual/chapter3/dispControls.png
     :width: 300
     :alt: Displays the controls
 
@@ -433,7 +437,7 @@ To run this, we make a controls block as before, and pass this to RAT. This time
 
         [problem,results] = RAT(problem,controls);
 
-.. image:: images/userManual/chapter3/ratRun.png
+.. image:: ../images/userManual/chapter3/ratRun.png
     :alt: Displays RAT executing calculations
 
 
@@ -491,7 +495,7 @@ The following code snippet we'll make an example of a simple layer....
         plot(z,f);
         axis([0 100 0 1.5]);
 
-.. image:: images/userManual/chapter3/simpleLayer.png
+.. image:: ../images/userManual/chapter3/simpleLayer.png
     :width: 800
     :alt: simple layer
 
@@ -635,17 +639,19 @@ To run our simulation, we make a RAT model as normal:
 
         figure(1); clf
         plotRefSLD(problem,results);
+    
+    .. code-block:: Python
 
+        problem,resuts = RAT.run(problem, controls)
+        rp.plot_ref_sld(problem, results)
 
-
-.. image:: images/userManual/chapter3/customTwoLayerFig.png
+.. image:: ../images/userManual/chapter3/customTwoLayerFig.png
     :width: 500
     :alt: Dtwo layers XY
 
-
 When sent to RAT, customXY SLD profiles are automatically resampled into layers with adaptive resampling:
 
-.. image:: images/userManual/chapter3/twoLayerRAT.png
+.. image:: ../images/userManual/chapter3/twoLayerRAT.png
     :width: 800
     :alt: Displays the final customXY result
 

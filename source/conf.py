@@ -17,9 +17,9 @@ import datetime
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 exclude_patterns = []
-# current_dir = os.path.dirname(os.path.abspath(__file__))
-# matlab_src_dir = os.path.abspath(os.path.join(current_dir, '..','..'))
-# sys.path.insert(0, matlab_src_dir)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+matlab_src_dir = os.path.abspath(os.path.join(current_dir, '..', 'API', 'RAT'))
+sys.path.insert(0, matlab_src_dir)
 
 project = 'RAT'
 copyright = u'2022-{}, ISIS Neutron and Muon Source'.format(datetime.date.today().year)
@@ -32,7 +32,7 @@ release = '0.0.0'
 
 # -- General configuration ---------------------------------------------------
 # extensions = ['sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx_design']
-extensions = ['sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx_design']
+extensions = ['sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx_design', 'sphinx_copybutton']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -54,7 +54,6 @@ html_static_path = ['_static']
 # pygments_dark_style = 'monokai'
 html_css_files = ["custom.css"]
 
-
 html_logo = '_static/logo.png'
 # html_theme_options = {'logo': 'logo.png',
 #                       'logo_name': False,
@@ -75,8 +74,5 @@ html_sidebars = {
     "support": [],
 }
 
-
-rst_prolog = """
-.. |RAT banner| image:: _static/banner.png
-    :alt: RAT banner
-"""
+copybutton_prompt_text = r">>> |>> "
+copybutton_prompt_is_regexp = True

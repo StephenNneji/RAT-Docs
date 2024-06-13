@@ -24,7 +24,7 @@ formulated and run.
 
 So, an input into RAT always conforms to this picture: a model definition class to specify the problem, and a controls definition class that tells RAT what analysis task you would like to do:
 
-.. image:: images/userManual/chapter1/ratInput.png
+.. image:: ../images/userManual/chapter1/ratInput.png
     :alt: RAT input model
 
 The outputs are always another *problemDef* class, and a results block. The new *problemDef* class is identical to the inputted one, except with updated values of the fitted parameters (e.g. after running a fit). The results block as a set of arrays containing the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions. We will discuss more about these in the next chapter where we look at the outputs in more detail. Similarly, we will look in more detail at the input classes in the next section.
@@ -67,7 +67,7 @@ heads which are adjacent (or embedded) in the bulk aqueous phase.
 
 In our example, the layers can be either deuterated of hydrogenated, and the bulk water can either be D2O or ACMW.
 
-.. image:: images/userManual/chapter1/lipidMonolayer.png
+.. image:: ../images/userManual/chapter1/lipidMonolayer.png
     :width: 300
     :alt: The lipid monolayer example
 
@@ -93,13 +93,14 @@ discussed in chapter 2, but for now, we'll look at a pre-prepared example.
 
     .. code-block:: Python
 
+        # TODO update with data
         problem = get_problem()
         print(problem)
 
-.. image:: images/userManual/chapter1/lipidModel-1.png
+.. image:: ../images/userManual/chapter1/lipidModel-1.png
     :width: 700
     :alt: The lipid monolayer model output display (first half)
-.. image:: images/userManual/chapter1/lipidModel-2.png
+.. image:: ../images/userManual/chapter1/lipidModel-2.png
     :width: 700
     :alt: The lipid monolayer model output display (second half)
 
@@ -112,7 +113,7 @@ need 10 parameters to define our system: A bulk interface roughness, thickness a
 SLD values for the layers, depending on whether they are deuterated or not. In this block we also define the parameter values
 and their allowed ranges, and specify if they are included in the fit:-
 
-.. image:: images/userManual/chapter1/parameterGroup.png
+.. image:: ../images/userManual/chapter1/parameterGroup.png
     :width: 500
     :alt: The parameter group
 
@@ -120,7 +121,7 @@ and their allowed ranges, and specify if they are included in the fit:-
 For our model, we always have two layers - a headgroup and the associated tails. Each of which can be deuterated, so we set up
 4 layers in total, sharing the parameters between the layers as necessary:
 
-.. image:: images/userManual/chapter1/layersGroup.png
+.. image:: ../images/userManual/chapter1/layersGroup.png
     :width: 900
     :alt: The layers group
 
@@ -128,13 +129,13 @@ For our model, we always have two layers - a headgroup and the associated tails.
 
 4. **Data -** Each contrast has to have a dataset associated with it, whether or not it contains data or not. An empty data object (i.e. containing no data and just simulation ranges), means RAT will calculate the reflectivity only. When data is present, chi-squared will also be calculated. For our problem, we have two datasets and these are coded in to the data block ready to be incorporated into contrasts:
 
-.. image:: images/userManual/chapter1/dataGroup.png
+.. image:: ../images/userManual/chapter1/dataGroup.png
     :width: 900
     :alt: The data group
 
 5. **Contrasts -** Once we have defined all the components of our model, we need to group them together into contrasts. We have two datasets we want to consider, so two contrasts. We have the relevant instrument parameters, and also we specify which layers are included in each contrast (*model*). 
 
-.. image:: images/userManual/chapter1/contrastGroup.png
+.. image:: ../images/userManual/chapter1/contrastGroup.png
     :width: 900
     :alt: The contrast group
 
@@ -142,13 +143,13 @@ For our model, we always have two layers - a headgroup and the associated tails.
 
 As implied from figure (1), running RAT requires not only our input model specification, but also a controls block telling RAT what to do. We will discuss the controls block in more detail in Chapter 4, but for this demo we will just make an instance of the controls block and modify a few parameters to run the demo:
 
-.. image:: images/userManual/chapter1/controlsClass.png
+.. image:: ../images/userManual/chapter1/controlsClass.png
     :width: 400
     :alt: Control class
 
 This makes an instance of the *controlsClass* we have called **controls**. The various properties of the class allow the type of calculation to be specified, in terms of parallelisation, choice of algorithm to be applied and so on. Here we are specifying a single threaded calculation of our reflectivities only (the default) - in other words we are not asking RAT to do any kind of fit with our parameters. We can now send our problem definition and controls classes to the RAT toolbox:
 
-.. image:: images/userManual/chapter1/ratRun.png
+.. image:: ../images/userManual/chapter1/ratRun.png
     :alt: RAT run
 
 It is worth noticing here that this is always the general format for calling RAT. There are two inputs - a problem definition and a controls block, and the result is two outputs - another copy of the problem, and a new, *results* block. 
@@ -157,7 +158,7 @@ The problem that returns is a copy of our input, except that the parameter value
 
 Once we've run our model through RAT, then the second output (we call *results* here) is an array which contains the output of the calculation :
 
-.. image:: images/userManual/chapter1/dispResults.png
+.. image:: ../images/userManual/chapter1/dispResults.png
     :alt: disp(results)
 
 This contains the results of our calculations, so for us including the SLD profiles and reflectivities calculated from our *problemDef* class. We can now plot the output, either manually (by taking the relevant parts from the *results* array), or using one of the supplied plotting utilities:
@@ -170,9 +171,10 @@ This contains the results of our calculations, so for us including the SLD profi
 
     .. code-block:: Python
 
-        plot_ref_sld(problem, results)   
+        import RAT.utils.plotting as rp
+        rp.plot_ref_sld(problem, results)   
 
-.. image:: images/userManual/chapter1/plots.png
+.. image:: ../images/userManual/chapter1/plots.png
     :alt: reflectivity and SLD plots
 
 We can see that our model is looking fairly sensible, but that our guess values for the parameters are pretty wide off the mark.

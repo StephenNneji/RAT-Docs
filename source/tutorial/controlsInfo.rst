@@ -16,7 +16,7 @@ Making an instance of the controls class is quite simple:-
 
 This then creates an instance of controlsClass with a number of options defined:
 
-.. image:: images/userManual/controlsDemo/simpleControls.png
+.. image:: ../images/userManual/controlsDemo/simpleControls.png
     :width: 700
     :alt: Simple controls
 
@@ -24,7 +24,7 @@ We will look at each of thesee in more detail below. Note that the options that 
 the algorithm selected. So, at the moment the controls are set to 'calculate', which will simply calculate the reflectivity and 
 SLD with any associated problem. If we select 'simplex' as the algorithm, a different set of options appears:-
 
-.. image:: images/userManual/controlsDemo/simplexControls.png
+.. image:: ../images/userManual/controlsDemo/simplexControls.png
     :width: 550
     :alt: Simplex controls
 

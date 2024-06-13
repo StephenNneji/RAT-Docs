@@ -9,14 +9,14 @@ Saving to a file
 ................
 Suppose you have a model defined in problem, and you have run this through RAT and you want to save your work for later...
 
-.. image:: images/userManual/chapter1/ratInput.png
+.. image:: ../images/userManual/chapter1/ratInput.png
     :width: 600
     :alt: RAT input model
 
 SO. 'problem' now contains a copy of the input problem, and results the relevant reflectivities, SLD's and so on. Because everything is in these two outputs, then saving your mork is
 just a matter of saving these to file. It's good practice to keep everything together, and a good way of doing this is to collect them into a struct...
 
-.. image:: images/userManual/chapter3/resultsStruct.png
+.. image:: ../images/userManual/chapter3/resultsStruct.png
     :width: 700
     :alt: results struct
 
@@ -30,7 +30,7 @@ Then, you only need to save the struct to a file to save all of your work:
 
 At a later date, you only need to load back in your struct, split it up into it's components and away you go:
 
-.. image:: images/userManual/chapter3/loadingBack.png
+.. image:: ../images/userManual/chapter3/loadingBack.png
     :width: 700
     :alt: loading back
 
@@ -42,19 +42,19 @@ But, you need to be aware of how matlab deals with attempt to copy a class.
 
 For example, first make an instance of projectClass:
 
-.. image:: images/userManual/chapter3/copyProject1.png
+.. image:: ../images/userManual/chapter3/copyProject1.png
     :width: 700
     :alt: copy project 1
 
 Now, we try to make a copy:
 
-.. image:: images/userManual/chapter3/copyProject2.png
+.. image:: ../images/userManual/chapter3/copyProject2.png
     :width: 700
     :alt: copy project 2
 
 If we then attempt to modify problem2, we find that the original problem has also changed!
 
-.. image:: images/userManual/chapter3/referenceChange.png
+.. image:: ../images/userManual/chapter3/referenceChange.png
     :width: 700
     :alt: copy project 2
 

@@ -33,21 +33,23 @@ The first input, *problem*, is an instance of a class called *projectClass*:
             'projectClass'
     
     .. code-block:: Python
+        :force:
 
-        problem = projectClass('my project');
-        type(problem)
+        >>> problem = RAT.Project('my project')
+        >>> type(problem)
 
+        <class 'RAT.project.Project'>
 
 And if we take a look at it, we can see the class contains a series of sections, where we can define our parameters, make different kinds of model, load in our data and do everything we need to set up our model.
 
-.. image:: images/userManual/chapter2/model1.png
+.. image:: ../images/userManual/chapter2/model1.png
     :alt: model (first half)
-.. image:: images/userManual/chapter2/model2.png
+.. image:: ../images/userManual/chapter2/model2.png
     :alt: model (second half)
 
 We can see that the class has a number of attributes, defining all we need for our analysis. In our case, we have no parameters or data, and have not defined any contrasts, so this will not do anything useful in RAT. Defining a model is a case of populating the sections in the project class, which we do using the class methods:
 
-.. image:: images/userManual/chapter2/projectClassMethods.png
+.. image:: ../images/userManual/chapter2/projectClassMethods.png
     :alt: Project Class Methods
 
 It's clear from the method names (i.e. *addData*) that these methods are going to be useful to us for building our model. In the following sections,
@@ -59,7 +61,7 @@ So, if we run a fit, the fitted parameters will be updated with the best fit val
 want to do this, you can give the inputs and outputs different names (e.g. '[outProblem,results] = RAT(problem,controls)'' or whatever you like). The second output can also be called whatever you like, and this is a struct
 containing the simulated reflectivities, SLD's and so on from whatever procedure you have asked RAT to do:
 
-.. image:: images/userManual/chapter2/reflectivitiesStruct.png
+.. image:: ../images/userManual/chapter2/reflectivitiesStruct.png
     :width: 300
     :alt: Reflectivities Struct
 
@@ -89,6 +91,11 @@ The first part of the created *problem* has two other settable fields: *modelTyp
 
         >> problem.setGeometry('air/substrate');
         >> problem.setGeometry('substrate/liquid');
+    
+    .. code-block:: Python
+
+        >>> problem.geometry = 'air/substrate'
+        >>> problem.geometry = 'substrate/liquid'
 
 The effect of this parameter is in the numbering of roughness's in layer models. In any model for n-layers,
 there are always n+1 associated interfaces, and hence n+1 roughness parameters required. In RAT, the bulk interface roughness
@@ -111,6 +118,12 @@ The model type is set using the **setModelType** method:
         >> problem.setModelType('standard layers');
         >> problem.setModelType('custom layers');
         >> problem.setModelType('custom XY');
+    
+    .. code-block:: Python
+
+        >>> problem.model = 'standard layers'
+        >>> problem.model = 'custom layers'
+        >>> problem.model = 'custom XY'
 
 Custom modelling is described in more depth in a later section.
 
@@ -119,7 +132,7 @@ Custom modelling is described in more depth in a later section.
 
 Any model, where it be layers or anything else is always defined by parameters. These appear in the parameters block and are specified by a name, a value, minimum and maximum ranges and a flag defining whether the parameter is fitted or fixed:
 
-.. image:: images/userManual/chapter2/parameterBlock.png
+.. image:: ../images/userManual/chapter2/parameterBlock.png
     :width: 500
     :alt: Parameter Block
 
@@ -132,6 +145,11 @@ To add a parameter, you can use the **addParam** method, either by just specifyi
 
         >> problem.addParameter('My new param');
         >> problem.addParameter('My other new param',10,20,30,false);
+
+    .. code-block:: Python
+
+        >>> problem.parameters.append(name='My new param')
+        >>> problem.parameters.append(name='My other new param', min=10, value=20, max=30, fit=False)
 
 To avoid having to make a whole load of **addParam** statements for large projects with many parameters, you can define them at once in a cell array, and add them using the **addParamGroup** method (again notice the curly brackets syntax - this is a {cell array of {cell arrays}} : 
 
@@ -146,7 +164,7 @@ To avoid having to make a whole load of **addParam** statements for large projec
 
 The resulting parameters block looks like this:
 
-.. image:: images/userManual/chapter2/resultingParameterBlock1.png
+.. image:: ../images/userManual/chapter2/resultingParameterBlock1.png
     :width: 400
     :alt: Parameter Block after adding param group
 
@@ -163,8 +181,16 @@ To subsequently change the values of the parameters (including names), there are
         problem.setParameterConstr(2,0.96,3.62);
         problem.setParameterValue(4,20.22);
         problem.setParameterFit('Layer rough',false);
+    
+    .. code-block:: Python
 
-.. image:: images/userManual/chapter2/resultingParameterBlock2.png
+        problem.parameters[0].name = 'My changed param'
+        problem.parameters[1].min = 0.96
+        problem.parameters[1].max = 3.62
+        problem.parameters[3].value = 20.22
+        problem.parameters[4].fit = False
+
+.. image:: ../images/userManual/chapter2/resultingParameterBlock2.png
     :width: 600
     :alt: Parameter Block after changing properties
 
@@ -174,8 +200,12 @@ Alternatively, you can set a number of properties of a given parameter at once u
     .. code-block:: Matlab
 
         problem.setParameter(4,'name','thick','min',15,'max',33,'fit',false)
+    
+    .. code-block:: Python
 
-.. image:: images/userManual/chapter2/resultingParameterBlock3.png
+        problem.parameters.set_fields(3, name='thick', min=15, max=33, fit=False)
+
+.. image:: ../images/userManual/chapter2/resultingParameterBlock3.png
     :width: 600
     :alt: Parameter Block after changing properties using set parameter
 
@@ -185,12 +215,16 @@ You can remove a parameter from the block using its name or number. Note that if
     .. code-block:: Matlab
 
         problem.removeParameter(4);
+    
+    .. code-block:: Python
 
-.. image:: images/userManual/chapter2/resultingParameterBlock4.png
+        del problem.parameters[3]
+
+.. image:: ../images/userManual/chapter2/resultingParameterBlock4.png
     :width: 600
     :alt: Parameter Block after removing a parameter
 
-.. image:: images/userManual/chapter2/parameterRemoveError.png
+.. image:: ../images/userManual/chapter2/parameterRemoveError.png
     :width: 600
     :alt: Error when trying to remove Substrate Roughness
 
@@ -215,6 +249,10 @@ Start by making a new project, and adding the parameters we will need:
                 {'Layer hydr', 0, 10, 20, true}};
             
         problem.addParameterGroup(params);
+    
+    .. code-block:: Python
+
+        problem = RAT.Project('Layers Example');
 
 A layer is defined in terms of a name, thickness, SLD, roughness and (optional) hydration, along with details of which bulk phase is hydrating the layer. The easiest way to define these is to group the parameters into cell arrays, and then add them to the project as a layers group:
 
@@ -225,12 +263,20 @@ A layer is defined in terms of a name, thickness, SLD, roughness and (optional) 
         H_layer = {'H Layer','Layer Thickness','H SLD','Layer rough','Layer hydr','bulk out'};
         D_layer = {'D Layer','Layer Thickness','D SLD','Layer rough','Layer hydr','bulk out'};
         
-        % Add them to the project - as a cell array{}..
+        % Add them to the project - as a cell array{}
         problem.addLayerGroup({H_layer, D_layer});
+    
+    .. code-block:: Python
+
+        problem.layers.append(name='H Layer', thickness='Layer Thickness', SLD='H SLD',
+                              roughness='Layer rough', hydration='Layer hydr', hydrate_with='bulk out')
+        problem.layers.append(name='D Layer', thickness='Layer Thickness', SLD='D SLD',
+                              roughness='Layer rough', hydration='Layer hydr', hydrate_with='bulk out')
+
 
 Our two layers now appear in the Layers block of the project:
 
-.. image:: images/userManual/chapter2/twoLayerGroup.png
+.. image:: ../images/userManual/chapter2/twoLayerGroup.png
     :alt: Layers after adding two layers
 
 Note that in RAT, hydration is percent hydration between 0 and 100. It is not necessary to define a hydration at all, and we can also make layers without this parameter:
@@ -242,7 +288,7 @@ Note that in RAT, hydration is percent hydration between 0 and 100. It is not ne
         Dry_Layer = {'Dry Layer', 'Layer Thickness', 'D SLD', 'Layer rough'};
         problem.addLayer(Dry_Layer);
 
-.. image:: images/userManual/chapter2/threeLayerGroup1.png
+.. image:: ../images/userManual/chapter2/threeLayerGroup1.png
     :alt: Layers after adding third dry layer
 
 To set the value of an existing layer, you can use the 'setLayerValue' method, at the moment using numbers for the layer number, layer parameter and parameter to be changed. So for example:
@@ -254,7 +300,7 @@ To set the value of an existing layer, you can use the 'setLayerValue' method, a
 
 changes parameter 2 (Thickness) of Layer 1 (H Layer) to the 3rd Parameter of the parameter block (H SLD): 
 
-.. image:: images/userManual/chapter2/threeLayerGroup2.png
+.. image:: ../images/userManual/chapter2/threeLayerGroup2.png
     :alt: Layers after changing thickness
 
 .. note::
@@ -272,8 +318,13 @@ These are treated in the same way as parameters e.g.
 
         problem.addBulkIn('Silicon',2.0e-6,2.07e-6,2.1e-6,false);
         problem.addBulkOut('H2O',-0.6e-6,-0.56e-6,-0.5e-6,false);
+    
+    .. code-block:: Python
+        
+        problem.bulk_in.append(name='Silicon', min=2.0e-06, value=2.073e-06, max=2.1e-06, fit=False)
+        problem.bulk_out.append(name='D2O', min=-0.6e-6, value=-0.56e-6, max=-0.5e-6, fit=False)
 
-.. image:: images/userManual/chapter2/bulkPhases.png
+.. image:: ../images/userManual/chapter2/bulkPhases.png
     :width: 600
     :alt: Bulk In and Bulk Out
 
@@ -284,6 +335,10 @@ There are no individual methods for each parameter of these, but the values can 
 
         problem.setBulkOut(1, 'value', 5.9e-6, 'fit', true);
 
+    .. code-block:: Python
+
+        problem.bulk_out.set_fields(0, value=5.9e-6, fit=True)
+
 **Scalefactors**
 ++++++++++++++++
 The *scalefactors* are another parameters block like the bulk phases. You can add *scalefactors* with the **addScalefactor** method. Similarly, you can set the values with the **setScalefactor** method as with the previous blocks.
@@ -293,13 +348,18 @@ The *scalefactors* are another parameters block like the bulk phases. You can ad
 
         problem.addScalefactor('New Scalefactor',0.9,1.0,1.1,true);
         problem.setScalefactor(1,'value',1.01);
+    
+    .. code-block:: Python
+
+        problem.scalefactors.append(name='New Scalefactor', min=0.9, value=1.0, max=1.1, fit=True)
+        problem.scalefactors.set_fields(0, value=1.01)
 
 **Backgrounds**
 +++++++++++++++
 The backgrounds block is used to define the type of background applied to each contrast, and the parameters used to define the backgrounds themselves. The fittable parameters are in the
 'Background Params' block, and the backgrounds themselves are in the 'Backgrounds' block:
 
-.. image:: images/userManual/chapter2/basicBackground.png
+.. image:: ../images/userManual/chapter2/basicBackground.png
     :width: 800
     :alt: basic background
 
@@ -318,9 +378,15 @@ The backgrounds can be one of three types: 'constant', 'function' or 'data'. The
         problem.addBackgroundParam('My New Backpar',1e-8,1e-7,1e-6,true);
         problem.addBackground('My New Background','constant','My New BackPar');
 
+    .. code-block:: Python
+
+        problem.background_parameters.append(name='My New Backpar', min=1e-8, value=1e-7, max=1e-6, fit=True)
+        problem.backgrounds.append(name='My New Background', type='constant', value_1='My New BackPar')
+
+
 With this code snippet we've made a new background, with the value taken from the (fittable) parameter called 'My New Backpar':
 
-.. image:: images/userManual/chapter2/constBackgroundAdd.png
+.. image:: ../images/userManual/chapter2/constBackgroundAdd.png
     :width: 800
     :alt: basic background
 
@@ -331,9 +397,13 @@ This is then available to be used by any of our contrasts (see later).
 .. tab-set-code::
     .. code-block:: Matlab
 
-        problem.addBackground('Data Background 1','data','My Data Background')
+        problem.addBackground('Data Background 1','data','My Background Data')
+    
+    .. code-block:: Python
 
-.. image:: images/userManual/chapter2/dataBackground.png
+        problem.backgrounds.append(name='Data Background 1', type='data', value_1='My Background Data')
+
+.. image:: ../images/userManual/chapter2/dataBackground.png
     :width: 800
     :alt: data background
 
@@ -362,7 +432,12 @@ To define a resolution parameter, we use the addResolutionParam method:
 
         problem.addResolutionParam('My Resolution Param',0.02,0.05,0.08,true)
 
-.. image:: images/userManual/chapter2/resolClass.png
+    .. code-block:: Python
+
+        problem.resolution_parameters.append(name='My Resolution Param', min=0.02, value=0.05, max=0.08, fit=True)
+
+
+.. image:: ../images/userManual/chapter2/resolClass.png
     :width: 800
     :alt: resolution class
 
@@ -375,7 +450,12 @@ Then, we make the actual resolution referring to whichever one of the resolution
         problem.addResolution('My new resolution','constant','My Resolution Param')
         problem.addResolution('My Data Resolution','data')
 
-.. image:: images/userManual/chapter2/resolClassModified.png
+    .. code-block:: Matlab
+    
+        problem.resolutions.append(name='My new resolution', type='constant', value_1='My Resolution Param')
+        problem.resolutions.append(name='My Data Resolution', type='data')
+
+.. image:: ../images/userManual/chapter2/resolClassModified.png
     :width: 800
     :alt: resolution class with parameters added
 
@@ -383,12 +463,11 @@ Then, we make the actual resolution referring to whichever one of the resolution
     There are no parameters with Data resolution. Instead this tells RAT to expect a fourth column in the datafile. If no fourth column exists in the data to which this is applied, RAT will throw an error at runtime.
 
 
-
 **Data**
 ++++++++
 The data block contains the data which defines at which points in q the reflectivity is calculated at each contrast. By default, it initialises with a single 'Simulation' entry:
 
-.. image:: images/userManual/chapter2/defaultData.png
+.. image:: ../images/userManual/chapter2/defaultData.png
     :width: 800
     :alt: default Data class
 
@@ -406,10 +485,16 @@ To add data, we first load it into Matlab, then create a new data entry containi
 
         >> myData = dlmread('c_PLP0016596.dat');
         >> problem.addData('My new datafile',myData)
+    
+    .. code-block:: Python
+
+        >>> import numpy as np
+        >>> myData = np.loadtxt('c_PLP0016596.dat');
+        >>> problem.data.append('My new datafile', myData)
 
 and out new dataset appears in the table:
 
-.. image:: images/userManual/chapter2/dataAdded.png
+.. image:: ../images/userManual/chapter2/dataAdded.png
     :width: 800
     :alt: data added to class
 
@@ -431,6 +516,11 @@ As is the case for RasCAL, once we have defined the various aspects of our proje
                             'BulkOut', 'SLD D2O',...
                             'BulkIn', 'SLD air',...
                             'data', 'D-tail / H-head / D2O');
+        
+    .. code-block:: Python
+
+        problem.contrasts.append(name='D-tail/H-Head/D2O', background='Background D2O', resolution='Resolution 1', 
+                                 scalefactor='Scalefactor 1', bulk_out='SLD D2O', bulk_in='SLD air', data='D-tail / H-head / D2O')
 
 The values which we add must refer to names within the other blocks of the project. So, if you try to add a *scalefactor* called 'scalefactor1' when this name doesn't exist in the *scalefactors* block, then an error will result.
 
@@ -439,7 +529,11 @@ Once we have added the contrasts, then we need to set the model, either by addin
 .. tab-set-code::
     .. code-block:: Matlab
 
-        problem.setContrastModel(1,{'Deuterated tails','Hydrogenated heads'});
+        problem.setContrastModel(1, {'Deuterated tails','Hydrogenated heads'});
+    
+    .. code-block:: Python
+
+        problem.contrasts.set_fields(0, model=['Deuterated tails','Hydrogenated heads'])
 
 The data can be either a datafile or the simulation object in the data block. Once we have defined our contrasts they appear in the *contrasts* block at the end of the project when it is displayed.
 
@@ -453,6 +547,11 @@ To start, we first make an instance of the project class:
     .. code-block:: Matlab
 
         problem = projectClass('DSPC monolayers');
+    
+    .. code-block:: Python
+
+        import RAT
+        problem = RAT.Project('DSPC monolayers');
 
 Then we need to define the parameters we need. We'll do this by making a parameters block, and adding these to project class with the **addParamGroup** method:
 
@@ -514,7 +613,7 @@ We add our layers to the project using the **addLayerGroup** method:
 
         problem.addLayerGroup({H_Heads; D_Heads; H_Tails; D_Tails});
 
-We are using two different subphases: D2O and ACMW. We need a different constant background for each, so we need two 'backPar' parameters. There is already one background parameter in the project as a default, so we rename this and add a second one:
+We are using two different sub-phases: D2O and ACMW. We need a different constant background for each, so we need two 'backPar' parameters. There is already one background parameter in the project as a default, so we rename this and add a second one:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -522,7 +621,13 @@ We are using two different subphases: D2O and ACMW. We need a different constant
         problem.setBackgroundParamName(1, 'Backs value ACMW'); % Use existing backsPar
         problem.setBackgroundParamValue(1, 5.5e-6);
         problem.addBackgroundParam('Backs Value D2O', 1e-8, 2.8e-6, 1e-5);
-
+    
+    .. code-block:: Python
+        
+        problem.background_parameters.set_fields(0, name='Backs value ACMW')
+        problem.background_parameters.set_fields(0, value=5.5e-6)
+        problem.background_parameters.append(name='Backs Value D2O', min=1e-8, value=2.8e-6, max=1e-5)
+       
 Use these parameters to define two constant backgrounds, again using the existing default for one of them:
 
 .. tab-set-code::
@@ -530,13 +635,22 @@ Use these parameters to define two constant backgrounds, again using the existin
 
         problem.addBackground('Background D2O', 'constant', 'Backs Value D2O');
         problem.setBackground(1, 'name', 'Background ACMW', 'value1', 'Backs Value ACMW');
+    
+    .. code-block:: Python
 
-We need two subphases for our project. D2O is already in the project as a default, so we only need to add the bulk out for ACMW
+        problem.backgrounds.append(name='Background D2O', type='constant', value_1='Backs Value D2O')
+        problem.backgrounds.set_fields(0, name='Background ACMW', 'value_1'='Backs Value ACMW')
+
+We need two sub-phases for our project. D2O is already in the project as a default, so we only need to add the bulk out for ACMW
 
 .. tab-set-code::
     .. code-block:: Matlab
 
         problem.addBulkOut('SLD ACMW', -1e-6, 0.0, 1e-6, true);
+
+    .. code-block:: Python
+
+        problem.bulk_out.append(name='SLD ACMW', min=-0.6e-6, value=-0.56e-6, max=-0.3e-6, fit=True)
 
 Now we need to add the data. We read in the two files into MATLAB, and put the data into the data block with appropriate names:
 
@@ -547,6 +661,14 @@ Now we need to add the data. We read in the two files into MATLAB, and put the d
         d70d2O = dlmread('d70d2o20.dat');
         problem.addData('H-tail / D-head / ACMW', d13ACM);
         problem.addData('D-tail / H-head / D2O', d70d2O);
+    
+    .. code-block:: Python
+
+        import numpy as np
+        d13ACM = np.loadtxt('d13acmw20.dat')
+        d70d2O = np.loadtxt('d70d2o20.dat')
+        problem.data.append('H-tail / D-head / ACMW', d13ACM)
+        problem.data.append('D-tail / H-head / D2O', d70d2O)
 
 We have everything we need to now build our contrasts. We have two contrasts in all, and we build them using name / value pairs for all the different parts of the contrasts (i.e. selecting which background and bulk phases etc we need using the names we have given them.)
 
@@ -568,7 +690,14 @@ We have everything we need to now build our contrasts. We have two contrasts in 
                             'BulkOut', 'SLD ACMW',...
                             'BulkIn', 'SLD air',...
                             'data', 'H-tail / D-head / ACMW');
+    .. code-block:: Python
 
+        problem.contrasts.append(name='D-tail/H-Head/D2O', background='Background D2O', resolution='Resolution 1', 
+                                 scalefactor='Scalefactor 1', bulk_out='SLD D2O', bulk_in='SLD air', data='D-tail / H-head / D2O')
+
+        problem.contrasts.append(name='H-tail/D-Head/ACMW', background='Background ACMW', resolution='Resolution 1', 
+                                 scalefactor='Scalefactor 1', bulk_out='SLD ACMW', bulk_in='SLD air', data='D-tail / H-head / D2O')
+    
 To define the models for each contrast, we add the relevant layers as appropriate:
 
 .. tab-set-code::
@@ -576,6 +705,11 @@ To define the models for each contrast, we add the relevant layers as appropriat
 
         problem.setContrastModel(1, {'Deuterated tails','Hydrogenated heads'});
         problem.setContrastModel(2, {'hydrogenated tails','deuterated heads'});
+    
+    .. code-block:: Python
+
+        problem.contrasts.set_fields(0, model=['Deuterated tails', 'Hydrogenated heads'])
+        problem.contrasts.set_fields(1, model=['hydrogenated tails', 'deuterated heads'])
 
 We need to make sure that we are fitting the relevant backgrounds, scalefactors and bulk phase values:
 
@@ -587,6 +721,13 @@ We need to make sure that we are fitting the relevant backgrounds, scalefactors 
         problem.setScalefactor(1,'fit', true);
         problem.setBulkOut(1,'fit', true);
 
+    .. code-block:: Python
+
+        problem.background_parameters.set_fields(0, Fit=True)
+        problem.background_parameters.set_fields(1, Fit=True)
+        problem.scalefactor.set_fields(0, Fit=True)
+        problem.bulk_out.set_fields(0, Fit=True)
+
 Now have a look at our project, to make sure it all looks reasonable
 
 .. tab-set-code::
@@ -594,9 +735,13 @@ Now have a look at our project, to make sure it all looks reasonable
 
         disp(problem)
 
-.. image:: images/userManual/chapter2/dispProblem1.png
+    .. code-block:: Python
+
+        print(problem)
+
+.. image:: ../images/userManual/chapter2/dispProblem1.png
     :alt: Display the details of problem (first half)
-.. image:: images/userManual/chapter2/dispProblem2.png
+.. image:: ../images/userManual/chapter2/dispProblem2.png
     :alt: Display the details of problem (second half)
 
 Now we'll calculate this to check the agreement with the data. We need an instance of the controls class, with the procedure attribute set to *calculate* (the default):
@@ -607,7 +752,7 @@ Now we'll calculate this to check the agreement with the data. We need an instan
         controls = controlsClass();
         disp(controls)
 
-.. image:: images/userManual/chapter1/controlsClass.png
+.. image:: ../images/userManual/chapter1/controlsClass.png
     :width: 400
     :alt: Displays Controls
 
@@ -617,8 +762,12 @@ We then send all of this to RAT, and plot the output:
     .. code-block:: Matlab
 
         [problem,results] = RAT(problem,controls);
+    
+    .. code-block:: Python
 
-.. image:: images/userManual/chapter2/ratRun1.png
+        problem, results = RAT.run(problem, controls)
+
+.. image:: ../images/userManual/chapter2/ratRun1.png
     :alt: Displays the RAT processing and chi squared
 
 .. tab-set-code::
@@ -626,9 +775,13 @@ We then send all of this to RAT, and plot the output:
 
         figure(1); clf;
         plotRefSLD(problem, results)
+    
+    .. code-block:: Python
 
+        import RAT.utils.plotting as rp
+        rp.plot_ref_sld(problem, results)
 
-.. image:: images/userManual/chapter2/plot1.png
+.. image:: ../images/userManual/chapter2/plot1.png
     :alt: Displays reflectivity and SLD plot
 
 To do a fit, we change the *procedure* attribute of the controls class to **simplex** . We will also change the 'parallel' option to 'contrasts', so that each contrast gets it's own calculation thread, and modify the output to only display the final result (rather than each iteration):
@@ -640,17 +793,21 @@ To do a fit, we change the *procedure* attribute of the controls class to **simp
         controls.parallel = 'contrasts';
         controls.display = 'final';
 
-.. image:: images/userManual/chapter1/simplexControls.png
+    .. code-block:: Python
+
+        controls = RAT.set_controls('simplex', parallel='contrasts', display='final')
+
+.. image:: ../images/userManual/chapter1/simplexControls.png
     :width: 500
     :alt: simplex controls class
 
 ..and then run our fit and plot the results...
 
-.. image:: images/userManual/chapter1/simplexRun.png
+.. image:: ../images/userManual/chapter1/simplexRun.png
     :width: 800
     :alt: running simplex
 
-.. image:: images/userManual/chapter1/simplexFit.png
+.. image:: ../images/userManual/chapter1/simplexFit.png
     :width: 600
     :alt: simplex results
 
@@ -659,7 +816,11 @@ To do a fit, we change the *procedure* attribute of the controls class to **simp
 
         disp(results)
 
-.. image:: images/userManual/chapter2/dispResults.png
+    .. code-block:: Python
+
+        print(results)
+
+.. image:: ../images/userManual/chapter2/dispResults.png
     :width: 300
     :alt: Displays results
 
@@ -670,6 +831,11 @@ We can now plot the results of our fit:
 
         figure; clf
         plotRefSLD(out,results)
+    
+    .. code-block:: Python
 
-.. image:: images/userManual/chapter2/plot2.png
+        import RAT.utils.plotting as rp
+        rp.plot_ref_sld(problem, results)   
+
+.. image:: ../images/userManual/chapter2/plot2.png
     :alt: Displays reflectivity and SLD plot

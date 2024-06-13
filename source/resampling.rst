@@ -3,7 +3,7 @@
 Profile Resampling ('microslicing')
 ...................................
 
-The Nevot-Croce roughness approximation only strictly holds for cases where the interface roughness is much less than the layer thickness. Ths usual way
+The Nevot-Croce roughness approximation only strictly holds for cases where the interface roughness is much less than the layer thickness. This usual way
 of handling cases where there are such layers, is to split the interfaces into a large number of layers of zero roughness, so that the roughness problem
 is circumvented:
 
@@ -13,16 +13,16 @@ is circumvented:
 
 However, this kind of 'dumb microslicing' causes the creation of a large number of layers, which may not all be necessary and will significantly slow down the calculation.
 
-This problem of finding the lowest number of individual points that will completely describe a waveform is a common problem in signal processing. RAT uses a techique
+This problem of finding the lowest number of individual points that will completely describe a waveform is a common problem in signal processing. RAT uses a technique
 borrowed from SP called Adaptive Resampling (AR).
 
-AR is an interative process which aims to find the lowest number of points that will best describe a curve. It does this by adding points where the angle between neighbouring
+AR is an interactive process which aims to find the lowest number of points that will best describe a curve. It does this by adding points where the angle between neighbouring
 points becomes greater than a threshold value. So, it adds more points where the signal is changing most strongly (in order to capture all details of the curvature). So, for a
-cosine wave, the resampled points cluster at the regions of largest curvature:
+cosine wave, the resampled points cluster at the regions of the largest curvature:
 
 .. image:: images/advanced/adaptiveSpPic.png
      :width: 700
-     :alt: adaotive cosine
+     :alt: adaptive cosine
 
 So, for the continuous cosine curve show in blue, the AR algorithm has chosen the red points as being most representative. In other words, if the red points were
 joined with straight lines, the resulting curve would be very similar to the original signal. The salient point is that more points are required where the gradient
