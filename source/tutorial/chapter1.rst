@@ -125,15 +125,22 @@ For our model, we always have two layers - a headgroup and the associated tails.
     :width: 900
     :alt: The layers group
 
-3. **'Instrument' Parameters: (Backgrounds, scalefactors and resolutions) -** These are necessary to specify our model, and are specified in much the same way as the parameters. The background and resolutions blocks have a more complicated format to allow flexibility in how these are specified, which will be discussed further in a later section. These are the parameters that appear in the *experimental Parameters* tab of the RasCAL model builder, and are subsequently included in the definitions of the contrasts at the end of the worksheet.
+3. **'Instrument' Parameters: (Backgrounds, scalefactors and resolutions) -** These are necessary to specify our model, and are 
+specified in much the same way as the parameters. The background and resolutions blocks have a more complicated format to allow 
+flexibility in how these are specified, which will be discussed further in a later section. These are the parameters that appear 
+in the *experimental Parameters* tab of the RasCAL model builder, and are subsequently included in the definitions of the contrasts 
+at the end of the worksheet.
 
-4. **Data -** Each contrast has to have a dataset associated with it, whether or not it contains data or not. An empty data object (i.e. containing no data and just simulation ranges), means RAT will calculate the reflectivity only. When data is present, chi-squared will also be calculated. For our problem, we have two datasets and these are coded in to the data block ready to be incorporated into contrasts:
+4. **Data -** Each contrast has to have a dataset associated with it, whether or not it contains data or not. An empty data object 
+(i.e. containing no data and just simulation ranges), means RAT will calculate the reflectivity only. When data is present, chi-squared 
+will also be calculated. For our problem, we have two datasets and these are coded in to the data block ready to be incorporated into contrasts:
 
 .. image:: ../images/userManual/chapter1/dataGroup.png
     :width: 900
     :alt: The data group
 
-5. **Contrasts -** Once we have defined all the components of our model, we need to group them together into contrasts. We have two datasets we want to consider, so two contrasts. We have the relevant instrument parameters, and also we specify which layers are included in each contrast (*model*). 
+5. **Contrasts -** Once we have defined all the components of our model, we need to group them together into contrasts. We have two datasets 
+we want to consider, so two contrasts. We have the relevant instrument parameters, and also we specify which layers are included in each contrast (*model*). 
 
 .. image:: ../images/userManual/chapter1/contrastGroup.png
     :width: 900
@@ -141,13 +148,18 @@ For our model, we always have two layers - a headgroup and the associated tails.
 
 **(b) Running our Model.**
 
-As implied from figure (1), running RAT requires not only our input model specification, but also a controls block telling RAT what to do. We will discuss the controls block in more detail in Chapter 4, but for this demo we will just make an instance of the controls block and modify a few parameters to run the demo:
+As implied from figure (1), running RAT requires not only our input model specification, but also a controls block telling RAT what to do. We 
+will discuss the controls block in more detail in Chapter 4, but for this demo we will just make an instance of the controls block and modify 
+a few parameters to run the demo:
 
 .. image:: ../images/userManual/chapter1/controlsClass.png
     :width: 400
     :alt: Control class
 
-This makes an instance of the *controlsClass* we have called **controls**. The various properties of the class allow the type of calculation to be specified, in terms of parallelisation, choice of algorithm to be applied and so on. Here we are specifying a single threaded calculation of our reflectivities only (the default) - in other words we are not asking RAT to do any kind of fit with our parameters. We can now send our problem definition and controls classes to the RAT toolbox:
+This makes an instance of the *controlsClass* we have called **controls**. The various properties of the class allow the type of calculation 
+to be specified, in terms of parallelisation, choice of algorithm to be applied and so on. Here we are specifying a single threaded calculation 
+of our reflectivities only (the default) - in other words we are not asking RAT to do any kind of fit with our parameters. We can now send our 
+problem definition and controls classes to the RAT toolbox:
 
 .. image:: ../images/userManual/chapter1/ratRun.png
     :alt: RAT run

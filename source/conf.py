@@ -8,6 +8,7 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
+import re
 import os
 import sys
 import datetime
@@ -26,10 +27,20 @@ copyright = u'2022-{}, ISIS Neutron and Muon Source'.format(datetime.date.today(
 author = 'Arwel Hughes, Sethu Pastula, Rabiya Farooq, Paul Sharp, Stephen Nneji'
 
 # The full version, including alpha/beta/rc tags
-# with open(os.path.join(matlab_src_dir, 'version.txt'), 'r') as version_file:
-#     release = version_file.read()
-release = '0.0.0'
+VERSION_REGEX = re.compile(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
+                           r"(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)"
+                           r"(?:\.(?:0|[1-9]\d*|\d *[a-zA-Z-][0-9a-zA-Z-]*))*))?"
+                           r"(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?")
+VERSION_FILE = os.path.join(matlab_src_dir, 'version.txt')
 
+doc_version = 'dev'
+with open(VERSION_FILE, 'r') as version_file:
+    version = version_file.read()
+    release = version
+    if os.environ.get('github.ref', 'main') != 'main':
+        major, minor, *other = list(VERSION_REGEX.match(version.replace(' ', '')).groups())
+        doc_version = f'{major}.{minor}'
+    
 # -- General configuration ---------------------------------------------------
 # extensions = ['sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx_design']
 extensions = ['sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx_design', 'sphinx_copybutton']
@@ -51,23 +62,17 @@ bgcolor = 'white'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_favicon = "_static/logo.png"
 html_static_path = ['_static']
-# pygments_dark_style = 'monokai'
 html_css_files = ["custom.css"]
 
 html_logo = '_static/logo.png'
-# html_theme_options = {'logo': 'logo.png',
-#                       'logo_name': False,
-#                       'fixed_sidebar': True,
-#                       'logo_name': False,
-#                       'logo_text_align': None,
-#                       'page_width': '75%',
-#                       'sidebar_width': '250px',
-#                      }
 html_theme_options = {'show_prev_next': False,
                       'pygment_light_style': 'tango',
                       'pygment_dark_style': 'monokai',
                       'navbar_start': ['navbar-logo', 'version-switcher'],
-}
+                      'switcher': {'json_url': 'https://rascalsoftware.github.io/RAT-Docs/switcher.json', 
+                                   'version_match': doc_version,
+                                   "check_switcher": False,},
+                     }
 
 html_sidebars = {
     "install": [],

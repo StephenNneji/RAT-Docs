@@ -2,9 +2,7 @@ name: Docs
 
 on:  
   push:
-    branches: [ master ]
-    paths:
-    - 'docs/**'
+    branches: [main]
   release:
     types: [published]
 
@@ -20,7 +18,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         ref: gh-pages
-        path: docs/_web
+        path: _web
     - name: Set up Python 3.10
       uses: actions/setup-python@v4
       with:
@@ -31,7 +29,6 @@ jobs:
         pip install -r requirements.txt
     - name: Build and Deploy Docs
       run: |
-        cd docs
         make html
         python deploy.py ${{github.ref}}
         cd _web
