@@ -4,7 +4,7 @@ import sys
 
 sys.path.insert(0, os.path.abspath('..'))
 DOCS_PATH = os.path.abspath(os.path.dirname(__file__))
-VERSION_FILE = os.path.join(DOCS_PATH, '..', 'version.txt')
+VERSION_FILE = os.path.join(DOCS_PATH, 'API', 'RAT', 'version.txt')
 
 ref = 'master'
 
