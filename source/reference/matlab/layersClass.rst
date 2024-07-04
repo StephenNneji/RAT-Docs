@@ -38,7 +38,8 @@ adds them one by one using `addLayer` method which is used to add individual lay
 
         projectClass.addLayer(waterLayer);
 
+*********
 Reference
----------
+*********
 .. autoclass:: API.projectClass.layersClass
     :members:

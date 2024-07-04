@@ -1,0 +1,131 @@
+<pre>
+         modelType: 'standard layers'
+    experimentName: 'DSPC monolayers'
+          geometry: 'air/substrate'
+
+
+    Parameters: ---------------------------------------------------------------------------------------------- 
+
+    <strong>p</strong>               <strong>Name</strong>               <strong>Min</strong>       <strong>Value</strong>      <strong>Max</strong>     <strong>Fit?</strong> 
+    <strong>__</strong>    <strong>________________________</strong>    <strong>______</strong>    <strong>_______</strong>    <strong>_____</strong>    <strong>_____</strong>
+
+     1    "Substrate Roughness"            1          3        5    true 
+     2    "Tails Thickness"               10         20       30    true 
+     3    "Heads Thickness"                3         11       16    true 
+     4    "Tails Roughness"                2          5        9    true 
+     5    "Heads Roughness"                2          5        9    true 
+     6    "Deuterated Tails SLD"       4e-06      6e-06    2e-05    true 
+     7    "Hydrogenated Tails SLD"    -6e-07     -4e-07        0    true 
+     8    "Deuterated Heads SLD"       1e-06      3e-06    8e-06    true 
+     9    "Hydrogenated Heads SLD"     1e-07    1.4e-06    3e-06    true 
+    10    "Heads Hydration"                0        0.3      0.5    true 
+
+
+    Bulk In: -------------------------------------------------------------------------------------------------- 
+
+    <strong>p</strong>      <strong>Name</strong>       <strong>Min</strong>    <strong>Value</strong>    <strong>Max</strong>    <strong>Fit?</strong> 
+    <strong>_</strong>    <strong>_________</strong>    <strong>___</strong>    <strong>_____</strong>    <strong>___</strong>    <strong>_____</strong>
+
+    1    "SLD Air"     0       0       0     false
+
+
+    Bulk Out: ------------------------------------------------------------------------------------------------- 
+
+    <strong>p</strong>       <strong>Name</strong>         <strong>Min</strong>       <strong>Value</strong>        <strong>Max</strong>       <strong>Fit?</strong> 
+    <strong>_</strong>    <strong>__________</strong>    <strong>_______</strong>    <strong>________</strong>    <strong>________</strong>    <strong>_____</strong>
+
+    1    "SLD D2O"     6.2e-06    6.35e-06    6.35e-06    true 
+    2    "SLD ACMW"     -1e-06           0       1e-06    true 
+
+
+    Scalefactors: ------------------------------------------------------------------------------------------------- 
+
+    <strong>p</strong>         <strong>Name</strong>          <strong>Min</strong>     <strong>Value</strong>    <strong>Max</strong>     <strong>Fit?</strong> 
+    <strong>_</strong>    <strong>_______________</strong>    <strong>____</strong>    <strong>_____</strong>    <strong>____</strong>    <strong>_____</strong>
+
+    1    "Scalefactor 1"    0.02    0.23     0.25    true 
+
+
+    Backgrounds: ----------------------------------------------------------------------------------------------- 
+
+    (a) Background Parameters: 
+
+    <strong>p</strong>           <strong>Name</strong>            <strong>Min</strong>      <strong>Value</strong>      <strong>Max</strong>     <strong>Fit?</strong> 
+    <strong>_</strong>    <strong>__________________</strong>    <strong>_____</strong>    <strong>_______</strong>    <strong>_____</strong>    <strong>_____</strong>
+
+    1    "Backs value ACMW"    1e-07    5.5e-06    1e-05    true 
+    2    "Backs Value D2O"     1e-08    2.8e-06    1e-05    true 
+
+    (b) Backgrounds:  
+
+    <strong>p</strong>          <strong>Name</strong>              <strong>Type</strong>            <strong>Value 1</strong>          <strong>Value 2</strong>    <strong>Value 3</strong>    <strong>Value 4</strong>    <strong>Value 5</strong>
+    <strong>_</strong>    <strong>_________________</strong>    <strong>__________</strong>    <strong>__________________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>
+
+    1    "Background ACMW"    "constant"    "Backs Value ACMW"      ""         ""         ""         ""   
+    2    "Background D2O"     "constant"    "Backs Value D2O"       ""         ""         ""         ""   
+
+
+    Resolutions: --------------------------------------------------------------------------------------------- 
+
+    (a) Resolutions Parameters: 
+
+    <strong>p</strong>           <strong>Name</strong>           <strong>Min</strong>     <strong>Value</strong>    <strong>Max</strong>     <strong>Fit?</strong> 
+    <strong>_</strong>    <strong>__________________</strong>    <strong>____</strong>    <strong>_____</strong>    <strong>____</strong>    <strong>_____</strong>
+
+    1    "Resolution par 1"    0.01    0.03     0.05    false
+
+    (b) Resolutions:  
+
+    <strong>p</strong>         <strong>Name</strong>            <strong>Type</strong>            <strong>Value 1</strong>          <strong>Value 2</strong>    <strong>Value 3</strong>    <strong>Value 4</strong>    <strong>Value 5</strong>
+    <strong>_</strong>    <strong>______________</strong>    <strong>__________</strong>    <strong>__________________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>
+
+    1    "Resolution 1"    "constant"    "Resolution par 1"      ""         ""         ""         ""   
+
+
+    Layers: -------------------------------------------------------------------------------------------------- 
+
+    <strong>p</strong>            <strong>Name</strong>                <strong>Thickness</strong>                  <strong>SLD</strong>                   <strong>Roughness</strong>            <strong>Hydration</strong>        <strong>Hydrate with</strong>
+    <strong>_</strong>    <strong>____________________</strong>    <strong>_________________</strong>    <strong>________________________</strong>    <strong>_________________</strong>    <strong>_________________</strong>    <strong>____________</strong>
+
+    1    "Hydrogenated Heads"    "Heads Thickness"    "Hydrogenated Heads SLD"    "Heads Roughness"    "Heads Hydration"     "bulk out" 
+    2    "Deuterated Heads"      "Heads Thickness"    "Deuterated Heads SLD"      "Heads Roughness"    "Heads Hydration"     "bulk out" 
+    3    "Hydrogenated Tails"    "Tails Thickness"    "Hydrogenated Tails SLD"    "Tails Roughness"    ""                    "bulk out" 
+    4    "Deuterated Tails"      "Tails Thickness"    "Deuterated Tails SLD"      "Tails Roughness"    ""                    "bulk out" 
+
+
+    Custom Files: ------------------------------------------------------------------------------------------------------ 
+
+    <strong>Name</strong>    <strong>Filename</strong>    <strong>Function Name</strong>    <strong>Language</strong>    <strong>Path</strong>
+    <strong>____</strong>    <strong>________</strong>    <strong>_____________</strong>    <strong>________</strong>    <strong>____</strong>
+
+     ""        ""            ""             ""        "" 
+
+
+    Data: ------------------------------------------------------------------------------------------------------ 
+
+              <strong>Name</strong>                       <strong>Data</strong>                  <strong>Data Range</strong>            <strong>Simulation Range</strong>   
+    <strong>________________________</strong>    <strong>______________________</strong>    <strong>_____________________</strong>    <strong>_____________________</strong>
+
+    "Simulation"                "No Data"                 "-"                      "[ 0.0050 , 0.7000 ]"
+    "H-tail / D-head / ACMW"    "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
+    "D-tail / H-head / D2O"     "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
+
+
+   Contrasts: ----------------------------------------------------------------------------------------------- 
+
+             <strong>p</strong>                        <strong>1</strong>                          <strong>2</strong>            
+    <strong>___________________</strong>    <strong>_______________________</strong>    <strong>________________________</strong>
+
+    "Name"                 "D-tail/H-Head/D2O"        "H-tail/D-Head/ACMW"    
+    "Data"                 "D-tail / H-head / D2O"    "H-tail / D-head / ACMW"
+    "Background"           "Background D2O"           "Background ACMW"       
+    "Background Action"    "add"                      "add"                   
+    "Bulk in"              "SLD air"                  "SLD air"               
+    "Bulk out"             "SLD D2O"                  "SLD ACMW"              
+    "Scalefactor"          "Scalefactor 1"            "Scalefactor 1"         
+    "Resolution"           "Resolution 1"             "Resolution 1"          
+    "Resample"             "false"                    "false"                 
+    "Model"                "Deuterated tails"         "hydrogenated tails"    
+    ""                     "Hydrogenated heads"       "deuterated heads"      
+
+</pre>

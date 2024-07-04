@@ -51,18 +51,17 @@ Although, Project class provides one level higher interface so that one can use 
         %                   Name       min     val   max  fit?
         problem.addBulkOut({'SLD SMW',2e-6,2.073e-6,3e-6,true});
 
-
+*************
 Domains Class
--------------
+*************
 RAT currently supports two calculation types (nonPolarised and Domains). The Domains Class is a project class with extra parameters (domainRatio, domainContrasts) for the Domains calculation.
-
 
 .. note::
     It is recommended to use `API.createProject` instead of creating a Project or Domains object directly.
 
-
+*********
 Reference
----------
+*********
 .. autofunction:: API.createProject
 
 .. autoclass:: API.projectClass.projectClass

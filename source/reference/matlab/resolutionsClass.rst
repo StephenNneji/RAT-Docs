@@ -19,8 +19,8 @@ the resolutions table and the allowed types are defined in the allowedTypes vari
 
 In each case, the Resolutions can either be added to or subtracted from the data.
 
-
+*********
 Reference
----------
+*********
 .. autoclass:: API.projectClass.resolutionsClass
     :members:

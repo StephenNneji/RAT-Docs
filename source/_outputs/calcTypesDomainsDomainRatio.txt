@@ -1,0 +1,7 @@
+<pre>
+    <strong>p</strong>          <strong>Name</strong>          <strong>Min</strong>    <strong>Value</strong>    <strong>Max</strong>    <strong>Fit?</strong> 
+    <strong>_</strong>    <strong>________________</strong>    <strong>___</strong>    <strong>_____</strong>    <strong>___</strong>    <strong>_____</strong>
+
+    1    "Domain Ratio 1"    0.4     0.5     0.6    false
+
+</pre>

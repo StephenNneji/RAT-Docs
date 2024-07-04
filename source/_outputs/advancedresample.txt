@@ -1,0 +1,17 @@
+<pre>
+             <strong>p</strong>                        <strong>1</strong>           
+    <strong>___________________</strong>    <strong>_______________________</strong>
+
+    "Name"                 "D-tail/H-Head/D2O"    
+    "Data"                 "D-tail / H-head / D2O"
+    "Background"           "Background D2O"       
+    "Background Action"    "add"                  
+    "Bulk in"              "SLD air"              
+    "Bulk out"             "SLD D2O"              
+    "Scalefactor"          "Scalefactor 1"        
+    "Resolution"           "Resolution 1"         
+    "Resample"             "true"                 
+    "Model"                "Deuterated tails"     
+    ""                     "Hydrogenated heads"   
+
+</pre>

@@ -1,0 +1,19 @@
+<pre>
+    (a) Resolutions Parameters: 
+
+    <strong>p</strong>            <strong>Name</strong>             <strong>Min</strong>     <strong>Value</strong>    <strong>Max</strong>     <strong>Fit?</strong> 
+    <strong>_</strong>    <strong>_____________________</strong>    <strong>____</strong>    <strong>_____</strong>    <strong>____</strong>    <strong>_____</strong>
+
+    1    "Resolution par 1"       0.01    0.03     0.05    false
+    2    "My Resolution Param"    0.02    0.05     0.08    true 
+
+    (b) Resolutions:  
+
+    <strong>p</strong>            <strong>Name</strong>               <strong>Type</strong>              <strong>Value 1</strong>           <strong>Value 2</strong>    <strong>Value 3</strong>    <strong>Value 4</strong>    <strong>Value 5</strong>
+    <strong>_</strong>    <strong>____________________</strong>    <strong>__________</strong>    <strong>_____________________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>
+
+    1    "Resolution 1"          "constant"    "Resolution par 1"         ""         ""         ""         ""   
+    2    "My new resolution"     "constant"    "My Resolution Param"      ""         ""         ""         ""   
+    3    "My Data Resolution"    "data"        ""                         ""         ""         ""         ""   
+
+</pre>

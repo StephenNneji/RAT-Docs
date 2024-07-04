@@ -1,8 +1,8 @@
 :orphan:
 
-=====
+===
 API
-=====
+===
 
 API is the folder that contains the two main classes of RAT are. They are **Project Class** and **Controls Class** and these are the classes user interacts with.  
 

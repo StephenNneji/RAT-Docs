@@ -1,10 +1,10 @@
 .. _chapter1:
 
-
+============
 Introduction
-............
+============
 
-When we are at the calculations point our data analysis - that the data has been properly reduced and we have some idea of a
+When we are at the calculations point our data analysis - that the data has been properly reduced, and we have some idea of a
 modelling strategy, we can still then split the problem specification into two parts.
 
 * The **Model Definition** describes our data, our model, the various parameters we may have along with their limits or priors,
@@ -24,12 +24,12 @@ formulated and run.
 
 So, an input into RAT always conforms to this picture: a model definition class to specify the problem, and a controls definition class that tells RAT what analysis task you would like to do:
 
-.. image:: ../images/userManual/chapter1/ratInput.png
+.. image:: ../images/ratInput.png
     :alt: RAT input model
 
 The outputs are always another *problemDef* class, and a results block. The new *problemDef* class is identical to the inputted one, except with updated values of the fitted parameters (e.g. after running a fit). The results block as a set of arrays containing the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions. We will discuss more about these in the next chapter where we look at the outputs in more detail. Similarly, we will look in more detail at the input classes in the next section.
 
-In the next section, we will look at an example calculation, in order to introduce the basics of the RAT toolbox. Before we proceed, it's useful to keep a couple of things in mind:
+In the next section, we will look at an example calculation, in order to introduce the basics of the RAT toolbox. Before we proceed, it is useful to keep a couple of things in mind:
 
 
 * **Different model types?** - There are many possible types of model, and this is done by having more than one version of
@@ -51,13 +51,13 @@ In this section we'll look at the project definition class in more detail, we'll
     conversion utilities (:ref:`conversionFuncs`). In fact, for those who prefer a graphical model builder, using the RasCAL1 GUI to build a basic model and then converting to RAT is a viable workflow.
 
 
-
+********************************************
 An example - A simple model of a lipid layer
-============================================
+********************************************
 
 **(a) Specifying the Model.**
 
-In the next section, we'll look in detail how to set up the problem definition for a given situation. Initially though, it's
+In the next section, we'll look in detail how to set up the problem definition for a given situation. Initially though, it is
 useful to take a pre-prepared problem definition, and to see how this is then used in RAT. As an example, we'll use some
 neutron reflectivity data for a lipid monolayer, collected at various deuterations, which we want to analyse simultaneously.
 
@@ -73,7 +73,7 @@ In our example, the layers can be either deuterated of hydrogenated, and the bul
 
 We are going to analyze our monolayer data using a RasCAL type *standard layers* model, in that we identify which parameters we
 need to describe the model, group these into layers (which are defined as a thickness, roughness, SLD and hydration), and then
-group the layers along with data into contrasts. The advantage of this approach is that it's simple to share parameters between
+group the layers along with data into contrasts. The advantage of this approach is that it is simple to share parameters between
 layers, so a layer representing deuterated headgroups should share the same thickness and roughness parameters as a
 layer representing hydrogenated heads, but they should differ from each other in their SLD.
 
@@ -97,12 +97,21 @@ discussed in chapter 2, but for now, we'll look at a pre-prepared example.
         problem = get_problem()
         print(problem)
 
-.. image:: ../images/userManual/chapter1/lipidModel-1.png
-    :width: 700
-    :alt: The lipid monolayer model output display (first half)
-.. image:: ../images/userManual/chapter1/lipidModel-2.png
-    :width: 700
-    :alt: The lipid monolayer model output display (second half)
+
+.. tab-set::
+    :class: tab-label-hidden
+    :sync-group: code
+
+    .. tab-item:: Matlab
+        :sync: Matlab
+
+        .. raw:: html
+            :file: ../_outputs/tutorialFullProblem.txt
+
+    .. tab-item:: Python 
+        :sync: Python
+
+        TODO
 
 This may initially look quite complicated, but it is fairly self-explanatory in terms of representing a typical RasCAL
 model (and should make sense to anyone familiar to the RasCAL gui, with some thought). The various aspects of the model
@@ -113,17 +122,39 @@ need 10 parameters to define our system: A bulk interface roughness, thickness a
 SLD values for the layers, depending on whether they are deuterated or not. In this block we also define the parameter values
 and their allowed ranges, and specify if they are included in the fit:-
 
-.. image:: ../images/userManual/chapter1/parameterGroup.png
-    :width: 500
-    :alt: The parameter group
+.. tab-set::
+    :class: tab-label-hidden
+    :sync-group: code
+
+    .. tab-item:: Matlab
+        :sync: Matlab
+
+        .. raw:: html
+            :file: ../_outputs/IntroParameters.txt
+
+    .. tab-item:: Python 
+        :sync: Python
+
+        TODO
 
 2. **The Layers Group -** Once we have our parameters, we then need to group these into layers, in traditional RasCAL style.
 For our model, we always have two layers - a headgroup and the associated tails. Each of which can be deuterated, so we set up
 4 layers in total, sharing the parameters between the layers as necessary:
 
-.. image:: ../images/userManual/chapter1/layersGroup.png
-    :width: 900
-    :alt: The layers group
+.. tab-set::
+    :class: tab-label-hidden
+    :sync-group: code
+
+    .. tab-item:: Matlab
+        :sync: Matlab
+
+        .. raw:: html
+            :file: ../_outputs/IntroLayers.txt
+
+    .. tab-item:: Python 
+        :sync: Python
+
+        TODO
 
 3. **'Instrument' Parameters: (Backgrounds, scalefactors and resolutions) -** These are necessary to specify our model, and are 
 specified in much the same way as the parameters. The background and resolutions blocks have a more complicated format to allow 
@@ -135,16 +166,38 @@ at the end of the worksheet.
 (i.e. containing no data and just simulation ranges), means RAT will calculate the reflectivity only. When data is present, chi-squared 
 will also be calculated. For our problem, we have two datasets and these are coded in to the data block ready to be incorporated into contrasts:
 
-.. image:: ../images/userManual/chapter1/dataGroup.png
-    :width: 900
-    :alt: The data group
+.. tab-set::
+    :class: tab-label-hidden
+    :sync-group: code
+
+    .. tab-item:: Matlab
+        :sync: Matlab
+
+        .. raw:: html
+            :file: ../_outputs/IntroData.txt
+
+    .. tab-item:: Python 
+        :sync: Python
+
+        TODO
 
 5. **Contrasts -** Once we have defined all the components of our model, we need to group them together into contrasts. We have two datasets 
 we want to consider, so two contrasts. We have the relevant instrument parameters, and also we specify which layers are included in each contrast (*model*). 
 
-.. image:: ../images/userManual/chapter1/contrastGroup.png
-    :width: 900
-    :alt: The contrast group
+.. tab-set::
+    :class: tab-label-hidden
+    :sync-group: code
+
+    .. tab-item:: Matlab
+        :sync: Matlab
+
+        .. raw:: html
+            :file: ../_outputs/IntroContrasts.txt
+
+    .. tab-item:: Python 
+        :sync: Python
+
+        TODO
 
 **(b) Running our Model.**
 
@@ -152,17 +205,65 @@ As implied from figure (1), running RAT requires not only our input model specif
 will discuss the controls block in more detail in Chapter 4, but for this demo we will just make an instance of the controls block and modify 
 a few parameters to run the demo:
 
-.. image:: ../images/userManual/chapter1/controlsClass.png
-    :width: 400
-    :alt: Control class
+.. tab-set-code::
+    .. code-block:: Matlab
 
-This makes an instance of the *controlsClass* we have called **controls**. The various properties of the class allow the type of calculation 
+        % Make an instance of controls class
+        controls = controlsClass();
+        disp(controls)
+
+    .. code-block:: Python
+
+        # Make an instance of controls class
+        controls = RAT.set_controls()
+        print(controls)
+
+.. tab-set::
+    :class: tab-label-hidden
+    :sync-group: code
+
+    .. tab-item:: Matlab
+        :sync: Matlab
+
+        .. raw:: html
+            :file: ../_outputs/controlDefaults.txt
+
+    .. tab-item:: Python 
+        :sync: Python
+        
+        TODO
+
+This makes an instance of the controls Class we have called **controls**. The various properties of the class allow the type of calculation 
 to be specified, in terms of parallelisation, choice of algorithm to be applied and so on. Here we are specifying a single threaded calculation 
 of our reflectivities only (the default) - in other words we are not asking RAT to do any kind of fit with our parameters. We can now send our 
 problem definition and controls classes to the RAT toolbox:
 
-.. image:: ../images/userManual/chapter1/ratRun.png
-    :alt: RAT run
+
+.. tab-set-code::
+    .. code-block:: Matlab
+
+        [problem, results] = RAT(problem, controls);
+        disp(results)
+
+    .. code-block:: Python
+
+        problem, results = RAT.run(problem, controls);
+        print(results)
+
+.. tab-set::
+    :class: tab-label-hidden
+    :sync-group: code
+
+    .. tab-item:: Matlab
+        :sync: Matlab
+
+        .. raw:: html
+            :file: ../_outputs/tutorialFullRun1.txt
+
+    .. tab-item:: Python 
+        :sync: Python
+
+        TODO
 
 It is worth noticing here that this is always the general format for calling RAT. There are two inputs - a problem definition and a controls block, and the result is two outputs - another copy of the problem, and a new, *results* block. 
 
@@ -170,8 +271,21 @@ The problem that returns is a copy of our input, except that the parameter value
 
 Once we've run our model through RAT, then the second output (we call *results* here) is an array which contains the output of the calculation :
 
-.. image:: ../images/userManual/chapter1/dispResults.png
-    :alt: disp(results)
+
+.. tab-set::
+    :class: tab-label-hidden
+    :sync-group: code
+
+    .. tab-item:: Matlab
+        :sync: Matlab
+
+        .. raw:: html
+            :file: ../_outputs/tutorialFullRunResult.txt
+
+    .. tab-item:: Python 
+        :sync: Python
+
+        TODO
 
 This contains the results of our calculations, so for us including the SLD profiles and reflectivities calculated from our *problemDef* class. We can now plot the output, either manually (by taking the relevant parts from the *results* array), or using one of the supplied plotting utilities:
 
@@ -183,8 +297,7 @@ This contains the results of our calculations, so for us including the SLD profi
 
     .. code-block:: Python
 
-        import RAT.utils.plotting as rp
-        rp.plot_ref_sld(problem, results)   
+        RAT.plotting.plot_ref_sld(problem, results)
 
 .. image:: ../images/userManual/chapter1/plots.png
     :alt: reflectivity and SLD plots
