@@ -399,20 +399,22 @@ document.write(`
                   
   <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
+<p>This section provides more detailed information about installing RAT for Matlab and Python users</p>
+<section id="install-for-matlab">
+<h2>Install for Matlab<a class="headerlink" href="#install-for-matlab" title="Permalink to this heading">#</a></h2>
 <p>RAT can be used either by running the m-files directly or using a compiled mex file.
 RAT ships with a pre-compiled MEX file which is available to download from the <a href="https://github.com/RascalSoftware/RAT/releases/latest" target="_blank">Github Release</a> page.
 To use the mex do the following:</p>
 <ol class="arabic simple">
 <li><p>Download the source code and the pre-compiled mex for your operating system.</p></li>
 <li><p>Extract the source code and the mex files.</p></li>
-<li><p>Replace the <strong>compile</strong> folder in the RAT source code with the one from the extracted mex folder.</p></li>
 <li><p>Open MATLAB and navigate to the folder containing the RAT source code.</p></li>
 <li><p>Run <em>addPaths.m</em> which will add the necessary paths</p></li>
 <li><p>Run your script.</p></li>
 </ol>
 <p>However, if you want to build RAT on your local machine, you need to follow the steps below.</p>
 <section id="build-the-mex-on-your-local-machine">
-<h2>Build the MEX on your local machine<a class="headerlink" href="#build-the-mex-on-your-local-machine" title="Permalink to this heading">#</a></h2>
+<h3>Build the MEX on your local machine<a class="headerlink" href="#build-the-mex-on-your-local-machine" title="Permalink to this heading">#</a></h3>
 <p>A C/C++ compiler and MATLAB (2021 or later) is required for building the mex. The following MATLAB toolboxes are also required:</p>
 <ul class="simple">
 <li><p>MATLAB Coder</p></li>
@@ -429,6 +431,10 @@ This could take several minutes depending on your machine.</p></li>
 <li><p>The MEX files will be created in the <strong>RAT/compile</strong> folder.</p></li>
 </ol>
 <p>If no error shows up, you should be able to run the MEX file.</p>
+</section>
+</section>
+<section id="install-for-python">
+<h2>Install for Python<a class="headerlink" href="#install-for-python" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -454,7 +460,11 @@ This could take several minutes depending on your machine.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-mex-on-your-local-machine">Build the MEX on your local machine</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-for-matlab">Install for Matlab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-mex-on-your-local-machine">Build the MEX on your local machine</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-for-python">Install for Python</a></li>
 </ul>
   </nav></div>
 

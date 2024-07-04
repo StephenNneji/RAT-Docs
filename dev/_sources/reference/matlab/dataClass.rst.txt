@@ -45,8 +45,8 @@ input .. etc.
 
         problem.setData(2,'dataRange',[0.013 0.35]);
 
-
+*********
 Reference
----------
+*********
 .. autoclass:: API.projectClass.dataClass
     :members:

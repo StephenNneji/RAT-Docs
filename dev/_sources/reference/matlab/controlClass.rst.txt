@@ -37,8 +37,8 @@ if yes, what to parallelize on. (Single, Points or Contrasts)
                                           'nChains', 10,...
                                           'parallel', 'contrasts'})
 
-
+*********
 Reference
----------
+*********
 .. autoclass:: API.controlsClass
     :members:

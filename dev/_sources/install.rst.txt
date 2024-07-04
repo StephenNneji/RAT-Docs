@@ -1,21 +1,25 @@
 ============
 Installation
 ============
+This section provides more detailed information about installing RAT for Matlab and Python users
+
+******************
+Install for Matlab 
+******************
 RAT can be used either by running the m-files directly or using a compiled mex file. 
 RAT ships with a pre-compiled MEX file which is available to download from the |release| page. 
 To use the mex do the following:
 
 1. Download the source code and the pre-compiled mex for your operating system.
 2. Extract the source code and the mex files.
-3. Replace the **compile** folder in the RAT source code with the one from the extracted mex folder.
-4. Open MATLAB and navigate to the folder containing the RAT source code.
-5. Run *addPaths.m* which will add the necessary paths
-6. Run your script.
+3. Open MATLAB and navigate to the folder containing the RAT source code.
+4. Run *addPaths.m* which will add the necessary paths
+5. Run your script.
 
 However, if you want to build RAT on your local machine, you need to follow the steps below.
 
 Build the MEX on your local machine 
------------------------------------
+===================================
 A C/C++ compiler and MATLAB (2021 or later) is required for building the mex. The following MATLAB toolboxes are also required:
 
 - MATLAB Coder
@@ -32,6 +36,15 @@ To build the mex, do the following:
 4. The MEX files will be created in the **RAT/compile** folder.
 
 If no error shows up, you should be able to run the MEX file.
+
+
+******************
+Install for Python 
+******************
+
+
+
+
 
 
 .. |release| raw:: html

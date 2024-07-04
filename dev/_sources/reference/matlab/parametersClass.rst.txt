@@ -62,7 +62,8 @@ to set the name of a parameter.
     1. You can add Bulk in and Bulk out with this class 
     2. You can add scale factor with this class
 
+*********
 Reference
----------
+*********
 .. autoclass:: API.projectClass.parametersClass
     :members:

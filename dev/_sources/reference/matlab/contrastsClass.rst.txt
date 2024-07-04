@@ -21,7 +21,7 @@ The cell array of contrasts is sent to Contrast Class to get converted to a stru
 
 While setting contrasts to a model, `setContrastModel` method is called. This method is called with a cell array of a { number , cell array }. The number being what contrast 
 is and the cell array containing the information about the model. The main purpose of this method is to set the contrast to a model based on specified type of model. Based 
-on the type of model, the code checks whether some of contrast names are allowed or not. If not, it throws an error.
+on the type of model, the code checks whether some of the contrast names are allowed or not. If not, it throws an error.
 
 
 .. code-block:: MATLAB
@@ -35,12 +35,14 @@ on the type of model, the code checks whether some of contrast names are allowed
               'Bil tail',...
               'Bil outer head'});
 
+***********************
 Domains Contrasts Class
------------------------
+***********************
 The Domains Contrasts Class is a simplified model only contrasts class for the Domains calculation.
 
+*********
 Reference
----------
+*********
 .. autoclass:: API.projectClass.contrastsClass
     :members:
 

@@ -44,8 +44,8 @@ In each case, the background can either be added to the simulation or subtracted
         % Add a new constant background
         problem.addBackground('Background SMW','constant','Backs par SMW');
 
-
+*********
 Reference
----------
+*********
 .. autoclass:: API.projectClass.backgroundsClass
     :members:

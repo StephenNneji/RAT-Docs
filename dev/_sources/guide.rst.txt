@@ -1,4 +1,3 @@
-
 ==========
 User Guide
 ==========
@@ -7,7 +6,7 @@ User Guide
    :maxdepth: 2
    
    tutorial/index
-   algorithms
-   advanced
-   calcTypes
-   utilities
+   algorithms/index
+   advanced/index
+   calcTypes/index
+   utilities/index
