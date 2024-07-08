@@ -490,7 +490,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">contrast</span><span class="o">.</span><span class="n">set_fields</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">resample</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">contrasts</span><span class="o">.</span><span class="n">set_fields</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">resample</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -499,11 +499,36 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
 Matlab</label><div class="sd-tab-content docutils">
+<pre>
+
+             <strong>p</strong>                        <strong>1</strong>           
+    <strong>___________________</strong>    <strong>_______________________</strong>
+
+    "Name"                 "D-tail/H-Head/D2O"    
+    "Data"                 "D-tail / H-head / D2O"
+    "Background"           "Background D2O"       
+    "Background Action"    "add"                  
+    "Bulk in"              "SLD Air"              
+    "Bulk out"             "SLD D2O"              
+    "Scalefactor"          "Scalefactor 1"        
+    "Resolution"           "Resolution 1"         
+    "Resample"             "true"                 
+    "Model"                "Deuterated Tails"     
+    ""                     "Hydrogenated Heads"   
+
+</pre>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 Python</label><div class="sd-tab-content docutils">
-<p>TODO</p>
+<pre>
++-------+-------------------+-----------------------+----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------------------------------+
+| index |        name       |          data         |   background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |                   model                    |
++-------+-------------------+-----------------------+----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------------------------------+
+|   0   | D-tail/H-Head/D2O | D-tail / H-head / D2O | Background D2O |        add        | SLD Air | SLD D2O  | Scalefactor 1 | Resolution 1 |   True   | ['Deuterated Tails', 'Hydrogenated Heads'] |
++-------+-------------------+-----------------------+----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------------------------------+
+
+</pre>
 </div>
 </div>
 <p>The resampling itself is controlled by the ‘resamPars’ field in the controls block:</p>
@@ -512,6 +537,7 @@ Python</label><div class="sd-tab-content docutils">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
 Matlab</label><div class="sd-tab-content docutils">
 <pre>
+
   <span style="color:DodgerBlue;font-weight:bold;text-decoration:underline">controlsClass</span> with properties:
 
             parallel: 'single'
@@ -525,7 +551,18 @@ Matlab</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
 Python</label><div class="sd-tab-content docutils">
-<p>TODO</p>
+<pre>
++------------------+-----------+
+|     Property     |   Value   |
++------------------+-----------+
+|    procedure     | calculate |
+|     parallel     |   single  |
+| calcSldDuringFit |   False   |
+|  resampleParams  | [0.9, 50] |
+|     display      |    iter   |
++------------------+-----------+
+
+</pre>
 </div>
 </div>
 <p>The resampPars field has two parameters in it, corresponding to the minimum angle and minimum points (resamPars = [minAngle minPoints]) which to use to resample the profiles.

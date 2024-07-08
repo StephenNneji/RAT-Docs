@@ -106,12 +106,13 @@ discussed in chapter 2, but for now, we'll look at a pre-prepared example.
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/tutorialFullProblem.txt
+            :file: ../_outputs/matlab/tutorialFullProblem.txt
 
     .. tab-item:: Python 
         :sync: Python
 
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/tutorialFullProblem.txt
 
 This may initially look quite complicated, but it is fairly self-explanatory in terms of representing a typical RasCAL
 model (and should make sense to anyone familiar to the RasCAL gui, with some thought). The various aspects of the model
@@ -130,12 +131,13 @@ and their allowed ranges, and specify if they are included in the fit:-
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/IntroParameters.txt
+            :file: ../_outputs/matlab/IntroParameters.txt
 
     .. tab-item:: Python 
         :sync: Python
 
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/IntroParameters.txt
 
 2. **The Layers Group -** Once we have our parameters, we then need to group these into layers, in traditional RasCAL style.
 For our model, we always have two layers - a headgroup and the associated tails. Each of which can be deuterated, so we set up
@@ -149,12 +151,13 @@ For our model, we always have two layers - a headgroup and the associated tails.
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/IntroLayers.txt
+            :file: ../_outputs/matlab/IntroLayers.txt
 
     .. tab-item:: Python 
         :sync: Python
 
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/IntroLayers.txt
 
 3. **'Instrument' Parameters: (Backgrounds, scalefactors and resolutions) -** These are necessary to specify our model, and are 
 specified in much the same way as the parameters. The background and resolutions blocks have a more complicated format to allow 
@@ -174,12 +177,13 @@ will also be calculated. For our problem, we have two datasets and these are cod
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/IntroData.txt
+            :file: ../_outputs/matlab/IntroData.txt
 
     .. tab-item:: Python 
         :sync: Python
 
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/IntroData.txt
 
 5. **Contrasts -** Once we have defined all the components of our model, we need to group them together into contrasts. We have two datasets 
 we want to consider, so two contrasts. We have the relevant instrument parameters, and also we specify which layers are included in each contrast (*model*). 
@@ -192,12 +196,13 @@ we want to consider, so two contrasts. We have the relevant instrument parameter
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/IntroContrasts.txt
+            :file: ../_outputs/matlab/IntroContrasts.txt
 
     .. tab-item:: Python 
         :sync: Python
 
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/IntroContrasts.txt
 
 **(b) Running our Model.**
 
@@ -226,12 +231,13 @@ a few parameters to run the demo:
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/controlDefaults.txt
+            :file: ../_outputs/matlab/controlDefaults.txt
 
     .. tab-item:: Python 
         :sync: Python
         
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/controlDefaults.txt
 
 This makes an instance of the controls Class we have called **controls**. The various properties of the class allow the type of calculation 
 to be specified, in terms of parallelisation, choice of algorithm to be applied and so on. Here we are specifying a single threaded calculation 
@@ -258,12 +264,13 @@ problem definition and controls classes to the RAT toolbox:
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/tutorialFullRun1.txt
+            :file: ../_outputs/matlab/tutorialFullRun1.txt
 
     .. tab-item:: Python 
         :sync: Python
 
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/tutorialFullRun1.txt
 
 It is worth noticing here that this is always the general format for calling RAT. There are two inputs - a problem definition and a controls block, and the result is two outputs - another copy of the problem, and a new, *results* block. 
 
@@ -280,12 +287,13 @@ Once we've run our model through RAT, then the second output (we call *results* 
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/tutorialFullRunResult.txt
+            :file: ../_outputs/matlab/tutorialFullRunResult.txt
 
     .. tab-item:: Python 
         :sync: Python
 
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/tutorialFullRunResult.txt
 
 This contains the results of our calculations, so for us including the SLD profiles and reflectivities calculated from our *problemDef* class. We can now plot the output, either manually (by taking the relevant parts from the *results* array), or using one of the supplied plotting utilities:
 

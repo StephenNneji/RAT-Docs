@@ -36,12 +36,13 @@ This reveals the DE specific parameters in controls:-
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/controlDEDefaults.txt
+            :file: ../_outputs/matlab/controlDEDefaults.txt
 
     .. tab-item:: Python 
         :sync: Python
         
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/controlDEDefaults.txt
 
 For all the algorithms in the RAT implementation of DE (see below), the parameters have the following meanings:-
 

@@ -71,12 +71,13 @@ The example (in the examples folder), we define the layers as for conventional S
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/calcTypesDomainsLayers.txt
+            :file: ../_outputs/matlab/calcTypesDomainsLayers.txt
 
     .. tab-item:: Python 
         :sync: Python
         
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/calcTypesDomainsLayers.txt
 
 From this point, the model diverges from the usual Standard Layers case, in that these are grouped into 'domain contrasts', which appear in an additional table in the
 display projectClass. Domains contrasts consist of only layers, with no bulk phases etc..
@@ -89,12 +90,13 @@ display projectClass. Domains contrasts consist of only layers, with no bulk pha
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/calcTypesDomainsDomainConstrasts.txt
+            :file: ../_outputs/matlab/calcTypesDomainsDomainConstrasts.txt
 
     .. tab-item:: Python 
         :sync: Python
         
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/calcTypesDomainsDomainConstrasts.txt
 
 It is then these that are grouped into the final contrasts model. For each contrast, there must be two (*and only two*) domain contrasts. In addition, each contrast requires a
 Domain Ratio parameter. This is a fittable parameter between 0 and 1, that appears in the Domain Ratio table:
@@ -107,12 +109,13 @@ Domain Ratio parameter. This is a fittable parameter between 0 and 1, that appea
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/calcTypesDomainsDomainRatio.txt
+            :file: ../_outputs/matlab/calcTypesDomainsDomainRatio.txt
 
     .. tab-item:: Python 
         :sync: Python
         
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/calcTypesDomainsDomainRatio.txt
 
 leading to the final contrast structure of two domains, and one domain ratio:
 
@@ -124,12 +127,12 @@ leading to the final contrast structure of two domains, and one domain ratio:
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/calcTypesDomainsConstrasts.txt
+            :file: ../_outputs/matlab/calcTypesDomainsConstrasts.txt
 
     .. tab-item:: Python 
         :sync: Python
         
-        TODO
-
+        .. raw:: html
+            :file: ../_outputs/python/calcTypesDomainsConstrasts.txt
 
 .. note:: For domain ratio, a ratio of 0 means 100% Domain 1, whilst conversely a ratio of 1 means 100% Domain 2.
