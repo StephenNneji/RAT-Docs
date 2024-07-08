@@ -1,0 +1,19 @@
+<pre>
+
+             <strong>p</strong>                    <strong>1</strong>        
+    <strong>___________________</strong>    <strong>________________</strong>
+
+    "Name"                 "Domain Test"   
+    "Data"                 "Simulation"    
+    "Background"           "Background 1"  
+    "Background Action"    "add"           
+    "Bulk in"              "SLD Air"       
+    "Bulk out"             "SLD D2O"       
+    "Scalefactor"          "Scalefactor 1" 
+    "Resolution"           "Resolution 1"  
+    "Resample"             "false"         
+    "Domain Ratio"         "Domain Ratio 1"
+    "Model"                "Domain1"       
+    ""                     "Domain2"       
+
+</pre>

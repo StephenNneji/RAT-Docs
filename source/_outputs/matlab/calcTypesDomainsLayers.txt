@@ -1,0 +1,10 @@
+<pre>
+
+    <strong>p</strong>      <strong>Name</strong>       <strong>Thickness</strong>       <strong>SLD</strong>       <strong>Roughness</strong>     <strong>Hydration</strong>    <strong>Hydrate with</strong>
+    <strong>_</strong>    <strong>_________</strong>    <strong>__________</strong>    <strong>________</strong>    <strong>__________</strong>    <strong>_________</strong>    <strong>____________</strong>
+
+    1    "Layer 1"    "L1 thick"    "L1 SLD"    "L1 Rough"    "L1 Hydr"     "bulk out" 
+    2    "Layer 2"    "L2 thick"    "L2 SLD"    "L2 Rough"    "L2 Hydr"     "bulk out" 
+    3    "Layer 3"    "L3 thick"    "L3 SLD"    "L3 Rough"    "L3 Hydr"     "bulk out" 
+
+</pre>

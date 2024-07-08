@@ -1,0 +1,19 @@
+<pre>
+
+    (a) Background Parameters: 
+
+    <strong>p</strong>            <strong>Name</strong>             <strong>Min</strong>     <strong>Value</strong>     <strong>Max</strong>     <strong>Fit?</strong> 
+    <strong>_</strong>    <strong>____________________</strong>    <strong>_____</strong>    <strong>_____</strong>    <strong>_____</strong>    <strong>_____</strong>
+
+    1    "Background Param 1"    1e-07    1e-06    1e-05    false
+    2    "My New BackPar"        1e-08    1e-07    1e-06    true 
+
+    (b) Backgrounds:  
+
+    <strong>p</strong>           <strong>Name</strong>               <strong>Type</strong>             <strong>Value 1</strong>           <strong>Value 2</strong>    <strong>Value 3</strong>    <strong>Value 4</strong>    <strong>Value 5</strong>
+    <strong>_</strong>    <strong>___________________</strong>    <strong>__________</strong>    <strong>____________________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>
+
+    1    "Background 1"         "constant"    "Background Param 1"      ""         ""         ""         ""   
+    2    "My New Background"    "constant"    "My New BackPar"          ""         ""         ""         ""   
+
+</pre>

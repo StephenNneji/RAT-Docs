@@ -42,12 +42,13 @@ for the simplex:-
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/controlSimplexDefaults.txt
+            :file: ../_outputs/matlab/controlSimplexDefaults.txt
 
     .. tab-item:: Python 
         :sync: Python
         
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/controlSimplexDefaults.txt
 
 Many of these have been described in :ref:`controlsInfo`, but a few here are specific to the simplex:-
 

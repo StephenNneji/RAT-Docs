@@ -1,0 +1,17 @@
+<pre>
++-------+------------------------+--------+------------------------+-------+------+------------+-----+-------+
+| index |          name          |  min   |         value          |  max  | fit  | prior type |  mu | sigma |
++-------+------------------------+--------+------------------------+-------+------+------------+-----+-------+
+|   0   |  Substrate Roughness   |  1.0   |   2.996226798373644    |  5.0  | True |  uniform   | 0.0 |  inf  |
+|   1   |    Tails Thickness     |  10.0  |   19.922733993622895   |  30.0 | True |  uniform   | 0.0 |  inf  |
+|   2   |    Heads Thickness     |  3.0   |   7.880192597374673    |  16.0 | True |  uniform   | 0.0 |  inf  |
+|   3   |    Tails Roughness     |  2.0   |   4.996097348648056    |  9.0  | True |  uniform   | 0.0 |  inf  |
+|   4   |    Heads Roughness     |  2.0   |   3.566076452808077    |  9.0  | True |  uniform   | 0.0 |  inf  |
+|   5   |  Deuterated Tails SLD  | 4e-06  | 7.648479880083687e-06  | 2e-05 | True |  uniform   | 0.0 |  inf  |
+|   6   | Hydrogenated Tails SLD | -6e-07 | -4.890019922784387e-08 |  0.0  | True |  uniform   | 0.0 |  inf  |
+|   7   |  Deuterated Heads SLD  | 1e-06  | 7.983374742058776e-06  | 8e-06 | True |  uniform   | 0.0 |  inf  |
+|   8   | Hydrogenated Heads SLD | 1e-07  | 1.1487864022837649e-06 | 3e-06 | True |  uniform   | 0.0 |  inf  |
+|   9   |    Heads Hydration     |  0.0   |   0.3743112218154607   |  0.5  | True |  uniform   | 0.0 |  inf  |
++-------+------------------------+--------+------------------------+-------+------+------------+-----+-------+
+
+</pre>

@@ -64,12 +64,13 @@ To control how often the event is triggered, we set the 'updatePlotFreq' paramet
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/controlSimplexDefaults.txt
+            :file: ../_outputs/matlab/controlSimplexDefaults.txt
 
     .. tab-item:: Python 
         :sync: Python
         
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/controlSimplexDefaults.txt
 
 .. note::
     If you set the plot frequency too low (i.e. make the plot update too often), this will slow your fit as Matlab takes time out of the analysis to update the figure.

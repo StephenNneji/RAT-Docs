@@ -31,12 +31,13 @@ The imaginary refractive index appears as a new column in the 'Layers' block.
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/advancedAbsorption.txt
+            :file: ../_outputs/matlab/advancedAbsorption.txt
 
     .. tab-item:: Python 
         :sync: Python
         
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/advancedAbsorption.txt
 
 Then, the value of this column are set (from the Parameters block) in the same way as all the other cells in the table.
 

@@ -648,12 +648,13 @@ Our final project class when printed to the console looks like this :
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/customLayersProblem.txt
+            :file: ../_outputs/matlab/customLayersProblem.txt
 
     .. tab-item:: Python 
         :sync: Python
 
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/customLayersProblem.txt
 
 
 To run this, we make a controls block as before, and pass this to RAT. This time we will do a DREAM analysis (we will discuss the controls block and available algorithms in more detail in Chapter 4).

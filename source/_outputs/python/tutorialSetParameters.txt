@@ -1,0 +1,13 @@
+<pre>
++-------+---------------------+-------+-------+-------+-------+------------+-----+-------+
+| index |         name        |  min  | value |  max  |  fit  | prior type |  mu | sigma |
++-------+---------------------+-------+-------+-------+-------+------------+-----+-------+
+|   0   | Substrate Roughness |  1.0  |  3.0  |  5.0  |  True |  uniform   | 0.0 |  inf  |
+|   1   |   My changed param  |  0.96 |  2.0  |  3.62 | False |  uniform   | 0.0 |  inf  |
+|   2   |  My other new param |  10.0 |  20.0 |  30.0 | False |  uniform   | 0.0 |  inf  |
+|   3   |     Layer thick     |  10.0 | 20.22 |  30.0 |  True |  uniform   | 0.0 |  inf  |
+|   4   |      Layer SLD      | 1e-06 | 3e-06 | 5e-06 |  True |  uniform   | 0.0 |  inf  |
+|   5   |     Layer rough     |  5.0  |  7.0  |  10.0 | False |  uniform   | 0.0 |  inf  |
++-------+---------------------+-------+-------+-------+-------+------------+-----+-------+
+
+</pre>

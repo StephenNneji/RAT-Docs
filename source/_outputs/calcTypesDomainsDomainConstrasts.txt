@@ -1,9 +1,0 @@
-<pre>
-       <strong>p</strong>           <strong>1</strong>            <strong>2</strong>    
-    <strong>_______</strong>    <strong>_________</strong>    <strong>_________</strong>
-
-    "Name"     "Domain1"    "Domain2"
-    "Model"    "Layer 1"    "Layer 2"
-    ""         ""           "Layer 3"
-
-</pre>

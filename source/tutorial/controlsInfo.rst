@@ -29,12 +29,13 @@ This then creates an instance of controls class with a number of options defined
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/controlDefaults.txt
+            :file: ../_outputs/matlab/controlDefaults.txt
 
     .. tab-item:: Python 
         :sync: Python
         
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/controlDefaults.txt
 
 We will look at each of these in more detail below. Note that the options that are visible depend on
 the algorithm selected. So, at the moment the controls are set to 'calculate', which will simply calculate the reflectivity and 
@@ -58,12 +59,13 @@ SLD with any associated problem. If we select 'simplex' as the algorithm, a diff
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/controlSimplexDefaults.txt
+            :file: ../_outputs/matlab/controlSimplexDefaults.txt
 
     .. tab-item:: Python 
         :sync: Python
         
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/controlSimplexDefaults.txt
 
 ...which allow the user to set things such as tolerance targets and so on. There is a different set of options for each algorithm.
 We will now look at each of the available options in turn.
@@ -91,16 +93,3 @@ TODO
 resamPars
 =========
 TODO
-
-.. |gpu| raw:: html
-    <pre>
-    controls = 
-
-    controlsClass with properties:
-
-    parallel: 'single'
-    procedure: 'calculate'
-    calcSldDuringFit: 0
-    display: 'iter'
-    resampleParams: [0.900000000000000 50]
-    </pre>

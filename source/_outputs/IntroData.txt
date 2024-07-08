@@ -1,9 +1,0 @@
-<pre>
-              <strong>Name</strong>                       <strong>Data</strong>                  <strong>Data Range</strong>            <strong>Simulation Range</strong>   
-    <strong>________________________</strong>    <strong>______________________</strong>    <strong>_____________________</strong>    <strong>_____________________</strong>
-
-    "Simulation"                "No Data"                 "-"                      "[ 0.0050 , 0.7000 ]"
-    "H-tail / D-head / ACMW"    "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
-    "D-tail / H-head / D2O"     "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
-
-</pre>

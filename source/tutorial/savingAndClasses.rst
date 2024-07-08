@@ -35,7 +35,7 @@ struct to a file to save all of your work:
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/savingProject.txt
+            :file: ../_outputs/matlab/savingProject.txt
 
     .. tab-item:: Python 
         :sync: Python
@@ -63,7 +63,7 @@ At a later date, you only need to load back in your struct, split it up into it 
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/savingProject.txt
+            :file: ../_outputs/matlab/savingProject.txt
 
     .. tab-item:: Python 
         :sync: Python
@@ -171,12 +171,12 @@ Then, RAT will create a file containing all the statements needed to re-create y
 
         problem = RAT.Project(
             name='', calculation='non polarised', model='standard layers', geometry='air/substrate', absorption=False,
-            parameters=RAT.ClassList([ProtectedParameter(name='Substrate Roughness', min=1.0, value=3.0, max=5.0, fit=True, prior_type='uniform', mu=0.0, sigma=inf)]),
-            background_parameters=RAT.ClassList([Parameter(name='Background Param 1', min=1e-07, value=1e-06, max=1e-05, fit=False, prior_type='uniform', mu=0.0, sigma=inf)]),
-            scalefactors=RAT.ClassList([Parameter(name='Scalefactor 1', min=0.02, value=0.23, max=0.25, fit=False, prior_type='uniform', mu=0.0, sigma=inf)]),
-            bulk_in=RAT.ClassList([Parameter(name='SLD Air', min=0.0, value=0.0, max=0.0, fit=False, prior_type='uniform', mu=0.0, sigma=inf)]),
-            bulk_out=RAT.ClassList([Parameter(name='SLD D2O', min=6.2e-06, value=6.35e-06, max=6.35e-06, fit=False, prior_type='uniform', mu=0.0, sigma=inf)]),
-            resolution_parameters=RAT.ClassList([Parameter(name='Resolution Param 1', min=0.01, value=0.03, max=0.05, fit=False, prior_type='uniform', mu=0.0, sigma=inf)]),
+            parameters=RAT.ClassList([ProtectedRAT.models.Parameter(name='Substrate Roughness', min=1.0, value=3.0, max=5.0, fit=True, prior_type='uniform', mu=0.0, sigma=inf)]),
+            background_parameters=RAT.ClassList([RAT.models.Parameter(name='Background Param 1', min=1e-07, value=1e-06, max=1e-05, fit=False, prior_type='uniform', mu=0.0, sigma=inf)]),
+            scalefactors=RAT.ClassList([RAT.models.Parameter(name='Scalefactor 1', min=0.02, value=0.23, max=0.25, fit=False, prior_type='uniform', mu=0.0, sigma=inf)]),
+            bulk_in=RAT.ClassList([RAT.models.Parameter(name='SLD Air', min=0.0, value=0.0, max=0.0, fit=False, prior_type='uniform', mu=0.0, sigma=inf)]),
+            bulk_out=RAT.ClassList([RAT.models.Parameter(name='SLD D2O', min=6.2e-06, value=6.35e-06, max=6.35e-06, fit=False, prior_type='uniform', mu=0.0, sigma=inf)]),
+            resolution_parameters=RAT.ClassList([RAT.models.Parameter(name='Resolution Param 1', min=0.01, value=0.03, max=0.05, fit=False, prior_type='uniform', mu=0.0, sigma=inf)]),
             backgrounds=RAT.ClassList([Background(name='Background 1', type='constant', value_1='Background Param 1', value_2='', value_3='', value_4='', value_5='')]),
             resolutions=RAT.ClassList([Resolution(name='Resolution 1', type='constant', value_1='Resolution Param 1', value_2='', value_3='', value_4='', value_5='')]),
             data=RAT.ClassList([Data(name='Simulation')]),

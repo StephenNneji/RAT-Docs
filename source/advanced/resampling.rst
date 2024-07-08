@@ -53,7 +53,7 @@ Using resampling on a contrast in RAT is very simple. For any contrast that you 
      
      .. code-block:: Python
 
-          problem.contrast.set_fields(0, resample=True)
+          problem.contrasts.set_fields(0, resample=True)
 
 .. tab-set::
     :class: tab-label-hidden
@@ -63,13 +63,13 @@ Using resampling on a contrast in RAT is very simple. For any contrast that you 
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/advancedResample.txt
+            :file: ../_outputs/matlab/advancedResample.txt
 
     .. tab-item:: Python 
         :sync: Python
         
-        TODO
-
+        .. raw:: html
+            :file: ../_outputs/python/advancedResample.txt
 
 The resampling itself is controlled by the 'resamPars' field in the controls block:
 
@@ -81,12 +81,13 @@ The resampling itself is controlled by the 'resamPars' field in the controls blo
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/controlDefaults.txt
+            :file: ../_outputs/matlab/controlDefaults.txt
 
     .. tab-item:: Python 
         :sync: Python
         
-        TODO
+        .. raw:: html
+            :file: ../_outputs/python/controlDefaults.txt
 
 The resampPars field has two parameters in it, corresponding to the minimum angle and minimum points (resamPars = [minAngle minPoints]) which to use to resample the profiles.
 These have the following effects:

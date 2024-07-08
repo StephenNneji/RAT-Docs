@@ -1,0 +1,12 @@
+<pre>
++------------------+-----------+
+|     Property     |   Value   |
++------------------+-----------+
+|    procedure     | calculate |
+|     parallel     |   single  |
+| calcSldDuringFit |   False   |
+|  resampleParams  | [0.9, 50] |
+|     display      |    iter   |
++------------------+-----------+
+
+</pre>
