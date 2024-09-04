@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Custom File Class &#8212; RAT 1.0.0-beta documentation</title>
   
@@ -29,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=7138875e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/documentation_options.js?v=3fd7a760"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/matlab/customFileClass';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -428,7 +427,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="custom-file-class">
-<h1>Custom File Class<a class="headerlink" href="#custom-file-class" title="Permalink to this heading">#</a></h1>
+<h1>Custom File Class<a class="headerlink" href="#custom-file-class" title="Link to this heading">#</a></h1>
 <p>RAT enables users to define their own custom files. They can be linked to RAT through Custom File class. Like other classes, the inputs are checked for
 the right order and type. Also, it uses <a class="reference external" href="https://uk.mathworks.com/help/matlab/tables.html">table</a> data type to store the custom files. Custom files can be added or removed using the methods this class provides.</p>
 <p>The custom file table has the following columns:</p>
@@ -442,14 +441,14 @@ the right order and type. Also, it uses <a class="reference external" href="http
 This method takes care of the error checking and incrementing the count of the custom files. It also makes a table of the row supplied. This table helps with displaying it
 properly on terminal.</p>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Adding MATLAB custom file.</span><a class="headerlink" href="#id1" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Adding MATLAB custom file.</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c">%                       Row Name   Custom File Name  Language   Path</span>
 <span class="w">    </span><span class="n">problem</span><span class="p">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s">&#39;DSPC Model&#39;</span><span class="p">,</span><span class="s">&#39;customBilayer.m&#39;</span><span class="p">,</span><span class="s">&#39;matlab&#39;</span><span class="p">,</span><span class="nb">pwd</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Adding C++ custom file.</span><a class="headerlink" href="#id2" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Adding C++ custom file.</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">        </span><span class="c">% For C++, function name of the cpp file is supplied</span>
 <span class="w">        </span><span class="c">%                       Row Name        DLL/function Name  Language   Path</span>
 <span class="w">        </span><span class="n">problem</span><span class="p">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s">&#39;DSPC CPP Model&#39;</span><span class="p">,</span><span class="s">&#39;customBilayer&#39;</span><span class="p">,</span><span class="s">&#39;c++&#39;</span><span class="p">,</span><span class="nb">pwd</span><span class="p">);</span>
@@ -461,13 +460,13 @@ properly on terminal.</p>
 <p>RAT only supports C++ (via dynamic library), MATLAB, and Python.</p>
 </div>
 <section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h2>
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.customFileClass">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">customFileClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">customFileClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass" title="Link to this definition">#</a></dt>
 <dd><dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.customFileClass.addCustomFile">
-<span class="sig-name descname"><span class="pre">addCustomFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.addCustomFile" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">addCustomFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.addCustomFile" title="Link to this definition">#</a></dt>
 <dd><p>Add an entry to the file table.
 A custom file entry can be added with no parameters, just the
 name of the custom file entry, the name of the entry
@@ -485,7 +484,7 @@ customFiles.addCustomFile(‘New Row’, ‘file.py’, ‘python’, ‘C:/stuf
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.customFileClass.customFileClass">
-<span class="sig-name descname"><span class="pre">customFileClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.customFileClass" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">customFileClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.customFileClass" title="Link to this definition">#</a></dt>
 <dd><p>Construct a custom file class containing either an empty
 table or one with a single row.
 No input is required for an empty table, otherwise the
@@ -495,20 +494,20 @@ parameters for the first row should be provided.</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.customFileClass.delete">
-<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.delete" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.delete" title="Link to this definition">#</a></dt>
 <dd><p>Destroys the wrappers</p>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.customFileClass.displayTable">
-<span class="sig-name descname"><span class="pre">displayTable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.displayTable" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">displayTable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.displayTable" title="Link to this definition">#</a></dt>
 <dd><p>Display the file table.</p>
 <p>customFiles.displayCustomFileObject()</p>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.customFileClass.setCustomFile">
-<span class="sig-name descname"><span class="pre">setCustomFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.setCustomFile" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">setCustomFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.setCustomFile" title="Link to this definition">#</a></dt>
 <dd><p>Change the value of a given parameter in the file table.
 The expected inputs are the row of the file entry of
 interest (given either by name of index), and key-value pairs
@@ -523,20 +522,20 @@ NOTE changing the path using this routine is not implemented</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.customFileClass.toStruct">
-<span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.toStruct" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.toStruct" title="Link to this definition">#</a></dt>
 <dd><p>Convert the custom files class to a struct</p>
 <p>customFiles.toStruct()</p>
 </dd></dl>
 
 <dl class="mat staticmethod">
 <dt class="sig sig-object mat" id="API.projectClass.customFileClass.validateFunctionName">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">validateFunctionName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">functionName</span></em>, <em class="sig-param"><span class="pre">language</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.validateFunctionName" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">validateFunctionName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">functionName</span></em>, <em class="sig-param"><span class="pre">language</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.validateFunctionName" title="Link to this definition">#</a></dt>
 <dd><p>Validate a func</p>
 </dd></dl>
 
 <dl class="mat staticmethod">
 <dt class="sig sig-object mat" id="API.projectClass.customFileClass.validatePath">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">validatePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.validatePath" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">validatePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.validatePath" title="Link to this definition">#</a></dt>
 <dd><p>Validate a new path exists</p>
 </dd></dl>
 
@@ -614,7 +613,7 @@ NOTE changing the path using this routine is not implemented</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>

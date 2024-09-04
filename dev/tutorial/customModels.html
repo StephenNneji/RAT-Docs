@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Custom Models &#8212; RAT 1.0.0-beta documentation</title>
   
@@ -29,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7138875e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=3fd7a760"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/customModels';</script>
     <script>
@@ -385,14 +384,12 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsCustomModels.html">Custom Models with Domains</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../calcTypes/oilWater.html">Reflectivity from Oil/Water Samples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../calcTypes/magnetic.html">Reflectivity from Magnetic Samples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../utilities/index.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuns.html">Basic Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Events and Live Updating Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Live Updating Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL1</a></li>
 </ul>
 </li>
@@ -457,7 +454,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="custom-models">
-<span id="custommodelsexamples"></span><h1>Custom Models<a class="headerlink" href="#custom-models" title="Permalink to this heading">#</a></h1>
+<span id="custommodels"></span><h1>Custom Models<a class="headerlink" href="#custom-models" title="Link to this heading">#</a></h1>
 <p>The Standard Layers approach is useful for quickly setting up simple models, but parameterising models in this way is not always the best way of analysing data. For example, in the case of lipids, it is often natural and intuitive to analyse the data in terms of area per lipid rather than in terms of d, <span class="math notranslate nohighlight">\(\rho\)</span> and roughness. Similarly, for solid state samples thinking in terms of density and composition is often more appropriate than SLD. In common with RasCAL, you can parameterise your model in any way you like, and then rather than building the model in the input class, the model is constructed using a custom model script. This is by far the most powerful method for using RAT for data analysis, as virtually any type of model can be implemented in this way.</p>
 <p>Again in common with RasCAL, there are two main options for custom modelling:</p>
 <ul class="simple">
@@ -465,7 +462,7 @@ document.write(`
 <li><p><strong>Custom XY Profile</strong> - In this method the input parameters are used to create a z (in Angstroms) versus SLD curve, from which the reflectivity is calculated.</p></li>
 </ul>
 <section id="custom-layers-models">
-<h2>Custom Layers Models<a class="headerlink" href="#custom-layers-models" title="Permalink to this heading">#</a></h2>
+<h2>Custom Layers Models<a class="headerlink" href="#custom-layers-models" title="Link to this heading">#</a></h2>
 <p>The general principle of custom layers models is that we take the defined parameters, and arrange them into an array layers using some code. This is a very powerful
 way of defining your model, since you have the freedom to parameterise and define your model however you wish. So rather than beong restricted to just simple [d, rho, sigma] combinations as parameters, you can
 define your model in terms of more scientifically useful parameters, such are Area per molecule or density for example. The basic structure of any custom layers script always has the same format:</p>
@@ -497,9 +494,9 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <p>In other words, you get parameters and bulk SLD’s in (along with a flag ‘contrast’ telling your script which contrast to work on), and your code needs to construct the layers array defining the model.
-In the next section we’ll demonstrate this by making an example to fit a lipi dbilayer sample.</p>
+In the next section we’ll demonstrate this by making an example to fit a lipid bilayer sample.</p>
 <section id="dspc-bilayer-example">
-<h3>DSPC Bilayer Example<a class="headerlink" href="#dspc-bilayer-example" title="Permalink to this heading">#</a></h3>
+<h3>DSPC Bilayer Example<a class="headerlink" href="#dspc-bilayer-example" title="Link to this heading">#</a></h3>
 <p>In biophysical studies, one of the most common parameters of interest is the area occupied per lipid, be it in a bilayer or a monolayer. Often for lipids, the volume occupied per component is known, which leads to a simple way of calculating the thickness of the head and tail groups. Let the volume of the heads and tails be V<sub>Head</sub> and V<sub>Tail</sub> respectively. Then, for a given Area per Lipid, the thickness of the two layers will be given by <span class="math notranslate nohighlight">\(D_\mathrm{Head} = \frac{V_\mathrm{Head}}{APM}\)</span> for the headgroup thickness, and <span class="math notranslate nohighlight">\(D_\mathrm{Tail} = \frac{V_\mathrm{Tail}}{APM}\)</span> for the tail layers.</p>
 <p>In terms of the SLD’s, because the volume and composition of each layer is known, then for each, the SLD can be calculated as <span class="math notranslate nohighlight">\(\rho = \frac {\sum_{i} n_\mathrm{i} b_\mathrm{i}}{V}\)</span> in the usual way. Using literature values for the volumes therefore, rather than parameterising a lipid in terms of thickness, roughness, SLD and coverage of the lipid layers (i.e. head and tail) separately, we can just use a single APM parameter for the whole lipid. In terms of the calculation, we still specify d, <span class="math notranslate nohighlight">\(\rho\)</span>, rough and coverage on a per layer basis for RAT, but we calculate these in a script for the bilayer from the APM and known composition and volume. This not only gives us the ability to fit our data using more realistic biophysical parameters (in our case APM), but also reduces the number of parameters (dimensions) of our model.</p>
 <p>The figure shows the system we are measuring. We have a single, hydrogenated DSPC bilayer supported on a silicon surface. The silicon is, as always, coated with an oxide layer. The bilayer may or may not be complete (i.e. partially hydrated) so we will need hydration parameters, and there is the possibility of a thin water layer between the bilayer and the substrate. We also need some roughness parameters, both for the substrate and the bilayer itself. We will build a custom model for this and use it to analyse the bilayer data at three contrasts.</p>
@@ -557,7 +554,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <p>If you look at the class, you will see that the <em>layers</em> block is no longer visible. We aren’t going to need this for <em>custom layers</em>. Instead, we need a custom script, which takes our inputs and converts this in to a list of [d, <span class="math notranslate nohighlight">\(\rho\)</span>, r] layers.</p>
-<p>First, we add our seven parameters (remember that Substrate Roughness is always there as the first parameter), which we do as before using the <strong>addParamGroup</strong> method:</p>
+<p>First, we add our seven parameters (remember that Substrate Roughness is always there as the first parameter):</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
@@ -591,7 +588,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>The custom file that we are going to use is called <em>customBilayer.m</em>. This is a MATLAB (or Octave - both are identical) function, which takes our input parameters and translates them into a list of layers. To add the file, we do the following:</p>
+<p>The custom file that we are going to use is called <em>customBilayer.m</em>. This is a MATLAB function, which takes our input parameters and translates them into a list of layers. To add the file, we do the following:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-6">
@@ -616,7 +613,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 <p>The custom files are in exactly the same format at those in RasCAL. To add it to our project in RAT we always need to specify four things:</p>
 <ul class="simple">
 <li><p><strong>Name</strong> - This is any name we choose for this custom file. This is the name we use later to add this to the contrasts.</p></li>
-<li><p><strong>Filename</strong> - This is the actual filename of the custom file, including its file extension (MATLAB and octave are both ‘.m’)</p></li>
+<li><p><strong>Filename</strong> - This is the actual filename of the custom file, including its file extension (MATLAB extension is ‘.m’)</p></li>
 <li><p><strong>Function name</strong> - This is the name of the function to call from the specified file. For Matlab, the function name is always the same as the filename but for python and dynamic library functions the function name can be different from filename.</p></li>
 <li><p><strong>Language</strong> - The language which we are going to use to process the file. We are choosing MATLAB, which means that the native MATLAB interpreter (i.e. the one we are using to call the project in this example) will be used to process the script. There is further discussion on the languages available and their merits in chapter 6.</p></li>
 <li><p><strong>Path</strong> - The path to our custom file. In this case it is in the same directory as the model script (pwd).</p></li>
@@ -794,7 +791,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <p>The standard format for a custom layers file always has 4 inputs (<em>params</em>, <em>bulk_in</em>, <em>bulk_out</em>, <em>contrast</em>).</p>
-<p>Params is a list of parameter values for the layers, which appear in the same order that we defined them in our parameters block, so is always a [1 x nParams] array of doubles. It is useful to split this array into its individual parameters at the start of the custom file, although you don’t have to do this:</p>
+<p>Params is a list of parameter values for the layers, which appear in the same order that we defined them in our parameters block, so is
+always a [1 x nParams] array of doubles. It is useful to split this array into its individual parameters at the start of the custom file, although you don’t have to do this:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-10">
@@ -988,56 +986,60 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>Note the use of semicolons. In Matlab / Octave syntax, this concatenates arrays columnwise. So if you take an array a = [a1, a2, a3], and another b = [b1, b2, b3], then [a ; b] produces an array that looks like this:</p>
+<p>Note the use of semicolons. In Matlab syntax, this concatenates arrays column-wise. So if you take an array a = [a1, a2, a3], and another b = [b1, b2, b3], then [a ; b] produces an array that looks like this:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{bmatrix} a_\mathrm{1} &amp; a_\mathrm{2} &amp; a_\mathrm{3} \\ b_\mathrm{1} &amp; b_\mathrm{2} &amp; b_\mathrm{3} \end{bmatrix}\end{split}\]</div>
-<p>In other words, the entire purpose of our custom layer file is to take our parameters in a scientifically useful form (e.g. Area per Lipid in our case), and to translate these into a list of thick, SLD, rough layers for the whole interface. You have complete freedom in how you do this, which means that you can make any kind of layer model you can think of using a custom layers file, including layers that are mixtures of adjoining layers and so on. As long as you can describe your system as layers with an error function (i.e. Nevot and Croce) roughness you can describe them using custom layer modelling.</p>
-<p>The rest of the custom model is defined in the same way as the standard layers model, using the same class methods as in the last chapter. So, since we want to analyse three contrasts simultaneously, we need the following:</p>
+<p>In other words, the entire purpose of our custom layer file is to take our parameters in a scientifically useful form (e.g. Area per Lipid in our case), and to translate these into a list of thick, SLD, rough layers for the whole interface.
+You have complete freedom in how you do this, which means that you can make any kind of layer model you can think of using a custom layers file, including layers that are mixtures of adjoining layers and so on. As long as you can describe your
+system as layers with an error function (i.e. Nevot and Croce) roughness you can describe them using custom layer modelling.</p>
+<p>The rest of the custom model is defined similar to the standard layers model shown in <a class="reference internal" href="chapter2.html#chapter2"><span class="std std-ref">The Problem Definition Input Class</span></a>. So, since we want to analyse three contrasts simultaneously, we need the following:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-22" name="sd-tab-set-11" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-22">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Change bulk in from air to silicon....</span>
-<span class="n">problem</span><span class="p">.</span><span class="n">setBulkIn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;Silicon&#39;</span><span class="p">,</span><span class="s">&#39;min&#39;</span><span class="p">,</span><span class="mf">2.07e-6</span><span class="p">,</span><span class="s">&#39;value&#39;</span><span class="p">,</span><span class="mf">2.073e-6</span><span class="p">,</span><span class="s">&#39;max&#39;</span><span class="p">,</span><span class="mf">2.08e-6</span><span class="p">,</span><span class="s">&#39;fit&#39;</span><span class="p">,</span><span class="nb">false</span><span class="p">);</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">setBulkIn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Silicon&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;min&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.07e-6</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;value&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.073e-6</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;max&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2.08e-6</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;fit&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
 
 <span class="c">% Add two more values for bulk out....</span>
-<span class="n">problem</span><span class="p">.</span><span class="n">addBulkOut</span><span class="p">(</span><span class="s">&#39;SLD SMW&#39;</span><span class="p">,</span><span class="mf">1e-6</span><span class="p">,</span><span class="mf">2.073e-6</span><span class="p">,</span><span class="mf">3e-6</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
-<span class="n">problem</span><span class="p">.</span><span class="n">addBulkOut</span><span class="p">(</span><span class="s">&#39;SLD H2O&#39;</span><span class="p">,</span><span class="o">-</span><span class="mf">0.6e-6</span><span class="p">,</span><span class="o">-</span><span class="mf">0.56e-6</span><span class="p">,</span><span class="o">-</span><span class="mf">0.3e-6</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">addBulkOut</span><span class="p">(</span><span class="s">&#39;SLD SMW&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">1e-6</span><span class="p">,</span><span class="w"> </span><span class="mf">2.073e-6</span><span class="p">,</span><span class="w"> </span><span class="mf">3e-6</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">addBulkOut</span><span class="p">(</span><span class="s">&#39;SLD H2O&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">0.6e-6</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">0.56e-6</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">0.3e-6</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
 
-<span class="n">problem</span><span class="p">.</span><span class="n">setBulkOut</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;fit&#39;</span><span class="p">,</span><span class="nb">true</span><span class="p">,</span><span class="s">&#39;min&#39;</span><span class="p">,</span><span class="mf">5e-6</span><span class="p">);</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">setBulkOut</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;fit&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;min&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">5e-6</span><span class="p">);</span>
 
 <span class="c">% Read in the datafiles</span>
-<span class="n">D2O_data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dlmread</span><span class="p">(</span><span class="s">&#39;c_PLP0016596.dat&#39;</span><span class="p">);</span>
-<span class="n">SMW_data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dlmread</span><span class="p">(</span><span class="s">&#39;c_PLP0016601.dat&#39;</span><span class="p">);</span>
-<span class="n">H2O_data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dlmread</span><span class="p">(</span><span class="s">&#39;c_PLP0016607.dat&#39;</span><span class="p">);</span>
+<span class="n">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">getappdata</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;root&#39;</span><span class="p">);</span>
+<span class="n">dataPath</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;/examples/normalReflectivity/customLayers/&#39;</span><span class="p">;</span>
+<span class="n">D2O_data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readmatrix</span><span class="p">(</span><span class="nb">fullfile</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">dataPath</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;c_PLP0016596.dat&#39;</span><span class="p">));</span>
+<span class="n">SMW_data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readmatrix</span><span class="p">(</span><span class="nb">fullfile</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">dataPath</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;c_PLP0016601.dat&#39;</span><span class="p">));</span>
+<span class="n">H2O_data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readmatrix</span><span class="p">(</span><span class="nb">fullfile</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">dataPath</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;c_PLP0016607.dat&#39;</span><span class="p">));</span>
 
 <span class="c">% Add the data to the project</span>
 <span class="n">problem</span><span class="p">.</span><span class="n">addData</span><span class="p">(</span><span class="s">&#39;Bilayer / D2O&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">D2O_data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">));</span>
 <span class="n">problem</span><span class="p">.</span><span class="n">addData</span><span class="p">(</span><span class="s">&#39;Bilayer / SMW&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">SMW_data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">));</span>
 <span class="n">problem</span><span class="p">.</span><span class="n">addData</span><span class="p">(</span><span class="s">&#39;Bilayer / H2O&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">H2O_data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">));</span>
 
-<span class="n">problem</span><span class="p">.</span><span class="n">setData</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s">&#39;dataRange&#39;</span><span class="p">,[</span><span class="mf">0.013</span><span class="w"> </span><span class="mf">0.37</span><span class="p">]);</span>
-<span class="n">problem</span><span class="p">.</span><span class="n">setData</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s">&#39;dataRange&#39;</span><span class="p">,[</span><span class="mf">0.013</span><span class="w"> </span><span class="mf">0.37</span><span class="p">]);</span>
-<span class="n">problem</span><span class="p">.</span><span class="n">setData</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="s">&#39;dataRange&#39;</span><span class="p">,[</span><span class="mf">0.013</span><span class="w"> </span><span class="mf">0.37</span><span class="p">]);</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">setData</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s">&#39; dataRange&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">0.013</span><span class="w"> </span><span class="mf">0.37</span><span class="p">]);</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">setData</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s">&#39; dataRange&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">0.013</span><span class="w"> </span><span class="mf">0.37</span><span class="p">]);</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">setData</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="s">&#39; dataRange&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">0.013</span><span class="w"> </span><span class="mf">0.37</span><span class="p">]);</span>
 
 <span class="c">% Change the name of the existing parameters to refer to D2O</span>
 <span class="n">problem</span><span class="p">.</span><span class="n">setBackgroundParam</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;Backs par D2O&#39;</span><span class="p">,</span><span class="s">&#39;fit&#39;</span><span class="p">,</span><span class="nb">true</span><span class="p">,</span><span class="s">&#39;min&#39;</span><span class="p">,</span><span class="mf">1e-10</span><span class="p">,</span><span class="s">&#39;max&#39;</span><span class="p">,</span><span class="mf">1e-5</span><span class="p">,</span><span class="s">&#39;val&#39;</span><span class="p">,</span><span class="mf">1e-6</span><span class="p">);</span>
 
-<span class="c">% Add two new backs parameters for the other two..</span>
-<span class="n">problem</span><span class="p">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s">&#39;Backs par SMW&#39;</span><span class="p">,</span><span class="mf">1e-10</span><span class="p">,</span><span class="mf">1e-6</span><span class="p">,</span><span class="mf">1e-5</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
-<span class="n">problem</span><span class="p">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s">&#39;Backs par H2O&#39;</span><span class="p">,</span><span class="mf">1e-10</span><span class="p">,</span><span class="mf">1e-6</span><span class="p">,</span><span class="mf">1e-5</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
+<span class="c">% Add two new backs parameters for the other two.</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s">&#39;Backs par SMW&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">1e-10</span><span class="p">,</span><span class="w"> </span><span class="mf">1e-6</span><span class="p">,</span><span class="w"> </span><span class="mf">1e-5</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s">&#39;Backs par H2O&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">1e-10</span><span class="p">,</span><span class="w"> </span><span class="mf">1e-6</span><span class="p">,</span><span class="w"> </span><span class="mf">1e-5</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
 
-<span class="c">% And add the two new constant backgrounds..</span>
-<span class="n">problem</span><span class="p">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s">&#39;Background SMW&#39;</span><span class="p">,</span><span class="s">&#39;constant&#39;</span><span class="p">,</span><span class="s">&#39;Backs par SMW&#39;</span><span class="p">);</span>
-<span class="n">problem</span><span class="p">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s">&#39;Background H2O&#39;</span><span class="p">,</span><span class="s">&#39;constant&#39;</span><span class="p">,</span><span class="s">&#39;Backs par H2O&#39;</span><span class="p">);</span>
+<span class="c">% And add the two new constant backgrounds.</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s">&#39;Background SMW&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;constant&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Backs par SMW&#39;</span><span class="p">);</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s">&#39;Background H2O&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;constant&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Backs par H2O&#39;</span><span class="p">);</span>
 
-<span class="c">% And edit the other one....</span>
-<span class="n">problem</span><span class="p">.</span><span class="n">setBackground</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;Background D2O&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;value1&#39;</span><span class="p">,</span><span class="s">&#39;Backs par D2O&#39;</span><span class="p">);</span>
+<span class="c">% And edit the other one.</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">setBackground</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Background D2O&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;value1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Backs par D2O&#39;</span><span class="p">);</span>
 
-<span class="c">% Set the scalefactor...</span>
+<span class="c">% Set the scalefactor.</span>
 <span class="n">problem</span><span class="p">.</span><span class="n">setScalefactor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;Value&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;min&#39;</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="s">&#39;max&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s">&#39;fit&#39;</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
 
-<span class="c">% Make the contrasts...</span>
+<span class="c">% Make the contrasts.</span>
 <span class="n">problem</span><span class="p">.</span><span class="n">addContrast</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;Bilayer / D2O&#39;</span><span class="p">,</span><span class="k">...</span>
 <span class="w">                    </span><span class="s">&#39;background&#39;</span><span class="p">,</span><span class="s">&#39;Background D2O&#39;</span><span class="p">,</span><span class="k">...</span>
 <span class="w">                    </span><span class="s">&#39;resolution&#39;</span><span class="p">,</span><span class="s">&#39;Resolution 1&#39;</span><span class="p">,</span><span class="k">...</span>
@@ -1046,7 +1048,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <span class="w">                    </span><span class="s">&#39;nba&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Silicon&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">        % This is bulk in (&#39;Nb Air&#39;)</span>
 <span class="w">                    </span><span class="s">&#39;data&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Bilayer / D2O&#39;</span><span class="p">);</span>
 
-<span class="c">% SMW contrast..</span>
+<span class="c">% SMW contrast.</span>
 <span class="n">problem</span><span class="p">.</span><span class="n">addContrast</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;Bilayer / SMW&#39;</span><span class="p">,</span><span class="k">...</span>
 <span class="w">                    </span><span class="s">&#39;background&#39;</span><span class="p">,</span><span class="s">&#39;Background SMW&#39;</span><span class="p">,</span><span class="k">...</span>
 <span class="w">                    </span><span class="s">&#39;resolution&#39;</span><span class="p">,</span><span class="s">&#39;Resolution 1&#39;</span><span class="p">,</span><span class="k">...</span>
@@ -1055,7 +1057,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <span class="w">                    </span><span class="s">&#39;nba&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Silicon&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">        % This is bulk in</span>
 <span class="w">                    </span><span class="s">&#39;data&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Bilayer / SMW&#39;</span><span class="p">);</span>
 
-<span class="c">% SMW contrast..</span>
+<span class="c">% SMW contrast.</span>
 <span class="n">problem</span><span class="p">.</span><span class="n">addContrast</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;Bilayer / H2O&#39;</span><span class="p">,</span><span class="k">...</span>
 <span class="w">                    </span><span class="s">&#39;background&#39;</span><span class="p">,</span><span class="s">&#39;Background H2O&#39;</span><span class="p">,</span><span class="k">...</span>
 <span class="w">                    </span><span class="s">&#39;resolution&#39;</span><span class="p">,</span><span class="s">&#39;Resolution 1&#39;</span><span class="p">,</span><span class="k">...</span>
@@ -1155,47 +1157,13 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-26" name="sd-tab-set-13" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-26">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
-
-    <strong>p</strong>               <strong>Name</strong>               <strong>Min</strong>              <strong>Value</strong>             <strong>Max</strong>     <strong>Fit?</strong> 
-    <strong>__</strong>    <strong>________________________</strong>    <strong>______</strong>    <strong>_____________________</strong>    <strong>_____</strong>    <strong>_____</strong>
-
-     1    "Substrate Roughness"            1         2.95173387253282        5    true 
-     2    "Tails Thickness"               10         20.0516480999742       30    true 
-     3    "Heads Thickness"                3          6.8660916771992       16    true 
-     4    "Tails Roughness"                2          3.3249364871383        9    true 
-     5    "Heads Roughness"                2         5.42833073432123        9    true 
-     6    "Deuterated Tails SLD"       4e-06     7.95670100033799e-06    2e-05    true 
-     7    "Hydrogenated Tails SLD"    -6e-07    -1.87892760958886e-07        0    true 
-     8    "Deuterated Heads SLD"       1e-06     6.03995339972192e-06    8e-06    true 
-     9    "Hydrogenated Heads SLD"     1e-07     1.38006013970228e-06    3e-06    true 
-    10    "Heads Hydration"                0        0.342208205811867      0.5    true 
-
-</pre>
 </div>
 <input id="sd-tab-item-27" name="sd-tab-set-13" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-27">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-+-------+------------------------+--------+------------------------+-------+------+------------+-----+-------+
-| index |          name          |  min   |         value          |  max  | fit  | prior type |  mu | sigma |
-+-------+------------------------+--------+------------------------+-------+------+------------+-----+-------+
-|   0   |  Substrate Roughness   |  1.0   |   2.996226798373644    |  5.0  | True |  uniform   | 0.0 |  inf  |
-|   1   |    Tails Thickness     |  10.0  |   19.922733993622895   |  30.0 | True |  uniform   | 0.0 |  inf  |
-|   2   |    Heads Thickness     |  3.0   |   7.880192597374673    |  16.0 | True |  uniform   | 0.0 |  inf  |
-|   3   |    Tails Roughness     |  2.0   |   4.996097348648056    |  9.0  | True |  uniform   | 0.0 |  inf  |
-|   4   |    Heads Roughness     |  2.0   |   3.566076452808077    |  9.0  | True |  uniform   | 0.0 |  inf  |
-|   5   |  Deuterated Tails SLD  | 4e-06  | 7.648479880083687e-06  | 2e-05 | True |  uniform   | 0.0 |  inf  |
-|   6   | Hydrogenated Tails SLD | -6e-07 | -4.890019922784387e-08 |  0.0  | True |  uniform   | 0.0 |  inf  |
-|   7   |  Deuterated Heads SLD  | 1e-06  | 7.983374742058776e-06  | 8e-06 | True |  uniform   | 0.0 |  inf  |
-|   8   | Hydrogenated Heads SLD | 1e-07  | 1.1487864022837649e-06 | 3e-06 | True |  uniform   | 0.0 |  inf  |
-|   9   |    Heads Hydration     |  0.0   |   0.3743112218154607   |  0.5  | True |  uniform   | 0.0 |  inf  |
-+-------+------------------------+--------+------------------------+-------+------+------------+-----+-------+
-
-</pre>
 </div>
 </div>
-<p>To run this, we make a controls block as before, and pass this to RAT. This time we will do a DREAM analysis (we will discuss the controls block and available algorithms in more detail in Chapter 4).</p>
+<p>To run this, we make a controls block as before, and pass this to RAT. This time we will do a DREAM analysis (see <a class="reference internal" href="../algorithms/index.html#algorithms"><span class="std std-ref">Algorithms</span></a>).</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-28" name="sd-tab-set-14" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-28">
@@ -1209,7 +1177,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-29" name="sd-tab-set-14" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-29">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">set_controls</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="s1">&#39;contrasts&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="s1">&#39;contrasts&#39;</span><span class="p">)</span>
 <span class="n">problem</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">controls</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1217,7 +1185,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </section>
 <section id="custom-xy-profile-models">
-<h3>Custom XY Profile Models<a class="headerlink" href="#custom-xy-profile-models" title="Permalink to this heading">#</a></h3>
+<h3>Custom XY Profile Models<a class="headerlink" href="#custom-xy-profile-models" title="Link to this heading">#</a></h3>
 <p>Although many systems can be well described by layers, sometimes these are not the most appropriate. So for example, we may want to incorporate SLD profiles from molecular simulations, or use interfaces that are not error functions. In these cases, a second type of custom model can be used, where instead of the custom model function outputting a list of layers, it builds a continuous SLD profile, which is then automatically microsliced by RAT to calculate the reflectivity. This gives a high degree of flexibility for the type of model that can be generated.
 The inputs into customXY are the same as for Custom Layers, but the output is now always an [n x 2] array defining a continuous SLD:</p>
 <div class="sd-tab-set docutils">
@@ -1309,7 +1277,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<a class="reference internal image-reference" href="../_images/simpleLayer.png"><img alt="simple layer" src="../_images/simpleLayer.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../_images/simpleLayer.png"><img alt="simple layer" src="../_images/simpleLayer.png" style="width: 800px;" />
+</a>
 <p>A simple stack of such layers covers any regions of your model that are intended to be simple layers. For our tanh layer, we will do a similar thing, but replace one side with a tanh distribution…</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-34" name="sd-tab-set-17" type="radio">
@@ -1505,9 +1474,11 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<a class="reference internal image-reference" href="../_images/customTwoLayerFig.png"><img alt="Dtwo layers XY" src="../_images/customTwoLayerFig.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/customTwoLayerFig.png"><img alt="Dtwo layers XY" src="../_images/customTwoLayerFig.png" style="width: 500px;" />
+</a>
 <p>When sent to RAT, customXY SLD profiles are automatically resampled into layers with adaptive resampling:</p>
-<a class="reference internal image-reference" href="../_images/twoLayerRAT.png"><img alt="Displays the final customXY result" src="../_images/twoLayerRAT.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../_images/twoLayerRAT.png"><img alt="Displays the final customXY result" src="../_images/twoLayerRAT.png" style="width: 800px;" />
+</a>
 </section>
 </section>
 </section>
@@ -1585,7 +1556,7 @@ PYTHON</label><div class="sd-tab-content docutils">
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>

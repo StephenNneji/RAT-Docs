@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Backgrounds Class &#8212; RAT 1.0.0-beta documentation</title>
   
@@ -29,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=7138875e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/documentation_options.js?v=3fd7a760"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/matlab/backgroundsClass';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -428,12 +427,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="backgrounds-class">
-<span id="backgroundsclass"></span><h1>Backgrounds Class<a class="headerlink" href="#backgrounds-class" title="Permalink to this heading">#</a></h1>
+<span id="backgroundsclass"></span><h1>Backgrounds Class<a class="headerlink" href="#backgrounds-class" title="Link to this heading">#</a></h1>
 <p>This class makes the backgrounds in RAT. Backgrounds are defined in a two stage process. Firstly we define the actual fitted parameters.
 These are held in a ‘ParametersClass’ table. Then, we group these into the backgrounds themselves using a multiTypeTable(<a class="reference external" href="https://uk.mathworks.com/help/matlab/tables.html">table</a>). So, we can then use the
 background parameters to either define background as constant, data or a function.</p>
 <table class="table" id="id1">
-<caption><span class="caption-text">The methods on the left call the methods on the right in the table.</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">The methods on the left call the methods on the right in the table.</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -472,7 +471,7 @@ calculate the background.</p></li>
 </div>
 <p>In each case, the background can either be added to the simulation or subtracted from the data.</p>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Example showing how backgroundsClass methods are called.</span><a class="headerlink" href="#id2" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Example showing how backgroundsClass methods are called.</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c">% Change the name of the existing parameters to refer to D2O</span>
 <span class="w">    </span><span class="n">problem</span><span class="p">.</span><span class="n">setBacksPar</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;Backs par D2O&#39;</span><span class="p">,</span><span class="s">&#39;fit&#39;</span><span class="p">,</span><span class="nb">true</span><span class="p">,</span><span class="s">&#39;min&#39;</span><span class="p">,</span><span class="mf">1e-8</span><span class="p">,</span><span class="s">&#39;max&#39;</span><span class="p">,</span><span class="mf">1e-5</span><span class="p">);</span>
 
@@ -482,10 +481,10 @@ calculate the background.</p></li>
 </div>
 </div>
 <section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h2>
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">backgroundsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em>, <em class="sig-param"><span class="pre">startBackground</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">backgroundsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em>, <em class="sig-param"><span class="pre">startBackground</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass" title="Link to this definition">#</a></dt>
 <dd><p>Backgrounds are defined in a two stage process. Firstly we define the
 actual fitted parameters. These are held in a ‘ParametersClass’
 table. Then, we group these into the backgrounds themselves using a
@@ -500,7 +499,7 @@ function to calculate the background.</p>
 subtracted from the data.</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.addBackground">
-<span class="sig-name descname"><span class="pre">addBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.addBackground" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">addBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.addBackground" title="Link to this definition">#</a></dt>
 <dd><p>Adds a new entry to the background table.</p>
 <p>background.addBackground(‘New Row’);
 background.addBackground(‘New Row’, ‘constant’, ‘param_name’);
@@ -510,7 +509,7 @@ background.addBackground(‘New Row’, ‘data’);</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.backgroundsClass">
-<span class="sig-name descname"><span class="pre">backgroundsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em>, <em class="sig-param"><span class="pre">startBackground</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.backgroundsClass" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">backgroundsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em>, <em class="sig-param"><span class="pre">startBackground</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.backgroundsClass" title="Link to this definition">#</a></dt>
 <dd><p>Creates a background object. The arguments should be 
 an instance of the parameter class with the background parameters
 and a cell array of  backgrounds</p>
@@ -520,13 +519,13 @@ and a cell array of  backgrounds</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.displayBackgroundsObject">
-<span class="sig-name descname"><span class="pre">displayBackgroundsObject</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.displayBackgroundsObject" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">displayBackgroundsObject</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.displayBackgroundsObject" title="Link to this definition">#</a></dt>
 <dd><p>Displays the background parameters and background table.</p>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.getNames">
-<span class="sig-name descname"><span class="pre">getNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.getNames" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">getNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.getNames" title="Link to this definition">#</a></dt>
 <dd><p>Returns a N x 1 cell array of names of the backgrounds 
 in the object.</p>
 <p>names = background.getNames();</p>
@@ -534,7 +533,7 @@ in the object.</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.removeBackground">
-<span class="sig-name descname"><span class="pre">removeBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.removeBackground" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">removeBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.removeBackground" title="Link to this definition">#</a></dt>
 <dd><p>Removes a background entry from the table. Expects the 
 index or array of indices of background(s) to remove.</p>
 <p>background.removeBackground(2);
@@ -543,7 +542,7 @@ background.removeBackground([1, 3]);</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.setBackground">
-<span class="sig-name descname"><span class="pre">setBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.setBackground" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">setBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.setBackground" title="Link to this definition">#</a></dt>
 <dd><p>Changes the value of a given background in the table. Expects the 
 index or name of background and keyword/value pairs to set.</p>
 <p>background.setBackground(1, ‘name’, ‘back 1’, ‘type’, ‘constant’, ‘value1’, ‘param_name’);</p>
@@ -551,7 +550,7 @@ index or name of background and keyword/value pairs to set.</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.setBackgroundName">
-<span class="sig-name descname"><span class="pre">setBackgroundName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.setBackgroundName" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">setBackgroundName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.setBackgroundName" title="Link to this definition">#</a></dt>
 <dd><p>Sets the name of a given background in the table. Expects 
 an index and the new name.</p>
 <p>background.setBackgroundName(1, ‘new_name’);</p>
@@ -559,7 +558,7 @@ an index and the new name.</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.toStruct">
-<span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.toStruct" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.toStruct" title="Link to this definition">#</a></dt>
 <dd><p>Converts the class parameters into a structure array</p>
 </dd></dl>
 
@@ -637,7 +636,7 @@ an index and the new name.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>

@@ -1,60 +1,59 @@
 .. _livePlot:
 
+===================
+Live Updating Plots
+===================
+Sometimes it is useful to be able to monitor the progress of a fit in real time for long simulations. For Simplex and DE fits, RAT sends out 'events', which send out data concerning the
+reflectivity, SLD's and more as the fit progresses. To visualize the plot event data, we use the live plots as follows:
 
-Events and Live Updating Plots
-..............................
-Sometimes it is useful to be able to monitor the progress / success of a fit in real time for long simulations. For Simplex and DE fits, RAT sends out 'events', which send out data concerning the
-reflectivity, SLD's and so on as the fit progresses. By writing functions that 'listen' to these events, you can use this information to build various kinds of graphical updates to suit your needs.
-In this section, we'll use this capability to build a live, updating plot of reflectivity and SLD, similar to that of the main RasCAL GUI.
+.. tab-set-code::
+    .. code-block:: Matlab
+        
+        % Make simplex controls
+        controls = controlsClass();
+        controls.procedure = procedures.Simplex;
+        controls.maxIterations = 1000;
+        
+        % Activates the live plot 
+        useLivePlot() 
+        [problem, result] = RAT(problem, controls);
 
-.. note::
-        The code in this section already exists in the repo (utilities / plotting), and you can activate the full updating plot at any time by just typing 'useLivePlot()' at the Matlab command window. But we detail it here to illustrate how to interact with events.
+    .. code-block:: Python
+        
+        controls = RAT.Controls()
+        controls.procedure = 'simplex'
+        controls.maxIterations = 1000
 
-**Registering Listeners**
+        # Activates the live plot 
+        with RAT.plotting.LivePlot(block=True):
+            problem, result = RAT.run(problem, controls);
 
-On the Matlab side, the interaction with RAT event is via the 'eventManager' class. To register a listener, we use the 'register' method to associate a function with the event.
+When the snippet above is run, a plot figure willed be opened and the plot will be updated every time a plot event is received. 
 
-.. code-block:: MATLAB
-
-        eventManager.register(eventTypes.Plot, 'updatePlot');
-
-In this line, we've done two things: we've registered a 'listener' for 'Plot' events, and defined the function 'updatePlot' as the function that runs when the event is triggered (known as a 'handler')
-We need to define the handler function:
-
-.. code-block:: MATLAB
-
-        function updatePlot(varargin)
-
-            h = figure(1000);                   % Select / open the figure
-
-            subplot(1,2,1); cla                 % Reflectivity plot panel
-            subplot(1,2,2); cla                 % SLD plot panel
-            plotRefSLDHelper(varargin{:});      % Use the standard RAT reflectivity plot
-            drawnow limitrate                   % Make sure it updates
-
-        end
-
-
-We can put a breakpoint in our function to examine the contents of varargin
-
-.. image:: ../images/misc/updateBreakPoint.png
-    :width: 300
-    :alt: breakpoint in update function
-
-We see that it is a struct containing everything needed to make our custom plot:
-
-.. image:: ../images/misc/eventContents.png
-    :width: 300
-    :alt: contents of events
-
-In other words, RAT has packaged the current state of the reflectivity and SLD's, along with a number of other items that you can use to make a plot however you like.
-For these purposes, we just make use of the existing RAT plot routine to make our plot. The result is the updating plot routine bundled with RAT.
 
 **Frequency of events**
 
-.. TODO Update the text
+To control how often the plot event is triggered, change the plot frequency parameter in the controls block as shown below, the default frequency is 20 which means the 
+plot event is triggered after every 20 iterations:
 
-To control how often the event is triggered, we set the 'updatePlotFreq' parameter in the controls block, which defaults to 20:
+.. tab-set-code::
+    .. code-block:: Matlab
+        
+        % Make simplex controls
+        controls = controlsClass();
+        controls.procedure = 'simplex'
+        
+        % change plot frequency to 35
+        controls.updatePlotFreq = 35;
+
+    .. code-block:: Python
+        
+        controls = RAT.ControlsClass();
+        controls.procedure = 'simplex'
+        
+        # change plot frequency to 35
+        controls.updatePlotFreq = 35
+
 
 .. tab-set::
     :class: tab-label-hidden
@@ -64,15 +63,16 @@ To control how often the event is triggered, we set the 'updatePlotFreq' paramet
         :sync: Matlab
 
         .. raw:: html
-            :file: ../_outputs/matlab/controlSimplexDefaults.txt
+            :file: ../_outputs/matlab/controlSimplexPlotFreq.txt
 
     .. tab-item:: Python 
         :sync: Python
         
         .. raw:: html
-            :file: ../_outputs/python/controlSimplexDefaults.txt
+            :file: ../_outputs/python/controlSimplexPlotFreq.txt
 
 .. note::
-    If you set the plot frequency too low (i.e. make the plot update too often), this will slow your fit as Matlab takes time out of the analysis to update the figure.
-    Updating every 20 iterations is a reasonable compromise between speed and utility.
+    If you set the plot frequency too low (i.e. make the plot update too often), this will slow your fit as plotting takes time out of the analysis to update the figure.
+    Updating every 20 iterations is a reasonable compromise between speed and utility. Also ensure the plot frequency is lower than the number of iteration otherwise the 
+    plot will never be updated.
 

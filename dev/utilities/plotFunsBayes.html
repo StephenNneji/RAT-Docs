@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Plotting Bayesian Analysis &#8212; RAT 1.0.0-beta documentation</title>
   
@@ -29,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7138875e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=3fd7a760"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'utilities/plotFunsBayes';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -55,7 +54,7 @@
     <link rel="icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Events and Live Updating Plots" href="livePlot.html" />
+    <link rel="next" title="Live Updating Plots" href="livePlot.html" />
     <link rel="prev" title="Basic Plotting" href="plotFuns.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -384,14 +383,12 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsCustomModels.html">Custom Models with Domains</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../calcTypes/oilWater.html">Reflectivity from Oil/Water Samples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../calcTypes/magnetic.html">Reflectivity from Magnetic Samples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Utility Functions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="plotFuns.html">Basic Plotting</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Plotting Bayesian Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="livePlot.html">Events and Live Updating Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livePlot.html">Live Updating Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="conversionFuncs.html">Convert between RAT and RasCAL1</a></li>
 </ul>
 </li>
@@ -456,54 +453,61 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="plotting-bayesian-analysis">
-<span id="bayesplotting"></span><h1>Plotting Bayesian Analysis<a class="headerlink" href="#plotting-bayesian-analysis" title="Permalink to this heading">#</a></h1>
+<span id="bayesplotting"></span><h1>Plotting Bayesian Analysis<a class="headerlink" href="#plotting-bayesian-analysis" title="Link to this heading">#</a></h1>
 <p>A number of function exist for plotting the results of Bayesian analysis.</p>
 <section id="reflectivity-and-sld">
-<h2>Reflectivity and SLD<a class="headerlink" href="#reflectivity-and-sld" title="Permalink to this heading">#</a></h2>
+<h2>Reflectivity and SLD<a class="headerlink" href="#reflectivity-and-sld" title="Link to this heading">#</a></h2>
 <p>A simple reflectivity shaded plot can be displayed as follows:</p>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="nb">clf</span><span class="p">;</span>
 <span class="n">bayesShadedPlot</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/bayesRef1.png"><img alt="simple shaded plot" src="../_images/bayesRef1.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../_images/bayesRef1.png"><img alt="simple shaded plot" src="../_images/bayesRef1.png" style="width: 800px;" />
+</a>
 <p>By default, this shows a standard reflectivity plot with a 65% shaded confidence interval.</p>
 <p>There are a number of options to customise the plot:</p>
 <p><strong>Interval</strong> - You can sepcify either the 65% or 95% confidence interval to display:</p>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">bayesShadedPlot</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="n">results</span><span class="p">,</span><span class="s">&#39;interval&#39;</span><span class="p">,</span><span class="mi">95</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/bayes95.png"><img alt="95 shaded plot" src="../_images/bayes95.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../_images/bayes95.png"><img alt="95 shaded plot" src="../_images/bayes95.png" style="width: 800px;" />
+</a>
 <p><strong>Type</strong> - You can also specify a q4 plot for the reflectivity:</p>
-<a class="reference internal image-reference" href="../_images/bayesq4.png"><img alt="bayes q4 plot" src="../_images/bayesq4.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../_images/bayesq4.png"><img alt="bayes q4 plot" src="../_images/bayesq4.png" style="width: 800px;" />
+</a>
 </section>
 <section id="posterior-histograms">
-<h2>Posterior Histograms<a class="headerlink" href="#posterior-histograms" title="Permalink to this heading">#</a></h2>
+<h2>Posterior Histograms<a class="headerlink" href="#posterior-histograms" title="Link to this heading">#</a></h2>
 <p>You can easily view the marginalised Bayesian posteriors from your analysis:</p>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">plotHists</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/histSmooth.png"><img alt="smooth hists" src="../_images/histSmooth.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../_images/histSmooth.png"><img alt="smooth hists" src="../_images/histSmooth.png" style="width: 800px;" />
+</a>
 <p>By default, <em>plotHists</em> carries out a KDE smooth of the histograms. You can optionally choose no smoothing:</p>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">plotHists</span><span class="p">(</span><span class="n">results</span><span class="p">,</span><span class="s">&#39;smooth&#39;</span><span class="p">,</span><span class="nb">false</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/histNoSmooth.png"><img alt="smooth hists" src="../_images/histNoSmooth.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../_images/histNoSmooth.png"><img alt="smooth hists" src="../_images/histNoSmooth.png" style="width: 800px;" />
+</a>
 </section>
 <section id="corner-plots">
-<h2>Corner Plots<a class="headerlink" href="#corner-plots" title="Permalink to this heading">#</a></h2>
+<h2>Corner Plots<a class="headerlink" href="#corner-plots" title="Link to this heading">#</a></h2>
 <p>To produce a cornerplot, simply use the <em>cornerPlot</em> function:</p>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">cornerPlot</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/cornerPlot.png"><img alt="cornerPlot" src="../_images/cornerPlot.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../_images/cornerPlot.png"><img alt="cornerPlot" src="../_images/cornerPlot.png" style="width: 800px;" />
+</a>
 </section>
 <section id="chain-view">
-<h2>Chain View<a class="headerlink" href="#chain-view" title="Permalink to this heading">#</a></h2>
+<h2>Chain View<a class="headerlink" href="#chain-view" title="Link to this heading">#</a></h2>
 <p>Finally, you can check the integrity of your markov chain as follows:</p>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">mcmcplot</span><span class="p">(</span><span class="n">results</span><span class="p">.</span><span class="n">chain</span><span class="p">,[],</span><span class="n">results</span><span class="p">.</span><span class="n">fitNames</span><span class="p">,</span><span class="s">&#39;chainpanel&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/chainPlot.png"><img alt="chainPlot" src="../_images/chainPlot.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../_images/chainPlot.png"><img alt="chainPlot" src="../_images/chainPlot.png" style="width: 800px;" />
+</a>
 </section>
 </section>
 
@@ -579,7 +583,7 @@ document.write(`
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>

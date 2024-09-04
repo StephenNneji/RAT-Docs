@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Handling Events During Calculations &#8212; RAT 1.0.0-beta documentation</title>
   
@@ -29,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7138875e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=3fd7a760"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'advanced/events';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -384,14 +383,12 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsCustomModels.html">Custom Models with Domains</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../calcTypes/oilWater.html">Reflectivity from Oil/Water Samples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../calcTypes/magnetic.html">Reflectivity from Magnetic Samples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../utilities/index.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuns.html">Basic Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Events and Live Updating Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Live Updating Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL1</a></li>
 </ul>
 </li>
@@ -456,7 +453,41 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="handling-events-during-calculations">
-<span id="events"></span><h1>Handling Events During Calculations<a class="headerlink" href="#handling-events-during-calculations" title="Permalink to this heading">#</a></h1>
+<span id="events"></span><h1>Handling Events During Calculations<a class="headerlink" href="#handling-events-during-calculations" title="Link to this heading">#</a></h1>
+<p>Sometimes it is useful to be able to monitor the progress / success of a fit in real time for long simulations. For Simplex and DE fits, RAT sends out ‘events’, which send out data concerning the
+reflectivity, SLD’s and so on as the fit progresses. By writing functions that ‘listen’ to these events, you can use this information to build various kinds of graphical updates to suit your needs.
+In this section, we’ll use this capability to build a live, updating plot of reflectivity and SLD, similar to that of the main RasCAL GUI.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The code in this section already exists in the repo (utilities/plotting), and you can activate the full updating plot at any time by just typing ‘useLivePlot()’ at the Matlab command window. But we detail it here to illustrate how to interact with events.</p>
+</div>
+<p><strong>Registering Listeners</strong></p>
+<p>On the Matlab side, the interaction with RAT event is via the ‘eventManager’ class. To register a listener, we use the ‘register’ method to associate a function with the event.</p>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">eventManager</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">eventTypes</span><span class="p">.</span><span class="n">Plot</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;updatePlot&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In this line, we’ve done two things: we’ve registered a ‘listener’ for ‘Plot’ events, and defined the function ‘updatePlot’ as the function that runs when the event is triggered (known as a ‘handler’)
+We need to define the handler function:</p>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">updatePlot</span><span class="p">(</span>varargin<span class="p">)</span>
+
+<span class="w">    </span><span class="n">h</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">figure</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w">                   </span><span class="c">% Select / open the figure</span>
+
+<span class="w">    </span><span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="n">cla</span><span class="w">                 </span><span class="s">%</span><span class="w"> </span><span class="s">Reflectivity</span><span class="w"> </span><span class="s">plot</span><span class="w"> </span><span class="s">panel</span>
+<span class="w">    </span><span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="n">cla</span><span class="w">                 </span><span class="s">%</span><span class="w"> </span><span class="s">SLD</span><span class="w"> </span><span class="s">plot</span><span class="w"> </span><span class="s">panel</span>
+<span class="w">    </span><span class="n">plotRefSLDHelper</span><span class="p">(</span><span class="nb">varargin</span><span class="p">{:});</span><span class="w">      </span><span class="c">% Use the standard RAT reflectivity plot</span>
+<span class="w">    </span><span class="nb">drawnow</span><span class="w"> </span><span class="n">limitrate</span><span class="w">                   </span><span class="c">% Make sure it updates</span>
+
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>We can put a breakpoint in our function to examine the contents of varargin</p>
+<a class="reference internal image-reference" href="../_images/updateBreakPoint.png"><img alt="breakpoint in update function" src="../_images/updateBreakPoint.png" style="width: 300px;" />
+</a>
+<p>We see that it is a struct containing everything needed to make our custom plot:</p>
+<a class="reference internal image-reference" href="../_images/eventContents.png"><img alt="contents of events" src="../_images/eventContents.png" style="width: 300px;" />
+</a>
+<p>In other words, RAT has packaged the current state of the reflectivity and SLD’s, along with a number of other items that you can use to make a plot however you like.
+For these purposes, we just make use of the existing RAT plot routine to make our plot. The result is the updating plot routine bundled with RAT.</p>
 </section>
 
 
@@ -516,7 +547,7 @@ document.write(`
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>

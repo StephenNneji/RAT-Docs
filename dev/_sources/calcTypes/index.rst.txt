@@ -12,5 +12,6 @@ these are discussed in the following sections:
 
    imaginary
    incoherent
-   oilWater
+
+.. oilWater
    magnetic

@@ -71,40 +71,83 @@ At a later date, you only need to load back in your struct, split it up into it 
         TODO
 
 
-Copying projectClass
-....................
+Copying a project class
+.......................
+During an analysis, it may be necessary to make a copy of your project, so that you can modify one of them in order 
+to carry out some kind of comparison between them for example. 
+In the example below, *problem1* and *problem1* are references to the same instance of project class so modifying 
+*problem2* will also modify original object *problem1* which is not ideal.
 
-.. TODO This section is no longer valid
+.. tab-set-code::
+    .. code-block:: Matlab
 
-During an analysis, it may be tempting to try to make a copy of your project, so that you can modify one of them in order to carry out some kind of comparison between them for example.
-But, you need to be aware of how matlab deals with attempt to copy a class.
+        >> problem1 = projectClass();
+        >> problem2 = problem1;
+        >> problem1.geometry
 
-For example, first make an instance of projectClass:
+        ans =
 
-.. image:: ../images/userManual/chapter3/copyProject1.png
-    :width: 700
-    :alt: copy project 1
+            'air/substrate' 
+        
+        >> problem2.setGeometry('substrate/liquid');
+        >> problem1.geometry
+        
+        ans =
 
-Now, we try to make a copy:
+            'substrate/liquid' 
+    
+    .. code-block:: Python
 
-.. image:: ../images/userManual/chapter3/copyProject2.png
-    :width: 700
-    :alt: copy project 2
+        >>> problem1 = RAT.Project()
+        >>> problem2 = problem1
+        >>> print(problem1.geometry)
+        
+        air/substrate
+        
+        >>> problem2.geometry = "substrate/liquid"
+        >>> print(problem1.geometry)
 
-If we then attempt to modify problem2, we find that the original problem has also changed!
+        substrate/liquid
 
-.. image:: ../images/userManual/chapter3/referenceChange.png
-    :width: 700
-    :alt: copy project 2
+The proper way to make a copy/clone of the project class is shown in the example below, 
 
-In other words, *problem2 and problem 1 are references to the same instance of projectClass!* If you reall want a new instance,
-you will need to save the class to a file, and load it into a new variable with a different name.
+.. tab-set-code::
+    .. code-block:: Matlab
 
+        >> problem1 = projectClass();
+        >> problem2 = problem1.clone(); % Copy with clone method
+        >> problem1.geometry
+
+        ans =
+
+            'air/substrate' 
+        
+        >> problem2.setGeometry('substrate/liquid');
+        >> problem1.geometry
+        
+        ans =
+
+            'air/substrate'  
+    
+    .. code-block:: Python
+
+        >>> import copy
+        >>> problem1 = RAT.Project()
+        >>> problem2 = copy.deepcopy(problem1) # Copy using deepcopy function in the copy module
+        >>> print(problem1.geometry)
+        
+        air/substrate
+        
+        >>> problem2.geometry = "substrate/liquid"
+        >>> print(pproblem1.geometry)
+
+        air/substrate
+
+Now *problem1* and *problem2* are seperate instances of project class and changing *problem2* no longer changes *problem1*.
 
 Exporting as a Script
 .....................
-Although saving a binary version of the class is useful, sometimes it would be better to have a script version which will reproduce the class. This is done using the
-'toScript' method of projectClass:
+Although saving a binary version of the class is useful, sometimes it would be better to have a script version which will reproduce the class. This can be done as shown below:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -184,10 +227,3 @@ Then, RAT will create a file containing all the statements needed to re-create y
 
 
 This is useful because you can then edit this file as you wish, to re-use it as a template for further projects.
-
-.. note::
-
-    Developers Note: We get that the format of the created file currently leaves something to desired! It works, but is very untidy..
-    This will be cleaned up in a future release...
-
-

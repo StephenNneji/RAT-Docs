@@ -33,7 +33,7 @@ The parallelisation scheme is chosen from the controls class:
     
     .. code-block:: Python
 
-        controls = RAT.set_controls()
+        controls = RAT.Controls()
 
         # Choose no parallelisation
         controls.parallel = 'single'

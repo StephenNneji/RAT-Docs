@@ -1,4 +1,4 @@
-.. _customModelsExamples:
+.. _customModels:
 
 =============
 Custom Models
@@ -42,7 +42,7 @@ define your model in terms of more scientifically useful parameters, such are Ar
 
 
 In other words, you get parameters and bulk SLD's in (along with a flag 'contrast' telling your script which contrast to work on), and your code needs to construct the layers array defining the model.
-In the next section we'll demonstrate this by making an example to fit a lipi dbilayer sample.
+In the next section we'll demonstrate this by making an example to fit a lipid bilayer sample.
 
 DSPC Bilayer Example
 ====================
@@ -95,7 +95,7 @@ We start in the usual way by making in instance of the project class, but this t
 
 If you look at the class, you will see that the *layers* block is no longer visible. We aren't going to need this for *custom layers*. Instead, we need a custom script, which takes our inputs and converts this in to a list of [d, :math:`\rho`, r] layers.
 
-First, we add our seven parameters (remember that Substrate Roughness is always there as the first parameter), which we do as before using the **addParamGroup** method:
+First, we add our seven parameters (remember that Substrate Roughness is always there as the first parameter):
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -124,7 +124,7 @@ First, we add our seven parameters (remember that Substrate Roughness is always 
         problem.parameters.append(name='Water Thickness', min=0, value=2.0, max=10.0, fit=True)
 
 
-The custom file that we are going to use is called *customBilayer.m*. This is a MATLAB (or Octave - both are identical) function, which takes our input parameters and translates them into a list of layers. To add the file, we do the following:
+The custom file that we are going to use is called *customBilayer.m*. This is a MATLAB function, which takes our input parameters and translates them into a list of layers. To add the file, we do the following:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -145,7 +145,7 @@ The custom files are in exactly the same format at those in RasCAL. To add it to
 
 * **Name** - This is any name we choose for this custom file. This is the name we use later to add this to the contrasts.
 
-* **Filename** - This is the actual filename of the custom file, including its file extension (MATLAB and octave are both '.m')
+* **Filename** - This is the actual filename of the custom file, including its file extension (MATLAB extension is '.m')
 
 * **Function name** - This is the name of the function to call from the specified file. For Matlab, the function name is always the same as the filename but for python and dynamic library functions the function name can be different from filename.
 
@@ -323,7 +323,8 @@ At this point it is useful to look at *customBilayer.m* and then go through it s
 
 The standard format for a custom layers file always has 4 inputs (*params*, *bulk_in*, *bulk_out*, *contrast*).
 
-Params is a list of parameter values for the layers, which appear in the same order that we defined them in our parameters block, so is always a [1 x nParams] array of doubles. It is useful to split this array into its individual parameters at the start of the custom file, although you don't have to do this:
+Params is a list of parameter values for the layers, which appear in the same order that we defined them in our parameters block, so is 
+always a [1 x nParams] array of doubles. It is useful to split this array into its individual parameters at the start of the custom file, although you don't have to do this:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -483,60 +484,64 @@ This gives us all the parameters we need to define our layers. In other words, w
             
         output = np.array([oxide, water, head, tail, tail, head])
 
-Note the use of semicolons. In Matlab / Octave syntax, this concatenates arrays columnwise. So if you take an array a = [a1, a2, a3], and another b = [b1, b2, b3], then [a ; b] produces an array that looks like this:
+Note the use of semicolons. In Matlab syntax, this concatenates arrays column-wise. So if you take an array a = [a1, a2, a3], and another b = [b1, b2, b3], then [a ; b] produces an array that looks like this:
 
 .. math::
 
    \begin{bmatrix} a_\mathrm{1} & a_\mathrm{2} & a_\mathrm{3} \\ b_\mathrm{1} & b_\mathrm{2} & b_\mathrm{3} \end{bmatrix}
 
-In other words, the entire purpose of our custom layer file is to take our parameters in a scientifically useful form (e.g. Area per Lipid in our case), and to translate these into a list of thick, SLD, rough layers for the whole interface. You have complete freedom in how you do this, which means that you can make any kind of layer model you can think of using a custom layers file, including layers that are mixtures of adjoining layers and so on. As long as you can describe your system as layers with an error function (i.e. Nevot and Croce) roughness you can describe them using custom layer modelling.
+In other words, the entire purpose of our custom layer file is to take our parameters in a scientifically useful form (e.g. Area per Lipid in our case), and to translate these into a list of thick, SLD, rough layers for the whole interface. 
+You have complete freedom in how you do this, which means that you can make any kind of layer model you can think of using a custom layers file, including layers that are mixtures of adjoining layers and so on. As long as you can describe your 
+system as layers with an error function (i.e. Nevot and Croce) roughness you can describe them using custom layer modelling.
 
-The rest of the custom model is defined in the same way as the standard layers model, using the same class methods as in the last chapter. So, since we want to analyse three contrasts simultaneously, we need the following:
+The rest of the custom model is defined similar to the standard layers model shown in :ref:`chapter2`. So, since we want to analyse three contrasts simultaneously, we need the following:
 
 .. tab-set-code::
     .. code-block:: Matlab
 
         % Change bulk in from air to silicon....
-        problem.setBulkIn(1,'name','Silicon','min',2.07e-6,'value',2.073e-6,'max',2.08e-6,'fit',false);
+        problem.setBulkIn(1, 'name', 'Silicon', 'min', 2.07e-6, 'value', 2.073e-6, 'max', 2.08e-6, 'fit', false);
 
         % Add two more values for bulk out....
-        problem.addBulkOut('SLD SMW',1e-6,2.073e-6,3e-6,true);
-        problem.addBulkOut('SLD H2O',-0.6e-6,-0.56e-6,-0.3e-6,true);
+        problem.addBulkOut('SLD SMW', 1e-6, 2.073e-6, 3e-6, true);
+        problem.addBulkOut('SLD H2O', -0.6e-6, -0.56e-6, -0.3e-6, true);
 
-        problem.setBulkOut(1,'fit',true,'min',5e-6);
+        problem.setBulkOut(1, 'fit', true, 'min', 5e-6);
 
         % Read in the datafiles
-        D2O_data = dlmread('c_PLP0016596.dat');
-        SMW_data = dlmread('c_PLP0016601.dat');
-        H2O_data = dlmread('c_PLP0016607.dat');
+        root = getappdata(0, 'root');
+        dataPath = '/examples/normalReflectivity/customLayers/';
+        D2O_data = readmatrix(fullfile(root, dataPath, 'c_PLP0016596.dat'));
+        SMW_data = readmatrix(fullfile(root, dataPath, 'c_PLP0016601.dat'));
+        H2O_data = readmatrix(fullfile(root, dataPath, 'c_PLP0016607.dat'));
 
         % Add the data to the project
         problem.addData('Bilayer / D2O', D2O_data(:,1:3));
         problem.addData('Bilayer / SMW', SMW_data(:,1:3));
         problem.addData('Bilayer / H2O', H2O_data(:,1:3));
 
-        problem.setData(2,'dataRange',[0.013 0.37]);
-        problem.setData(3,'dataRange',[0.013 0.37]);
-        problem.setData(4,'dataRange',[0.013 0.37]);
+        problem.setData(2,' dataRange', [0.013 0.37]);
+        problem.setData(3,' dataRange', [0.013 0.37]);
+        problem.setData(4,' dataRange', [0.013 0.37]);
 
         % Change the name of the existing parameters to refer to D2O
         problem.setBackgroundParam(1,'name','Backs par D2O','fit',true,'min',1e-10,'max',1e-5,'val',1e-6);
 
-        % Add two new backs parameters for the other two..
-        problem.addBackgroundParam('Backs par SMW',1e-10,1e-6,1e-5,true);
-        problem.addBackgroundParam('Backs par H2O',1e-10,1e-6,1e-5,true);
+        % Add two new backs parameters for the other two.
+        problem.addBackgroundParam('Backs par SMW', 1e-10, 1e-6, 1e-5,true);
+        problem.addBackgroundParam('Backs par H2O', 1e-10, 1e-6, 1e-5,true);
 
-        % And add the two new constant backgrounds..
-        problem.addBackground('Background SMW','constant','Backs par SMW');
-        problem.addBackground('Background H2O','constant','Backs par H2O');
+        % And add the two new constant backgrounds.
+        problem.addBackground('Background SMW', 'constant', 'Backs par SMW');
+        problem.addBackground('Background H2O', 'constant', 'Backs par H2O');
 
-        % And edit the other one....
-        problem.setBackground(1,'name','Background D2O', 'value1','Backs par D2O');
+        % And edit the other one.
+        problem.setBackground(1,'name', 'Background D2O', 'value1', 'Backs par D2O');
 
-        % Set the scalefactor...
+        % Set the scalefactor.
         problem.setScalefactor(1,'Value',1,'min',0.5,'max',2,'fit',true);
 
-        % Make the contrasts...
+        % Make the contrasts.
         problem.addContrast('name','Bilayer / D2O',...
                             'background','Background D2O',...
                             'resolution','Resolution 1',...
@@ -545,7 +550,7 @@ The rest of the custom model is defined in the same way as the standard layers m
                             'nba', 'Silicon',...        % This is bulk in ('Nb Air')
                             'data', 'Bilayer / D2O');
 
-        % SMW contrast..
+        % SMW contrast.
         problem.addContrast('name','Bilayer / SMW',...
                             'background','Background SMW',...
                             'resolution','Resolution 1',...
@@ -554,7 +559,7 @@ The rest of the custom model is defined in the same way as the standard layers m
                             'nba', 'Silicon',...        % This is bulk in
                             'data', 'Bilayer / SMW');
 
-        % SMW contrast..
+        % SMW contrast.
         problem.addContrast('name','Bilayer / H2O',...
                             'background','Background H2O',...
                             'resolution','Resolution 1',...
@@ -657,7 +662,7 @@ Our final project class when printed to the console looks like this :
             :file: ../_outputs/python/customLayersProblem.txt
 
 
-To run this, we make a controls block as before, and pass this to RAT. This time we will do a DREAM analysis (we will discuss the controls block and available algorithms in more detail in Chapter 4).
+To run this, we make a controls block as before, and pass this to RAT. This time we will do a DREAM analysis (see :ref:`algorithms`).
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -668,7 +673,7 @@ To run this, we make a controls block as before, and pass this to RAT. This time
     
     .. code-block:: Python
 
-        controls = RAT.set_controls(parallel='contrasts')
+        controls = RAT.Controls(parallel='contrasts')
         problem, results = RAT.run(problem, controls)
 
 

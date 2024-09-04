@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Introduction &#8212; RAT 1.0.0-beta documentation</title>
   
@@ -29,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7138875e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=3fd7a760"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/chapter1';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -384,14 +383,12 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsCustomModels.html">Custom Models with Domains</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../calcTypes/oilWater.html">Reflectivity from Oil/Water Samples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../calcTypes/magnetic.html">Reflectivity from Magnetic Samples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../utilities/index.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuns.html">Basic Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Events and Live Updating Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Live Updating Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL1</a></li>
 </ul>
 </li>
@@ -456,7 +453,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="introduction">
-<span id="chapter1"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<span id="chapter1"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
 <p>When we are at the calculations point our data analysis - that the data has been properly reduced, and we have some idea of a
 modelling strategy, we can still then split the problem specification into two parts.</p>
 <ul class="simple">
@@ -475,24 +472,22 @@ related data sets. Keeping the Model and Controls separate gives a high degree o
 formulated and run.</p>
 <p>So, an input into RAT always conforms to this picture: a model definition class to specify the problem, and a controls definition class that tells RAT what analysis task you would like to do:</p>
 <img alt="RAT input model" src="../_images/ratInput.png" />
-<p>The outputs are always another <em>problemDef</em> class, and a results block. The new <em>problemDef</em> class is identical to the inputted one, except with updated values of the fitted parameters (e.g. after running a fit). The results block as a set of arrays containing the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions. We will discuss more about these in the next chapter where we look at the outputs in more detail. Similarly, we will look in more detail at the input classes in the next section.</p>
+<p>The outputs are always another <em>problemDef</em> class, and a results block. The new <em>problemDef</em> class is identical to the inputted one, except with updated values of the fitted parameters (e.g. after running a fit). The results block as a set of arrays containing the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions.
+We will discuss more about these in <a class="reference internal" href="chapter2.html#chapter2"><span class="std std-ref">next Section</span></a> where we look at the inputs and outputs in more detail.</p>
 <p>In the next section, we will look at an example calculation, in order to introduce the basics of the RAT toolbox. Before we proceed, it is useful to keep a couple of things in mind:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt><strong>Different model types?</strong> - There are many possible types of model, and this is done by having more than one version of</dt><dd><p>the <em>problemDef</em> class. These are (those in italics not initial release):</p>
+<dt><strong>Different model types</strong> - There are many possible types of model, and this is done by having more than one version of</dt><dd><p>the <em>problemDef</em> class:</p>
 <ul>
 <li><p>Standard Problem: Problem types which are well described by a non-polarised beam, with no absorption (i.e., real refractive index only).</p></li>
 <li><p>Standard Problem with imaginary refractive index.</p></li>
 <li><p>Domains Problem Type (‘incoherent summing’).</p></li>
-<li><p><em>Oil/Water problem type (phase 2)</em></p></li>
-<li><p><em>Polarised problem type (phase 2)</em></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
-<p>Within each problem class, there is the option of <em>Custom Layer</em> or <em>Custom XY</em> model definitions. These will be discussed in
-more detail in a later section.</p>
+<p>Within each problem class, there is the option of <em>Custom Layer</em> or <em>Custom XY</em> model definitions. These will be discussed in more detail in a later section.</p>
 <p>In this section we’ll look at the project definition class in more detail, we’ll see how we can use the class methods to build and modify a model, and how to carry out the analysis.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -500,7 +495,7 @@ more detail in a later section.</p>
 conversion utilities (<a class="reference internal" href="../utilities/conversionFuncs.html#conversionfuncs"><span class="std std-ref">Convert between RAT and RasCAL1</span></a>). In fact, for those who prefer a graphical model builder, using the RasCAL1 GUI to build a basic model and then converting to RAT is a viable workflow.</p>
 </div>
 <section id="an-example-a-simple-model-of-a-lipid-layer">
-<h2>An example - A simple model of a lipid layer<a class="headerlink" href="#an-example-a-simple-model-of-a-lipid-layer" title="Permalink to this heading">#</a></h2>
+<h2>An example - A simple model of a lipid layer<a class="headerlink" href="#an-example-a-simple-model-of-a-lipid-layer" title="Link to this heading">#</a></h2>
 <p><strong>(a) Specifying the Model.</strong></p>
 <p>In the next section, we’ll look in detail how to set up the problem definition for a given situation. Initially though, it is
 useful to take a pre-prepared problem definition, and to see how this is then used in RAT. As an example, we’ll use some
@@ -509,15 +504,16 @@ neutron reflectivity data for a lipid monolayer, collected at various deuteratio
 by two layers: the hydrophobic tail regions of the lipids, which locate outside the bulk water interface, and the hydrophilic
 heads which are adjacent (or embedded) in the bulk aqueous phase.</p>
 <p>In our example, the layers can be either deuterated of hydrogenated, and the bulk water can either be D2O or ACMW.</p>
-<a class="reference internal image-reference" href="../_images/lipidMonolayer.png"><img alt="The lipid monolayer example" src="../_images/lipidMonolayer.png" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/lipidMonolayer.png"><img alt="The lipid monolayer example" src="../_images/lipidMonolayer.png" style="width: 300px;" />
+</a>
 <p>We are going to analyze our monolayer data using a RasCAL type <em>standard layers</em> model, in that we identify which parameters we
 need to describe the model, group these into layers (which are defined as a thickness, roughness, SLD and hydration), and then
 group the layers along with data into contrasts. The advantage of this approach is that it is simple to share parameters between
 layers, so a layer representing deuterated headgroups should share the same thickness and roughness parameters as a
 layer representing hydrogenated heads, but they should differ from each other in their SLD.</p>
-<p>The problem definition in RAT is done by making an instance of a <em>projectClass</em> object, and then using the class methods to
+<p>The problem definition in RAT is done by making an instance of a project class object, and then using the class methods to
 set up the parameters, layers and so on this instance. The details of setting up a <em>projectClass</em> object is
-discussed in chapter 2, but for now, we’ll look at a pre-prepared example.</p>
+discussed in <a class="reference internal" href="chapter2.html#chapter2"><span class="std std-ref">next Section</span></a>, but for now, we’ll look at a pre-prepared example.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
@@ -545,368 +541,10 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
-
-         modelType: 'standard layers'
-    experimentName: 'DSPC monolayers'
-          geometry: 'air/substrate'
-
-
-    Parameters: ---------------------------------------------------------------------------------------------- 
-
-    <strong>p</strong>               <strong>Name</strong>               <strong>Min</strong>       <strong>Value</strong>      <strong>Max</strong>     <strong>Fit?</strong> 
-    <strong>__</strong>    <strong>________________________</strong>    <strong>______</strong>    <strong>_______</strong>    <strong>_____</strong>    <strong>_____</strong>
-
-     1    "Substrate Roughness"            1          3        5    true 
-     2    "Tails Thickness"               10         20       30    true 
-     3    "Heads Thickness"                3         11       16    true 
-     4    "Tails Roughness"                2          5        9    true 
-     5    "Heads Roughness"                2          5        9    true 
-     6    "Deuterated Tails SLD"       4e-06      6e-06    2e-05    true 
-     7    "Hydrogenated Tails SLD"    -6e-07     -4e-07        0    true 
-     8    "Deuterated Heads SLD"       1e-06      3e-06    8e-06    true 
-     9    "Hydrogenated Heads SLD"     1e-07    1.4e-06    3e-06    true 
-    10    "Heads Hydration"                0        0.3      0.5    true 
-
-
-    Bulk In: -------------------------------------------------------------------------------------------------- 
-
-    <strong>p</strong>      <strong>Name</strong>       <strong>Min</strong>    <strong>Value</strong>    <strong>Max</strong>    <strong>Fit?</strong> 
-    <strong>_</strong>    <strong>_________</strong>    <strong>___</strong>    <strong>_____</strong>    <strong>___</strong>    <strong>_____</strong>
-
-    1    "SLD Air"     0       0       0     false
-
-
-    Bulk Out: ------------------------------------------------------------------------------------------------- 
-
-    <strong>p</strong>       <strong>Name</strong>         <strong>Min</strong>       <strong>Value</strong>        <strong>Max</strong>       <strong>Fit?</strong> 
-    <strong>_</strong>    <strong>__________</strong>    <strong>_______</strong>    <strong>________</strong>    <strong>________</strong>    <strong>_____</strong>
-
-    1    "SLD D2O"     6.2e-06    6.35e-06    6.35e-06    true 
-    2    "SLD ACMW"     -1e-06           0       1e-06    true 
-
-
-    Scalefactors: ------------------------------------------------------------------------------------------------- 
-
-    <strong>p</strong>         <strong>Name</strong>          <strong>Min</strong>     <strong>Value</strong>    <strong>Max</strong>     <strong>Fit?</strong> 
-    <strong>_</strong>    <strong>_______________</strong>    <strong>____</strong>    <strong>_____</strong>    <strong>____</strong>    <strong>_____</strong>
-
-    1    "Scalefactor 1"    0.02    0.23     0.25    true 
-
-
-    Backgrounds: ----------------------------------------------------------------------------------------------- 
-
-    (a) Background Parameters: 
-
-    <strong>p</strong>           <strong>Name</strong>            <strong>Min</strong>      <strong>Value</strong>      <strong>Max</strong>     <strong>Fit?</strong> 
-    <strong>_</strong>    <strong>__________________</strong>    <strong>_____</strong>    <strong>_______</strong>    <strong>_____</strong>    <strong>_____</strong>
-
-    1    "Backs Value ACMW"    1e-07    5.5e-06    1e-05    true 
-    2    "Backs Value D2O"     1e-08    2.8e-06    1e-05    true 
-
-    (b) Backgrounds:  
-
-    <strong>p</strong>          <strong>Name</strong>              <strong>Type</strong>            <strong>Value 1</strong>          <strong>Value 2</strong>    <strong>Value 3</strong>    <strong>Value 4</strong>    <strong>Value 5</strong>
-    <strong>_</strong>    <strong>_________________</strong>    <strong>__________</strong>    <strong>__________________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>
-
-    1    "Background ACMW"    "constant"    "Backs Value ACMW"      ""         ""         ""         ""   
-    2    "Background D2O"     "constant"    "Backs Value D2O"       ""         ""         ""         ""   
-
-
-    Resolutions: --------------------------------------------------------------------------------------------- 
-
-    (a) Resolutions Parameters: 
-
-    <strong>p</strong>           <strong>Name</strong>           <strong>Min</strong>     <strong>Value</strong>    <strong>Max</strong>     <strong>Fit?</strong> 
-    <strong>_</strong>    <strong>__________________</strong>    <strong>____</strong>    <strong>_____</strong>    <strong>____</strong>    <strong>_____</strong>
-
-    1    "Resolution par 1"    0.01    0.03     0.05    false
-
-    (b) Resolutions:  
-
-    <strong>p</strong>         <strong>Name</strong>            <strong>Type</strong>            <strong>Value 1</strong>          <strong>Value 2</strong>    <strong>Value 3</strong>    <strong>Value 4</strong>    <strong>Value 5</strong>
-    <strong>_</strong>    <strong>______________</strong>    <strong>__________</strong>    <strong>__________________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>
-
-    1    "Resolution 1"    "constant"    "Resolution par 1"      ""         ""         ""         ""   
-
-
-    Layers: -------------------------------------------------------------------------------------------------- 
-
-    <strong>p</strong>            <strong>Name</strong>                <strong>Thickness</strong>                  <strong>SLD</strong>                   <strong>Roughness</strong>            <strong>Hydration</strong>        <strong>Hydrate with</strong>
-    <strong>_</strong>    <strong>____________________</strong>    <strong>_________________</strong>    <strong>________________________</strong>    <strong>_________________</strong>    <strong>_________________</strong>    <strong>____________</strong>
-
-    1    "Hydrogenated Heads"    "Heads Thickness"    "Hydrogenated Heads SLD"    "Heads Roughness"    "Heads Hydration"     "bulk out" 
-    2    "Deuterated Heads"      "Heads Thickness"    "Deuterated Heads SLD"      "Heads Roughness"    "Heads Hydration"     "bulk out" 
-    3    "Hydrogenated Tails"    "Tails Thickness"    "Hydrogenated Tails SLD"    "Tails Roughness"    ""                    "bulk out" 
-    4    "Deuterated Tails"      "Tails Thickness"    "Deuterated Tails SLD"      "Tails Roughness"    ""                    "bulk out" 
-
-
-    Custom Files: ------------------------------------------------------------------------------------------------------ 
-
-    <strong>Name</strong>    <strong>Filename</strong>    <strong>Function Name</strong>    <strong>Language</strong>    <strong>Path</strong>
-    <strong>____</strong>    <strong>________</strong>    <strong>_____________</strong>    <strong>________</strong>    <strong>____</strong>
-
-     ""        ""            ""             ""        "" 
-
-
-    Data: ------------------------------------------------------------------------------------------------------ 
-
-              <strong>Name</strong>                       <strong>Data</strong>                  <strong>Data Range</strong>            <strong>Simulation Range</strong>   
-    <strong>________________________</strong>    <strong>______________________</strong>    <strong>_____________________</strong>    <strong>_____________________</strong>
-
-    "Simulation"                "No Data"                 "-"                      "[ 0.0050 , 0.7000 ]"
-    "H-tail / D-head / ACMW"    "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
-    "D-tail / H-head / D2O"     "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
-
-
-   Contrasts: ----------------------------------------------------------------------------------------------- 
-
-             <strong>p</strong>                        <strong>1</strong>                          <strong>2</strong>            
-    <strong>___________________</strong>    <strong>_______________________</strong>    <strong>________________________</strong>
-
-    "Name"                 "D-tail/H-Head/D2O"        "H-tail/D-Head/ACMW"    
-    "Data"                 "D-tail / H-head / D2O"    "H-tail / D-head / ACMW"
-    "Background"           "Background D2O"           "Background ACMW"       
-    "Background Action"    "add"                      "add"                   
-    "Bulk in"              "SLD Air"                  "SLD Air"               
-    "Bulk out"             "SLD D2O"                  "SLD ACMW"              
-    "Scalefactor"          "Scalefactor 1"            "Scalefactor 1"         
-    "Resolution"           "Resolution 1"             "Resolution 1"          
-    "Resample"             "false"                    "false"                 
-    "Model"                "Deuterated Tails"         "Hydrogenated Tails"    
-    ""                     "Hydrogenated Heads"       "Deuterated Heads"      
-
-</pre>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-Name: ----------------------------------------------------------------------------------------------
-
-'DSPC monolayers'
-
-Calculation: ---------------------------------------------------------------------------------------
-
-non polarised
-
-Model: ---------------------------------------------------------------------------------------------
-
-standard layers
-
-Geometry: ------------------------------------------------------------------------------------------
-
-air/substrate
-
-Parameters: ----------------------------------------------------------------------------------------
-
-+-------+------------------------+--------+---------+-------+------+------------+-----+-------+
-| index |          name          |  min   |  value  |  max  | fit  | prior type |  mu | sigma |
-+-------+------------------------+--------+---------+-------+------+------------+-----+-------+
-|   0   |  Substrate Roughness   |  1.0   |   3.0   |  5.0  | True |  uniform   | 0.0 |  inf  |
-|   1   |    Tails Thickness     |  10.0  |   20.0  |  30.0 | True |  uniform   | 0.0 |  inf  |
-|   2   |    Heads Thickness     |  3.0   |   11.0  |  16.0 | True |  uniform   | 0.0 |  inf  |
-|   3   |    Tails Roughness     |  2.0   |   5.0   |  9.0  | True |  uniform   | 0.0 |  inf  |
-|   4   |    Heads Roughness     |  2.0   |   5.0   |  9.0  | True |  uniform   | 0.0 |  inf  |
-|   5   |  Deuterated Tails SLD  | 4e-06  |  6e-06  | 2e-05 | True |  uniform   | 0.0 |  inf  |
-|   6   | Hydrogenated Tails SLD | -6e-07 |  -4e-07 |  0.0  | True |  uniform   | 0.0 |  inf  |
-|   7   |  Deuterated Heads SLD  | 1e-06  |  3e-06  | 8e-06 | True |  uniform   | 0.0 |  inf  |
-|   8   | Hydrogenated Heads SLD | 1e-07  | 1.4e-06 | 3e-06 | True |  uniform   | 0.0 |  inf  |
-|   9   |    Heads Hydration     |  0.0   |   0.3   |  0.5  | True |  uniform   | 0.0 |  inf  |
-+-------+------------------------+--------+---------+-------+------+------------+-----+-------+
-
-Bulk In: -------------------------------------------------------------------------------------------
-
-+-------+---------+-----+-------+-----+-------+------------+-----+-------+
-| index |   name  | min | value | max |  fit  | prior type |  mu | sigma |
-+-------+---------+-----+-------+-----+-------+------------+-----+-------+
-|   0   | SLD Air | 0.0 |  0.0  | 0.0 | False |  uniform   | 0.0 |  inf  |
-+-------+---------+-----+-------+-----+-------+------------+-----+-------+
-
-Bulk Out: ------------------------------------------------------------------------------------------
-
-+-------+----------+---------+----------+----------+------+------------+-----+-------+
-| index |   name   |   min   |  value   |   max    | fit  | prior type |  mu | sigma |
-+-------+----------+---------+----------+----------+------+------------+-----+-------+
-|   0   | SLD D2O  | 6.2e-06 | 6.35e-06 | 6.35e-06 | True |  uniform   | 0.0 |  inf  |
-|   1   | SLD ACMW |  -6e-07 | -5.6e-07 |  -3e-07  | True |  uniform   | 0.0 |  inf  |
-+-------+----------+---------+----------+----------+------+------------+-----+-------+
-
-Scalefactors: --------------------------------------------------------------------------------------
-
-+-------+---------------+------+-------+------+------+------------+-----+-------+
-| index |      name     | min  | value | max  | fit  | prior type |  mu | sigma |
-+-------+---------------+------+-------+------+------+------------+-----+-------+
-|   0   | Scalefactor 1 | 0.02 |  0.23 | 0.25 | True |  uniform   | 0.0 |  inf  |
-+-------+---------------+------+-------+------+------+------------+-----+-------+
-
-Background Parameters: -----------------------------------------------------------------------------
-
-+-------+------------------+-------+---------+-------+------+------------+-----+-------+
-| index |       name       |  min  |  value  |  max  | fit  | prior type |  mu | sigma |
-+-------+------------------+-------+---------+-------+------+------------+-----+-------+
-|   0   | Backs Value ACMW | 1e-07 | 5.5e-06 | 1e-05 | True |  uniform   | 0.0 |  inf  |
-|   1   | Backs Value D2O  | 1e-08 | 2.8e-06 | 1e-05 | True |  uniform   | 0.0 |  inf  |
-+-------+------------------+-------+---------+-------+------+------------+-----+-------+
-
-Backgrounds: ---------------------------------------------------------------------------------------
-
-+-------+-----------------+----------+------------------+---------+---------+---------+---------+
-| index |       name      |   type   |     value 1      | value 2 | value 3 | value 4 | value 5 |
-+-------+-----------------+----------+------------------+---------+---------+---------+---------+
-|   0   | Background ACMW | constant | Backs Value ACMW |         |         |         |         |
-|   1   |  Background D2O | constant | Backs Value D2O  |         |         |         |         |
-+-------+-----------------+----------+------------------+---------+---------+---------+---------+
-
-Resolution Parameters: -----------------------------------------------------------------------------
-
-+-------+--------------------+------+-------+------+-------+------------+-----+-------+
-| index |        name        | min  | value | max  |  fit  | prior type |  mu | sigma |
-+-------+--------------------+------+-------+------+-------+------------+-----+-------+
-|   0   | Resolution Param 1 | 0.01 |  0.03 | 0.05 | False |  uniform   | 0.0 |  inf  |
-+-------+--------------------+------+-------+------+-------+------------+-----+-------+
-
-Resolutions: ---------------------------------------------------------------------------------------
-
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
-| index |     name     |   type   |      value 1       | value 2 | value 3 | value 4 | value 5 |
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
-|   0   | Resolution 1 | constant | Resolution Param 1 |         |         |         |         |
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
-
-Data: ----------------------------------------------------------------------------------------------
-
-+-------+------------------------+--------------------------------------+---------------------+---------------------+
-| index |          name          |                 data                 |      data range     |   simulation range  |
-+-------+------------------------+--------------------------------------+---------------------+---------------------+
-|   0   |       Simulation       |                  []                  |          []         |     [0.005, 0.7]    |
-|   1   | H-tail / D-head / ACMW | [[5.1793e-02 1.8087e-05 7.9683e-07]  | [0.051793, 0.58877] | [0.051793, 0.58877] |
-|       |                        |  [5.4383e-02 1.4582e-05 6.3691e-07]  |                     |                     |
-|       |                        |  [5.7102e-02 1.3621e-05 5.5407e-07]  |                     |                     |
-|       |                        |  [5.9957e-02 1.2409e-05 4.8014e-07]  |                     |                     |
-|       |                        |  [6.2955e-02 1.0992e-05 4.1824e-07]  |                     |                     |
-|       |                        |  [6.6103e-02 1.0619e-05 3.7541e-07]  |                     |                     |
-|       |                        |  [6.9408e-02 1.0162e-05 3.4945e-07]  |                     |                     |
-|       |                        |  [7.2878e-02 1.0716e-05 3.3763e-07]  |                     |                     |
-|       |                        |  [7.6522e-02 8.3468e-06 2.8040e-07]  |                     |                     |
-|       |                        |  [8.0348e-02 7.5250e-06 2.5702e-07]  |                     |                     |
-|       |                        |  [8.4365e-02 6.4395e-06 2.2528e-07]  |                     |                     |
-|       |                        |  [8.8584e-02 6.0544e-06 2.0545e-07]  |                     |                     |
-|       |                        |  [9.3013e-02 5.9517e-06 1.9417e-07]  |                     |                     |
-|       |                        |  [9.7664e-02 5.6433e-06 1.8108e-07]  |                     |                     |
-|       |                        |  [1.0255e-01 4.8172e-06 1.6076e-07]  |                     |                     |
-|       |                        |  [1.0767e-01 4.8066e-06 1.5520e-07]  |                     |                     |
-|       |                        |  [1.1306e-01 4.1559e-06 1.4115e-07]  |                     |                     |
-|       |                        |  [1.1871e-01 4.1418e-06 1.3926e-07]  |                     |                     |
-|       |                        |  [1.2465e-01 3.4580e-06 1.2273e-07]  |                     |                     |
-|       |                        |  [1.3088e-01 3.2376e-06 1.1791e-07]  |                     |                     |
-|       |                        |  [1.3742e-01 3.0976e-06 1.1948e-07]  |                     |                     |
-|       |                        |  [1.4429e-01 2.7478e-06 1.1518e-07]  |                     |                     |
-|       |                        |  [1.5151e-01 2.5492e-06 1.1573e-07]  |                     |                     |
-|       |                        |  [1.5908e-01 2.7500e-06 1.2812e-07]  |                     |                     |
-|       |                        |  [1.6704e-01 2.1813e-06 2.0450e-07]  |                     |                     |
-|       |                        |  [1.7539e-01 1.8609e-06 5.4900e-07]  |                     |                     |
-|       |                        |  [1.8416e-01 1.9405e-06 1.5660e-07]  |                     |                     |
-|       |                        |  [1.9337e-01 1.7421e-06 2.3280e-07]  |                     |                     |
-|       |                        |  [2.0304e-01 1.8050e-06 3.9820e-07]  |                     |                     |
-|       |                        |  [2.1319e-01 1.5801e-06 1.4110e-07]  |                     |                     |
-|       |                        |  [2.2385e-01 1.6724e-06 7.7900e-08]  |                     |                     |
-|       |                        |  [2.3504e-01 1.4150e-06 4.0820e-07]  |                     |                     |
-|       |                        |  [2.4679e-01 1.4340e-06 5.3180e-07]  |                     |                     |
-|       |                        |  [2.5913e-01 1.3102e-06 2.6000e-07]  |                     |                     |
-|       |                        |  [2.7209e-01 1.3702e-06 2.8540e-07]  |                     |                     |
-|       |                        |  [2.8569e-01 1.2468e-06 2.3230e-07]  |                     |                     |
-|       |                        |  [2.9998e-01 1.2956e-06 5.3240e-07]  |                     |                     |
-|       |                        |  [3.1497e-01 1.2947e-06 3.9940e-07]  |                     |                     |
-|       |                        |  [3.3072e-01 1.2488e-06 2.1390e-07]  |                     |                     |
-|       |                        |  [3.4726e-01 1.4620e-06 3.3640e-07]  |                     |                     |
-|       |                        |  [3.6462e-01 1.3056e-06 2.1600e-07]  |                     |                     |
-|       |                        |  [3.8285e-01 1.4553e-06 2.3170e-07]  |                     |                     |
-|       |                        |  [4.0200e-01 1.1579e-06 2.6740e-07]  |                     |                     |
-|       |                        |  [4.2210e-01 1.1753e-06 3.0940e-07]  |                     |                     |
-|       |                        |  [4.4320e-01 1.0066e-06 5.2040e-07]  |                     |                     |
-|       |                        |  [4.6536e-01 1.1043e-06 3.1870e-07]  |                     |                     |
-|       |                        |  [4.8863e-01 1.2969e-06 4.1670e-07]  |                     |                     |
-|       |                        |  [5.1306e-01 1.2495e-06 2.0890e-07]  |                     |                     |
-|       |                        |  [5.3871e-01 1.3898e-06 4.7560e-07]  |                     |                     |
-|       |                        |  [5.6565e-01 1.1225e-06 3.0470e-07]  |                     |                     |
-|       |                        |  [5.8877e-01 8.3346e-07 3.8944e-07]] |                     |                     |
-|   2   | D-tail / H-head / D2O  | [[5.1793e-02 1.4943e-04 3.2517e-06]  | [0.051793, 0.58877] | [0.051793, 0.58877] |
-|       |                        |  [5.4383e-02 1.1882e-04 2.5846e-06]  |                     |                     |
-|       |                        |  [5.7102e-02 9.2164e-05 2.0507e-06]  |                     |                     |
-|       |                        |  [5.9957e-02 7.7813e-05 1.7070e-06]  |                     |                     |
-|       |                        |  [6.2955e-02 6.1143e-05 1.3983e-06]  |                     |                     |
-|       |                        |  [6.6103e-02 4.8033e-05 1.1343e-06]  |                     |                     |
-|       |                        |  [6.9408e-02 4.1379e-05 1.0006e-06]  |                     |                     |
-|       |                        |  [7.2878e-02 3.5090e-05 8.6919e-07]  |                     |                     |
-|       |                        |  [7.6522e-02 3.0350e-05 7.5890e-07]  |                     |                     |
-|       |                        |  [8.0348e-02 2.4115e-05 6.5226e-07]  |                     |                     |
-|       |                        |  [8.4365e-02 2.0755e-05 5.7445e-07]  |                     |                     |
-|       |                        |  [8.8584e-02 1.7500e-05 4.9617e-07]  |                     |                     |
-|       |                        |  [9.3013e-02 1.5011e-05 4.3754e-07]  |                     |                     |
-|       |                        |  [9.7664e-02 1.3632e-05 3.9907e-07]  |                     |                     |
-|       |                        |  [1.0255e-01 1.2997e-05 3.7469e-07]  |                     |                     |
-|       |                        |  [1.0767e-01 1.1656e-05 3.4282e-07]  |                     |                     |
-|       |                        |  [1.1306e-01 1.0820e-05 3.2299e-07]  |                     |                     |
-|       |                        |  [1.1871e-01 9.5831e-06 3.0088e-07]  |                     |                     |
-|       |                        |  [1.2465e-01 8.9996e-06 2.8102e-07]  |                     |                     |
-|       |                        |  [1.3088e-01 8.6498e-06 2.7363e-07]  |                     |                     |
-|       |                        |  [1.3742e-01 7.9412e-06 2.7158e-07]  |                     |                     |
-|       |                        |  [1.4429e-01 7.4042e-06 2.6829e-07]  |                     |                     |
-|       |                        |  [1.5151e-01 6.8321e-06 2.6877e-07]  |                     |                     |
-|       |                        |  [1.5908e-01 5.6809e-06 2.6232e-07]  |                     |                     |
-|       |                        |  [1.6704e-01 5.6646e-06 2.8607e-07]  |                     |                     |
-|       |                        |  [1.7539e-01 4.7762e-06 2.7767e-07]  |                     |                     |
-|       |                        |  [1.8416e-01 4.1971e-06 2.7353e-07]  |                     |                     |
-|       |                        |  [1.9337e-01 4.1815e-06 2.9140e-07]  |                     |                     |
-|       |                        |  [2.0304e-01 3.2725e-06 2.3160e-07]  |                     |                     |
-|       |                        |  [2.1319e-01 2.3244e-06 4.2270e-07]  |                     |                     |
-|       |                        |  [2.2385e-01 2.2892e-06 1.4970e-07]  |                     |                     |
-|       |                        |  [2.3504e-01 1.9198e-06 8.1460e-07]  |                     |                     |
-|       |                        |  [2.4679e-01 1.4828e-06 1.0840e-07]  |                     |                     |
-|       |                        |  [2.5913e-01 1.1450e-06 4.7440e-07]  |                     |                     |
-|       |                        |  [2.7209e-01 1.3047e-06 1.8840e-07]  |                     |                     |
-|       |                        |  [2.8569e-01 9.6081e-07 3.9385e-07]  |                     |                     |
-|       |                        |  [2.9998e-01 8.2280e-07 2.3955e-07]  |                     |                     |
-|       |                        |  [3.1497e-01 6.3219e-07 3.5324e-07]  |                     |                     |
-|       |                        |  [3.3072e-01 6.1254e-07 5.0846e-07]  |                     |                     |
-|       |                        |  [3.4726e-01 7.4092e-07 2.2312e-07]  |                     |                     |
-|       |                        |  [3.6462e-01 6.3584e-07 4.2866e-07]  |                     |                     |
-|       |                        |  [3.8285e-01 7.7287e-07 2.9493e-07]  |                     |                     |
-|       |                        |  [4.0200e-01 9.4637e-07 2.3347e-07]  |                     |                     |
-|       |                        |  [4.2210e-01 7.0576e-07 3.3494e-07]  |                     |                     |
-|       |                        |  [4.4320e-01 7.8969e-07 2.3371e-07]  |                     |                     |
-|       |                        |  [4.6536e-01 5.8374e-07 3.2624e-07]  |                     |                     |
-|       |                        |  [4.8863e-01 5.6711e-07 6.0419e-07]  |                     |                     |
-|       |                        |  [5.1306e-01 4.7782e-07 3.4822e-07]  |                     |                     |
-|       |                        |  [5.3871e-01 6.3813e-07 4.3279e-07]  |                     |                     |
-|       |                        |  [5.6565e-01 4.6186e-07 1.8863e-07]  |                     |                     |
-|       |                        |  [5.8877e-01 5.6129e-07 4.3960e-07]] |                     |                     |
-+-------+------------------------+--------------------------------------+---------------------+---------------------+
-
-Layers: --------------------------------------------------------------------------------------------
-
-+-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
-| index |        name        |    thickness    |          SLD           |    roughness    |    hydration    | hydrate with |
-+-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
-|   0   | Hydrogenated Heads | Heads Thickness | Hydrogenated Heads SLD | Heads Roughness | Heads Hydration |   bulk out   |
-|   1   |  Deuterated Heads  | Heads Thickness |  Deuterated Heads SLD  | Heads Roughness | Heads Hydration |   bulk out   |
-|   2   | Hydrogenated Tails | Tails Thickness | Hydrogenated Tails SLD | Tails Roughness |                 |   bulk out   |
-|   3   |  Deuterated Tails  | Tails Thickness |  Deuterated Tails SLD  | Tails Roughness |                 |   bulk out   |
-+-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
-
-Contrasts: -----------------------------------------------------------------------------------------
-
-+-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------------------------------+
-| index |        name        |          data         |    background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |                   model                    |
-+-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------------------------------+
-|   0   | D-tail/H-Head/D2O  | D-tail / H-head / D2O |  Background D2O |        add        | SLD Air | SLD D2O  | Scalefactor 1 | Resolution 1 |  False   | ['Deuterated Tails', 'Hydrogenated Heads'] |
-|   1   | H-tail/D-Head/ACMW | D-tail / H-head / D2O | Background ACMW |        add        | SLD Air | SLD ACMW | Scalefactor 1 | Resolution 1 |  False   | ['Hydrogenated Tails', 'Deuterated Heads'] |
-+-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------------------------------+
-
-
-
-</pre>
 </div>
 </div>
 <p>This may initially look quite complicated, but it is fairly self-explanatory in terms of representing a typical RasCAL
@@ -920,44 +558,10 @@ and their allowed ranges, and specify if they are included in the fit:-</p>
 <input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
-
-    <strong>p</strong>               <strong>Name</strong>               <strong>Min</strong>              <strong>Value</strong>             <strong>Max</strong>     <strong>Fit?</strong> 
-    <strong>__</strong>    <strong>________________________</strong>    <strong>______</strong>    <strong>_____________________</strong>    <strong>_____</strong>    <strong>_____</strong>
-
-     1    "Substrate Roughness"            1         2.95173387253282        5    true 
-     2    "Tails Thickness"               10         20.0516480999742       30    true 
-     3    "Heads Thickness"                3          6.8660916771992       16    true 
-     4    "Tails Roughness"                2          3.3249364871383        9    true 
-     5    "Heads Roughness"                2         5.42833073432123        9    true 
-     6    "Deuterated Tails SLD"       4e-06     7.95670100033799e-06    2e-05    true 
-     7    "Hydrogenated Tails SLD"    -6e-07    -1.87892760958886e-07        0    true 
-     8    "Deuterated Heads SLD"       1e-06     6.03995339972192e-06    8e-06    true 
-     9    "Hydrogenated Heads SLD"     1e-07     1.38006013970228e-06    3e-06    true 
-    10    "Heads Hydration"                0        0.342208205811867      0.5    true 
-
-</pre>
 </div>
 <input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-+-------+------------------------+--------+------------------------+-------+------+------------+-----+-------+
-| index |          name          |  min   |         value          |  max  | fit  | prior type |  mu | sigma |
-+-------+------------------------+--------+------------------------+-------+------+------------+-----+-------+
-|   0   |  Substrate Roughness   |  1.0   |   2.996226798373644    |  5.0  | True |  uniform   | 0.0 |  inf  |
-|   1   |    Tails Thickness     |  10.0  |   19.922733993622895   |  30.0 | True |  uniform   | 0.0 |  inf  |
-|   2   |    Heads Thickness     |  3.0   |   7.880192597374673    |  16.0 | True |  uniform   | 0.0 |  inf  |
-|   3   |    Tails Roughness     |  2.0   |   4.996097348648056    |  9.0  | True |  uniform   | 0.0 |  inf  |
-|   4   |    Heads Roughness     |  2.0   |   3.566076452808077    |  9.0  | True |  uniform   | 0.0 |  inf  |
-|   5   |  Deuterated Tails SLD  | 4e-06  | 7.648479880083687e-06  | 2e-05 | True |  uniform   | 0.0 |  inf  |
-|   6   | Hydrogenated Tails SLD | -6e-07 | -4.890019922784387e-08 |  0.0  | True |  uniform   | 0.0 |  inf  |
-|   7   |  Deuterated Heads SLD  | 1e-06  | 7.983374742058776e-06  | 8e-06 | True |  uniform   | 0.0 |  inf  |
-|   8   | Hydrogenated Heads SLD | 1e-07  | 1.1487864022837649e-06 | 3e-06 | True |  uniform   | 0.0 |  inf  |
-|   9   |    Heads Hydration     |  0.0   |   0.3743112218154607   |  0.5  | True |  uniform   | 0.0 |  inf  |
-+-------+------------------------+--------+------------------------+-------+------+------------+-----+-------+
-
-</pre>
 </div>
 </div>
 <p>2. <strong>The Layers Group -</strong> Once we have our parameters, we then need to group these into layers, in traditional RasCAL style.
@@ -967,32 +571,10 @@ For our model, we always have two layers - a headgroup and the associated tails.
 <input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-6">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
-
-    <strong>p</strong>            <strong>Name</strong>                <strong>Thickness</strong>                  <strong>SLD</strong>                   <strong>Roughness</strong>            <strong>Hydration</strong>        <strong>Hydrate with</strong>
-    <strong>_</strong>    <strong>____________________</strong>    <strong>_________________</strong>    <strong>________________________</strong>    <strong>_________________</strong>    <strong>_________________</strong>    <strong>____________</strong>
-
-    1    "Hydrogenated Heads"    "Heads Thickness"    "Hydrogenated Heads SLD"    "Heads Roughness"    "Heads Hydration"     "bulk out" 
-    2    "Deuterated Heads"      "Heads Thickness"    "Deuterated Heads SLD"      "Heads Roughness"    "Heads Hydration"     "bulk out" 
-    3    "Hydrogenated Tails"    "Tails Thickness"    "Hydrogenated Tails SLD"    "Tails Roughness"    ""                    "bulk out" 
-    4    "Deuterated Tails"      "Tails Thickness"    "Deuterated Tails SLD"      "Tails Roughness"    ""                    "bulk out" 
-
-</pre>
 </div>
 <input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-7">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-+-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
-| index |        name        |    thickness    |          SLD           |    roughness    |    hydration    | hydrate with |
-+-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
-|   0   | Hydrogenated Heads | Heads Thickness | Hydrogenated Heads SLD | Heads Roughness | Heads Hydration |   bulk out   |
-|   1   |  Deuterated Heads  | Heads Thickness |  Deuterated Heads SLD  | Heads Roughness | Heads Hydration |   bulk out   |
-|   2   | Hydrogenated Tails | Tails Thickness | Hydrogenated Tails SLD | Tails Roughness |                 |   bulk out   |
-|   3   |  Deuterated Tails  | Tails Thickness |  Deuterated Tails SLD  | Tails Roughness |                 |   bulk out   |
-+-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
-
-</pre>
 </div>
 </div>
 <p>3. <strong>‘Instrument’ Parameters: (Backgrounds, scalefactors and resolutions) -</strong> These are necessary to specify our model, and are
@@ -1007,130 +589,10 @@ will also be calculated. For our problem, we have two datasets and these are cod
 <input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-8">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
-
-              <strong>Name</strong>                       <strong>Data</strong>                  <strong>Data Range</strong>            <strong>Simulation Range</strong>   
-    <strong>________________________</strong>    <strong>______________________</strong>    <strong>_____________________</strong>    <strong>_____________________</strong>
-
-    "Simulation"                "No Data"                 "-"                      "[ 0.0050 , 0.7000 ]"
-    "H-tail / D-head / ACMW"    "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
-    "D-tail / H-head / D2O"     "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
-
-</pre>
 </div>
 <input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-9">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-+-------+------------------------+--------------------------------------+---------------------+---------------------+
-| index |          name          |                 data                 |      data range     |   simulation range  |
-+-------+------------------------+--------------------------------------+---------------------+---------------------+
-|   0   |       Simulation       |                  []                  |          []         |     [0.005, 0.7]    |
-|   1   | H-tail / D-head / ACMW | [[5.1793e-02 1.8087e-05 7.9683e-07]  | [0.051793, 0.58877] | [0.051793, 0.58877] |
-|       |                        |  [5.4383e-02 1.4582e-05 6.3691e-07]  |                     |                     |
-|       |                        |  [5.7102e-02 1.3621e-05 5.5407e-07]  |                     |                     |
-|       |                        |  [5.9957e-02 1.2409e-05 4.8014e-07]  |                     |                     |
-|       |                        |  [6.2955e-02 1.0992e-05 4.1824e-07]  |                     |                     |
-|       |                        |  [6.6103e-02 1.0619e-05 3.7541e-07]  |                     |                     |
-|       |                        |  [6.9408e-02 1.0162e-05 3.4945e-07]  |                     |                     |
-|       |                        |  [7.2878e-02 1.0716e-05 3.3763e-07]  |                     |                     |
-|       |                        |  [7.6522e-02 8.3468e-06 2.8040e-07]  |                     |                     |
-|       |                        |  [8.0348e-02 7.5250e-06 2.5702e-07]  |                     |                     |
-|       |                        |  [8.4365e-02 6.4395e-06 2.2528e-07]  |                     |                     |
-|       |                        |  [8.8584e-02 6.0544e-06 2.0545e-07]  |                     |                     |
-|       |                        |  [9.3013e-02 5.9517e-06 1.9417e-07]  |                     |                     |
-|       |                        |  [9.7664e-02 5.6433e-06 1.8108e-07]  |                     |                     |
-|       |                        |  [1.0255e-01 4.8172e-06 1.6076e-07]  |                     |                     |
-|       |                        |  [1.0767e-01 4.8066e-06 1.5520e-07]  |                     |                     |
-|       |                        |  [1.1306e-01 4.1559e-06 1.4115e-07]  |                     |                     |
-|       |                        |  [1.1871e-01 4.1418e-06 1.3926e-07]  |                     |                     |
-|       |                        |  [1.2465e-01 3.4580e-06 1.2273e-07]  |                     |                     |
-|       |                        |  [1.3088e-01 3.2376e-06 1.1791e-07]  |                     |                     |
-|       |                        |  [1.3742e-01 3.0976e-06 1.1948e-07]  |                     |                     |
-|       |                        |  [1.4429e-01 2.7478e-06 1.1518e-07]  |                     |                     |
-|       |                        |  [1.5151e-01 2.5492e-06 1.1573e-07]  |                     |                     |
-|       |                        |  [1.5908e-01 2.7500e-06 1.2812e-07]  |                     |                     |
-|       |                        |  [1.6704e-01 2.1813e-06 2.0450e-07]  |                     |                     |
-|       |                        |  [1.7539e-01 1.8609e-06 5.4900e-07]  |                     |                     |
-|       |                        |  [1.8416e-01 1.9405e-06 1.5660e-07]  |                     |                     |
-|       |                        |  [1.9337e-01 1.7421e-06 2.3280e-07]  |                     |                     |
-|       |                        |  [2.0304e-01 1.8050e-06 3.9820e-07]  |                     |                     |
-|       |                        |  [2.1319e-01 1.5801e-06 1.4110e-07]  |                     |                     |
-|       |                        |  [2.2385e-01 1.6724e-06 7.7900e-08]  |                     |                     |
-|       |                        |  [2.3504e-01 1.4150e-06 4.0820e-07]  |                     |                     |
-|       |                        |  [2.4679e-01 1.4340e-06 5.3180e-07]  |                     |                     |
-|       |                        |  [2.5913e-01 1.3102e-06 2.6000e-07]  |                     |                     |
-|       |                        |  [2.7209e-01 1.3702e-06 2.8540e-07]  |                     |                     |
-|       |                        |  [2.8569e-01 1.2468e-06 2.3230e-07]  |                     |                     |
-|       |                        |  [2.9998e-01 1.2956e-06 5.3240e-07]  |                     |                     |
-|       |                        |  [3.1497e-01 1.2947e-06 3.9940e-07]  |                     |                     |
-|       |                        |  [3.3072e-01 1.2488e-06 2.1390e-07]  |                     |                     |
-|       |                        |  [3.4726e-01 1.4620e-06 3.3640e-07]  |                     |                     |
-|       |                        |  [3.6462e-01 1.3056e-06 2.1600e-07]  |                     |                     |
-|       |                        |  [3.8285e-01 1.4553e-06 2.3170e-07]  |                     |                     |
-|       |                        |  [4.0200e-01 1.1579e-06 2.6740e-07]  |                     |                     |
-|       |                        |  [4.2210e-01 1.1753e-06 3.0940e-07]  |                     |                     |
-|       |                        |  [4.4320e-01 1.0066e-06 5.2040e-07]  |                     |                     |
-|       |                        |  [4.6536e-01 1.1043e-06 3.1870e-07]  |                     |                     |
-|       |                        |  [4.8863e-01 1.2969e-06 4.1670e-07]  |                     |                     |
-|       |                        |  [5.1306e-01 1.2495e-06 2.0890e-07]  |                     |                     |
-|       |                        |  [5.3871e-01 1.3898e-06 4.7560e-07]  |                     |                     |
-|       |                        |  [5.6565e-01 1.1225e-06 3.0470e-07]  |                     |                     |
-|       |                        |  [5.8877e-01 8.3346e-07 3.8944e-07]] |                     |                     |
-|   2   | D-tail / H-head / D2O  | [[5.1793e-02 1.4943e-04 3.2517e-06]  | [0.051793, 0.58877] | [0.051793, 0.58877] |
-|       |                        |  [5.4383e-02 1.1882e-04 2.5846e-06]  |                     |                     |
-|       |                        |  [5.7102e-02 9.2164e-05 2.0507e-06]  |                     |                     |
-|       |                        |  [5.9957e-02 7.7813e-05 1.7070e-06]  |                     |                     |
-|       |                        |  [6.2955e-02 6.1143e-05 1.3983e-06]  |                     |                     |
-|       |                        |  [6.6103e-02 4.8033e-05 1.1343e-06]  |                     |                     |
-|       |                        |  [6.9408e-02 4.1379e-05 1.0006e-06]  |                     |                     |
-|       |                        |  [7.2878e-02 3.5090e-05 8.6919e-07]  |                     |                     |
-|       |                        |  [7.6522e-02 3.0350e-05 7.5890e-07]  |                     |                     |
-|       |                        |  [8.0348e-02 2.4115e-05 6.5226e-07]  |                     |                     |
-|       |                        |  [8.4365e-02 2.0755e-05 5.7445e-07]  |                     |                     |
-|       |                        |  [8.8584e-02 1.7500e-05 4.9617e-07]  |                     |                     |
-|       |                        |  [9.3013e-02 1.5011e-05 4.3754e-07]  |                     |                     |
-|       |                        |  [9.7664e-02 1.3632e-05 3.9907e-07]  |                     |                     |
-|       |                        |  [1.0255e-01 1.2997e-05 3.7469e-07]  |                     |                     |
-|       |                        |  [1.0767e-01 1.1656e-05 3.4282e-07]  |                     |                     |
-|       |                        |  [1.1306e-01 1.0820e-05 3.2299e-07]  |                     |                     |
-|       |                        |  [1.1871e-01 9.5831e-06 3.0088e-07]  |                     |                     |
-|       |                        |  [1.2465e-01 8.9996e-06 2.8102e-07]  |                     |                     |
-|       |                        |  [1.3088e-01 8.6498e-06 2.7363e-07]  |                     |                     |
-|       |                        |  [1.3742e-01 7.9412e-06 2.7158e-07]  |                     |                     |
-|       |                        |  [1.4429e-01 7.4042e-06 2.6829e-07]  |                     |                     |
-|       |                        |  [1.5151e-01 6.8321e-06 2.6877e-07]  |                     |                     |
-|       |                        |  [1.5908e-01 5.6809e-06 2.6232e-07]  |                     |                     |
-|       |                        |  [1.6704e-01 5.6646e-06 2.8607e-07]  |                     |                     |
-|       |                        |  [1.7539e-01 4.7762e-06 2.7767e-07]  |                     |                     |
-|       |                        |  [1.8416e-01 4.1971e-06 2.7353e-07]  |                     |                     |
-|       |                        |  [1.9337e-01 4.1815e-06 2.9140e-07]  |                     |                     |
-|       |                        |  [2.0304e-01 3.2725e-06 2.3160e-07]  |                     |                     |
-|       |                        |  [2.1319e-01 2.3244e-06 4.2270e-07]  |                     |                     |
-|       |                        |  [2.2385e-01 2.2892e-06 1.4970e-07]  |                     |                     |
-|       |                        |  [2.3504e-01 1.9198e-06 8.1460e-07]  |                     |                     |
-|       |                        |  [2.4679e-01 1.4828e-06 1.0840e-07]  |                     |                     |
-|       |                        |  [2.5913e-01 1.1450e-06 4.7440e-07]  |                     |                     |
-|       |                        |  [2.7209e-01 1.3047e-06 1.8840e-07]  |                     |                     |
-|       |                        |  [2.8569e-01 9.6081e-07 3.9385e-07]  |                     |                     |
-|       |                        |  [2.9998e-01 8.2280e-07 2.3955e-07]  |                     |                     |
-|       |                        |  [3.1497e-01 6.3219e-07 3.5324e-07]  |                     |                     |
-|       |                        |  [3.3072e-01 6.1254e-07 5.0846e-07]  |                     |                     |
-|       |                        |  [3.4726e-01 7.4092e-07 2.2312e-07]  |                     |                     |
-|       |                        |  [3.6462e-01 6.3584e-07 4.2866e-07]  |                     |                     |
-|       |                        |  [3.8285e-01 7.7287e-07 2.9493e-07]  |                     |                     |
-|       |                        |  [4.0200e-01 9.4637e-07 2.3347e-07]  |                     |                     |
-|       |                        |  [4.2210e-01 7.0576e-07 3.3494e-07]  |                     |                     |
-|       |                        |  [4.4320e-01 7.8969e-07 2.3371e-07]  |                     |                     |
-|       |                        |  [4.6536e-01 5.8374e-07 3.2624e-07]  |                     |                     |
-|       |                        |  [4.8863e-01 5.6711e-07 6.0419e-07]  |                     |                     |
-|       |                        |  [5.1306e-01 4.7782e-07 3.4822e-07]  |                     |                     |
-|       |                        |  [5.3871e-01 6.3813e-07 4.3279e-07]  |                     |                     |
-|       |                        |  [5.6565e-01 4.6186e-07 1.8863e-07]  |                     |                     |
-|       |                        |  [5.8877e-01 5.6129e-07 4.3960e-07]] |                     |                     |
-+-------+------------------------+--------------------------------------+---------------------+---------------------+
-
-</pre>
 </div>
 </div>
 <p>5. <strong>Contrasts -</strong> Once we have defined all the components of our model, we need to group them together into contrasts. We have two datasets
@@ -1139,43 +601,16 @@ we want to consider, so two contrasts. We have the relevant instrument parameter
 <input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-10">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
-
-             <strong>p</strong>                        <strong>1</strong>                          <strong>2</strong>            
-    <strong>___________________</strong>    <strong>_______________________</strong>    <strong>________________________</strong>
-
-    "Name"                 "D-tail/H-Head/D2O"        "H-tail/D-Head/ACMW"    
-    "Data"                 "D-tail / H-head / D2O"    "H-tail / D-head / ACMW"
-    "Background"           "Background D2O"           "Background ACMW"       
-    "Background Action"    "add"                      "add"                   
-    "Bulk in"              "SLD Air"                  "SLD Air"               
-    "Bulk out"             "SLD D2O"                  "SLD ACMW"              
-    "Scalefactor"          "Scalefactor 1"            "Scalefactor 1"         
-    "Resolution"           "Resolution 1"             "Resolution 1"          
-    "Resample"             "false"                    "false"                 
-    "Model"                "Deuterated Tails"         "Hydrogenated Tails"    
-    ""                     "Hydrogenated Heads"       "Deuterated Heads"      
-
-</pre>
 </div>
 <input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-11">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-+-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------------------------------+
-| index |        name        |          data         |    background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |                   model                    |
-+-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------------------------------+
-|   0   | D-tail/H-Head/D2O  | D-tail / H-head / D2O |  Background D2O |        add        | SLD Air | SLD D2O  | Scalefactor 1 | Resolution 1 |  False   | ['Deuterated Tails', 'Hydrogenated Heads'] |
-|   1   | H-tail/D-Head/ACMW | D-tail / H-head / D2O | Background ACMW |        add        | SLD Air | SLD ACMW | Scalefactor 1 | Resolution 1 |  False   | ['Hydrogenated Tails', 'Deuterated Heads'] |
-+-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------------------------------+
-
-</pre>
 </div>
 </div>
 <p><strong>(b) Running our Model.</strong></p>
 <p>As implied from figure (1), running RAT requires not only our input model specification, but also a controls block telling RAT what to do. We
-will discuss the controls block in more detail in Chapter 4, but for this demo we will just make an instance of the controls block and modify
-a few parameters to run the demo:</p>
+will discuss the controls block in more detail in <a class="reference internal" href="controlsInfo.html#controlsinfo"><span class="std std-ref">A Closer Look at the Controls Class</span></a>, but for this demo we will just make an instance
+of the controls block and modify a few parameters to run the demo:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-12" name="sd-tab-set-6" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-12">
@@ -1190,7 +625,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-13">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an instance of controls class</span>
-<span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">set_controls</span><span class="p">()</span>
+<span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">controls</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1200,33 +635,10 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-14" name="sd-tab-set-7" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-14">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
-
-  <span style="color:DodgerBlue;font-weight:bold;text-decoration:underline">controlsClass</span> with properties:
-
-            parallel: 'single'
-           procedure: 'calculate'
-    calcSldDuringFit: 0
-             display: 'iter'
-      resampleParams: [0.900000000000000 50]
-
-</pre>
 </div>
 <input id="sd-tab-item-15" name="sd-tab-set-7" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-15">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-+------------------+-----------+
-|     Property     |   Value   |
-+------------------+-----------+
-|    procedure     | calculate |
-|     parallel     |   single  |
-| calcSldDuringFit |   False   |
-|  resampleParams  | [0.9, 50] |
-|     display      |    iter   |
-+------------------+-----------+
-
-</pre>
 </div>
 </div>
 <p>This makes an instance of the controls Class we have called <strong>controls</strong>. The various properties of the class allow the type of calculation
@@ -1255,15 +667,6 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-18" name="sd-tab-set-9" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-18">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
-
-Starting RAT ________________________________________________________________________________________________
-
-Elapsed time is 0.336060 seconds.
-
-Finished RAT ______________________________________________________________________________________________ 
-
-</pre>
 </div>
 <input id="sd-tab-item-19" name="sd-tab-set-9" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-19">
@@ -1277,684 +680,10 @@ Python</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-20" name="sd-tab-set-10" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-20">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
-
-          reflectivity: {2×1 cell}
-            simulation: {2×1 cell}
-           shiftedData: {2×1 cell}
-             layerSlds: {2×1 cell}
-           sldProfiles: {2×1 cell}
-       resampledLayers: {2×1 cell}
-    calculationResults: [1×1 struct]
-        contrastParams: [1×1 struct]
-             fitParams: [15×1 double]
-              fitNames: {15×1 cell}
-
-</pre>
 </div>
 <input id="sd-tab-item-21" name="sd-tab-set-10" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-21">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-Results(reflectivity=[array([[5.17930000e-02, 5.73164945e-04],
-       [5.43830000e-02, 4.56964874e-04],
-       [5.71020000e-02, 3.57795612e-04],
-       [5.99570000e-02, 2.81502848e-04],
-       [6.29550000e-02, 2.23093335e-04],
-       [6.61030000e-02, 1.78624489e-04],
-       [6.94080000e-02, 1.44985961e-04],
-       [7.28780000e-02, 1.19707200e-04],
-       [7.65220000e-02, 1.00832275e-04],
-       [8.03480000e-02, 8.68277705e-05],
-       [8.43650000e-02, 7.64748205e-05],
-       [8.85840000e-02, 6.88074470e-05],
-       [9.30130000e-02, 6.30779174e-05],
-       [9.76640000e-02, 5.86918474e-05],
-       [1.02550000e-01, 5.51887716e-05],
-       [1.07670000e-01, 5.22341372e-05],
-       [1.13060000e-01, 4.95395579e-05],
-       [1.18710000e-01, 4.69381754e-05],
-       [1.24650000e-01, 4.42813320e-05],
-       [1.30880000e-01, 4.14988336e-05],
-       [1.37420000e-01, 3.85440625e-05],
-       [1.44290000e-01, 3.54070449e-05],
-       [1.51510000e-01, 3.21037022e-05],
-       [1.59080000e-01, 2.86913492e-05],
-       [1.67040000e-01, 2.52099237e-05],
-       [1.75390000e-01, 2.17472355e-05],
-       [1.84160000e-01, 1.83716418e-05],
-       [1.93370000e-01, 1.51631156e-05],
-       [2.03040000e-01, 1.21957165e-05],
-       [2.13190000e-01, 9.53360664e-06],
-       [2.23850000e-01, 7.22139807e-06],
-       [2.35040000e-01, 5.28979202e-06],
-       [2.46790000e-01, 3.74417056e-06],
-       [2.59130000e-01, 2.56922656e-06],
-       [2.72090000e-01, 1.72960807e-06],
-       [2.85690000e-01, 1.17473126e-06],
-       [2.99980000e-01, 8.41667205e-07],
-       [3.14970000e-01, 6.67178596e-07],
-       [3.30720000e-01, 5.90872024e-07],
-       [3.47260000e-01, 5.64018040e-07],
-       [3.64620000e-01, 5.52079813e-07],
-       [3.82850000e-01, 5.35791666e-07],
-       [4.02000000e-01, 5.08968097e-07],
-       [4.22100000e-01, 4.74290452e-07],
-       [4.43200000e-01, 4.38232787e-07],
-       [4.65360000e-01, 4.06887888e-07],
-       [4.88630000e-01, 3.83653200e-07],
-       [5.13060000e-01, 3.68807145e-07],
-       [5.38710000e-01, 3.60538609e-07],
-       [5.65650000e-01, 3.56298457e-07],
-       [5.88770000e-01, 3.54886713e-07]]), array([[5.17930000e-02, 2.42560873e-04],
-       [5.43830000e-02, 2.21123231e-04],
-       [5.71020000e-02, 2.00002315e-04],
-       [5.99570000e-02, 1.80904948e-04],
-       [6.29550000e-02, 1.63633795e-04],
-       [6.61030000e-02, 1.48011063e-04],
-       [6.94080000e-02, 1.33879066e-04],
-       [7.28780000e-02, 1.21091595e-04],
-       [7.65220000e-02, 1.09514432e-04],
-       [8.03480000e-02, 9.90349289e-05],
-       [8.43650000e-02, 8.95481139e-05],
-       [8.85840000e-02, 8.09534743e-05],
-       [9.30130000e-02, 7.31737531e-05],
-       [9.76640000e-02, 6.61273678e-05],
-       [1.02550000e-01, 5.97386506e-05],
-       [1.07670000e-01, 5.39751874e-05],
-       [1.13060000e-01, 4.87306290e-05],
-       [1.18710000e-01, 4.40007356e-05],
-       [1.24650000e-01, 3.97091380e-05],
-       [1.30880000e-01, 3.58355711e-05],
-       [1.37420000e-01, 3.23344862e-05],
-       [1.44290000e-01, 2.91707630e-05],
-       [1.51510000e-01, 2.63122733e-05],
-       [1.59080000e-01, 2.37444166e-05],
-       [1.67040000e-01, 2.14284045e-05],
-       [1.75390000e-01, 1.93541106e-05],
-       [1.84160000e-01, 1.74960368e-05],
-       [1.93370000e-01, 1.58376649e-05],
-       [2.03040000e-01, 1.43632613e-05],
-       [2.13190000e-01, 1.30586311e-05],
-       [2.23850000e-01, 1.19086455e-05],
-       [2.35040000e-01, 1.09017172e-05],
-       [2.46790000e-01, 1.00251488e-05],
-       [2.59130000e-01, 9.26745211e-06],
-       [2.72090000e-01, 8.61766229e-06],
-       [2.85690000e-01, 8.06619235e-06],
-       [2.99980000e-01, 7.60155079e-06],
-       [3.14970000e-01, 7.21558065e-06],
-       [3.30720000e-01, 6.89780182e-06],
-       [3.47260000e-01, 6.64001250e-06],
-       [3.64620000e-01, 6.43420426e-06],
-       [3.82850000e-01, 6.27256121e-06],
-       [4.02000000e-01, 6.14804157e-06],
-       [4.22100000e-01, 6.05440812e-06],
-       [4.43200000e-01, 5.98577812e-06],
-       [4.65360000e-01, 5.93691804e-06],
-       [4.88630000e-01, 5.90330430e-06],
-       [5.13060000e-01, 5.88105270e-06],
-       [5.38710000e-01, 5.86693634e-06],
-       [5.65650000e-01, 5.85809076e-06],
-       [5.88770000e-01, 5.85459534e-06]])], simulation=[array([[5.17930000e-02, 5.73164945e-04],
-       [5.43830000e-02, 4.56964874e-04],
-       [5.71020000e-02, 3.57795612e-04],
-       [5.99570000e-02, 2.81502848e-04],
-       [6.29550000e-02, 2.23093335e-04],
-       [6.61030000e-02, 1.78624489e-04],
-       [6.94080000e-02, 1.44985961e-04],
-       [7.28780000e-02, 1.19707200e-04],
-       [7.65220000e-02, 1.00832275e-04],
-       [8.03480000e-02, 8.68277705e-05],
-       [8.43650000e-02, 7.64748205e-05],
-       [8.85840000e-02, 6.88074470e-05],
-       [9.30130000e-02, 6.30779174e-05],
-       [9.76640000e-02, 5.86918474e-05],
-       [1.02550000e-01, 5.51887716e-05],
-       [1.07670000e-01, 5.22341372e-05],
-       [1.13060000e-01, 4.95395579e-05],
-       [1.18710000e-01, 4.69381754e-05],
-       [1.24650000e-01, 4.42813320e-05],
-       [1.30880000e-01, 4.14988336e-05],
-       [1.37420000e-01, 3.85440625e-05],
-       [1.44290000e-01, 3.54070449e-05],
-       [1.51510000e-01, 3.21037022e-05],
-       [1.59080000e-01, 2.86913492e-05],
-       [1.67040000e-01, 2.52099237e-05],
-       [1.75390000e-01, 2.17472355e-05],
-       [1.84160000e-01, 1.83716418e-05],
-       [1.93370000e-01, 1.51631156e-05],
-       [2.03040000e-01, 1.21957165e-05],
-       [2.13190000e-01, 9.53360664e-06],
-       [2.23850000e-01, 7.22139807e-06],
-       [2.35040000e-01, 5.28979202e-06],
-       [2.46790000e-01, 3.74417056e-06],
-       [2.59130000e-01, 2.56922656e-06],
-       [2.72090000e-01, 1.72960807e-06],
-       [2.85690000e-01, 1.17473126e-06],
-       [2.99980000e-01, 8.41667205e-07],
-       [3.14970000e-01, 6.67178596e-07],
-       [3.30720000e-01, 5.90872024e-07],
-       [3.47260000e-01, 5.64018040e-07],
-       [3.64620000e-01, 5.52079813e-07],
-       [3.82850000e-01, 5.35791666e-07],
-       [4.02000000e-01, 5.08968097e-07],
-       [4.22100000e-01, 4.74290452e-07],
-       [4.43200000e-01, 4.38232787e-07],
-       [4.65360000e-01, 4.06887888e-07],
-       [4.88630000e-01, 3.83653200e-07],
-       [5.13060000e-01, 3.68807145e-07],
-       [5.38710000e-01, 3.60538609e-07],
-       [5.65650000e-01, 3.56298457e-07],
-       [5.88770000e-01, 3.54886713e-07]]), array([[5.17930000e-02, 2.42560873e-04],
-       [5.43830000e-02, 2.21123231e-04],
-       [5.71020000e-02, 2.00002315e-04],
-       [5.99570000e-02, 1.80904948e-04],
-       [6.29550000e-02, 1.63633795e-04],
-       [6.61030000e-02, 1.48011063e-04],
-       [6.94080000e-02, 1.33879066e-04],
-       [7.28780000e-02, 1.21091595e-04],
-       [7.65220000e-02, 1.09514432e-04],
-       [8.03480000e-02, 9.90349289e-05],
-       [8.43650000e-02, 8.95481139e-05],
-       [8.85840000e-02, 8.09534743e-05],
-       [9.30130000e-02, 7.31737531e-05],
-       [9.76640000e-02, 6.61273678e-05],
-       [1.02550000e-01, 5.97386506e-05],
-       [1.07670000e-01, 5.39751874e-05],
-       [1.13060000e-01, 4.87306290e-05],
-       [1.18710000e-01, 4.40007356e-05],
-       [1.24650000e-01, 3.97091380e-05],
-       [1.30880000e-01, 3.58355711e-05],
-       [1.37420000e-01, 3.23344862e-05],
-       [1.44290000e-01, 2.91707630e-05],
-       [1.51510000e-01, 2.63122733e-05],
-       [1.59080000e-01, 2.37444166e-05],
-       [1.67040000e-01, 2.14284045e-05],
-       [1.75390000e-01, 1.93541106e-05],
-       [1.84160000e-01, 1.74960368e-05],
-       [1.93370000e-01, 1.58376649e-05],
-       [2.03040000e-01, 1.43632613e-05],
-       [2.13190000e-01, 1.30586311e-05],
-       [2.23850000e-01, 1.19086455e-05],
-       [2.35040000e-01, 1.09017172e-05],
-       [2.46790000e-01, 1.00251488e-05],
-       [2.59130000e-01, 9.26745211e-06],
-       [2.72090000e-01, 8.61766229e-06],
-       [2.85690000e-01, 8.06619235e-06],
-       [2.99980000e-01, 7.60155079e-06],
-       [3.14970000e-01, 7.21558065e-06],
-       [3.30720000e-01, 6.89780182e-06],
-       [3.47260000e-01, 6.64001250e-06],
-       [3.64620000e-01, 6.43420426e-06],
-       [3.82850000e-01, 6.27256121e-06],
-       [4.02000000e-01, 6.14804157e-06],
-       [4.22100000e-01, 6.05440812e-06],
-       [4.43200000e-01, 5.98577812e-06],
-       [4.65360000e-01, 5.93691804e-06],
-       [4.88630000e-01, 5.90330430e-06],
-       [5.13060000e-01, 5.88105270e-06],
-       [5.38710000e-01, 5.86693634e-06],
-       [5.65650000e-01, 5.85809076e-06],
-       [5.88770000e-01, 5.85459534e-06]])], shiftedData=[array([[5.17930000e-02, 6.02952188e-04, 1.31206560e-05],
-       [5.43830000e-02, 4.79440400e-04, 1.04288980e-05],
-       [5.71020000e-02, 3.71883059e-04, 8.27460384e-06],
-       [5.99570000e-02, 3.13976568e-04, 6.88776942e-06],
-       [6.29550000e-02, 2.46712880e-04, 5.64216050e-06],
-       [6.61030000e-02, 1.93813842e-04, 4.57691673e-06],
-       [6.94080000e-02, 1.66964857e-04, 4.03743532e-06],
-       [7.28780000e-02, 1.41588652e-04, 3.50719409e-06],
-       [7.65220000e-02, 1.22462684e-04, 3.06217236e-06],
-       [8.03480000e-02, 9.73043700e-05, 2.63187843e-06],
-       [8.43650000e-02, 8.37467219e-05, 2.31791397e-06],
-       [8.85840000e-02, 7.06127504e-05, 2.00205305e-06],
-       [9.30130000e-02, 6.05695998e-05, 1.76548016e-06],
-       [9.76640000e-02, 5.50053150e-05, 1.61025316e-06],
-       [1.02550000e-01, 5.24430809e-05, 1.51187951e-06],
-       [1.07670000e-01, 4.70321268e-05, 1.38328360e-06],
-       [1.13060000e-01, 4.36588548e-05, 1.30326927e-06],
-       [1.18710000e-01, 3.86679456e-05, 1.21405510e-06],
-       [1.24650000e-01, 3.63135148e-05, 1.13391972e-06],
-       [1.30880000e-01, 3.49020667e-05, 1.10410096e-06],
-       [1.37420000e-01, 3.20428556e-05, 1.09582919e-06],
-       [1.44290000e-01, 2.98760529e-05, 1.08255399e-06],
-       [1.51510000e-01, 2.75676212e-05, 1.08449080e-06],
-       [1.59080000e-01, 2.29225128e-05, 1.05846495e-06],
-       [1.67040000e-01, 2.28567420e-05, 1.15429654e-06],
-       [1.75390000e-01, 1.92720353e-05, 1.12040242e-06],
-       [1.84160000e-01, 1.69353585e-05, 1.10369746e-06],
-       [1.93370000e-01, 1.68724123e-05, 1.17580317e-06],
-       [2.03040000e-01, 1.32045843e-05, 9.34509313e-07],
-       [2.13190000e-01, 9.37898725e-06, 1.70560055e-06],
-       [2.23850000e-01, 9.23695475e-06, 6.04041642e-07],
-       [2.35040000e-01, 7.74642047e-06, 3.28692265e-06],
-       [2.46790000e-01, 5.98311921e-06, 4.37395551e-07],
-       [2.59130000e-01, 4.62009138e-06, 1.91421079e-06],
-       [2.72090000e-01, 5.26448317e-06, 7.60196695e-07],
-       [2.85690000e-01, 3.87688210e-06, 1.58919038e-06],
-       [2.99980000e-01, 3.32000977e-06, 9.66587677e-07],
-       [3.14970000e-01, 2.55089569e-06, 1.42532845e-06],
-       [3.30720000e-01, 2.47160766e-06, 2.05164337e-06],
-       [3.47260000e-01, 2.98962280e-06, 9.00292392e-07],
-       [3.64620000e-01, 2.56562350e-06, 1.72964923e-06],
-       [3.82850000e-01, 3.11854151e-06, 1.19004677e-06],
-       [4.02000000e-01, 3.81861649e-06, 9.42054790e-07],
-       [4.22100000e-01, 2.84775170e-06, 1.35148769e-06],
-       [4.43200000e-01, 3.18641045e-06, 9.43023194e-07],
-       [4.65360000e-01, 2.35539925e-06, 1.31638307e-06],
-       [4.88630000e-01, 2.28829696e-06, 2.43791529e-06],
-       [5.13060000e-01, 1.92801054e-06, 1.40507268e-06],
-       [5.38710000e-01, 2.57486368e-06, 1.74631384e-06],
-       [5.65650000e-01, 1.86361171e-06, 7.61124749e-07],
-       [5.88770000e-01, 2.26481318e-06, 1.77379229e-06]]), array([[5.17930000e-02, 6.02952188e-04, 1.31206560e-05],
-       [5.43830000e-02, 4.79440400e-04, 1.04288980e-05],
-       [5.71020000e-02, 3.71883059e-04, 8.27460384e-06],
-       [5.99570000e-02, 3.13976568e-04, 6.88776942e-06],
-       [6.29550000e-02, 2.46712880e-04, 5.64216050e-06],
-       [6.61030000e-02, 1.93813842e-04, 4.57691673e-06],
-       [6.94080000e-02, 1.66964857e-04, 4.03743532e-06],
-       [7.28780000e-02, 1.41588652e-04, 3.50719409e-06],
-       [7.65220000e-02, 1.22462684e-04, 3.06217236e-06],
-       [8.03480000e-02, 9.73043700e-05, 2.63187843e-06],
-       [8.43650000e-02, 8.37467219e-05, 2.31791397e-06],
-       [8.85840000e-02, 7.06127504e-05, 2.00205305e-06],
-       [9.30130000e-02, 6.05695998e-05, 1.76548016e-06],
-       [9.76640000e-02, 5.50053150e-05, 1.61025316e-06],
-       [1.02550000e-01, 5.24430809e-05, 1.51187951e-06],
-       [1.07670000e-01, 4.70321268e-05, 1.38328360e-06],
-       [1.13060000e-01, 4.36588548e-05, 1.30326927e-06],
-       [1.18710000e-01, 3.86679456e-05, 1.21405510e-06],
-       [1.24650000e-01, 3.63135148e-05, 1.13391972e-06],
-       [1.30880000e-01, 3.49020667e-05, 1.10410096e-06],
-       [1.37420000e-01, 3.20428556e-05, 1.09582919e-06],
-       [1.44290000e-01, 2.98760529e-05, 1.08255399e-06],
-       [1.51510000e-01, 2.75676212e-05, 1.08449080e-06],
-       [1.59080000e-01, 2.29225128e-05, 1.05846495e-06],
-       [1.67040000e-01, 2.28567420e-05, 1.15429654e-06],
-       [1.75390000e-01, 1.92720353e-05, 1.12040242e-06],
-       [1.84160000e-01, 1.69353585e-05, 1.10369746e-06],
-       [1.93370000e-01, 1.68724123e-05, 1.17580317e-06],
-       [2.03040000e-01, 1.32045843e-05, 9.34509313e-07],
-       [2.13190000e-01, 9.37898725e-06, 1.70560055e-06],
-       [2.23850000e-01, 9.23695475e-06, 6.04041642e-07],
-       [2.35040000e-01, 7.74642047e-06, 3.28692265e-06],
-       [2.46790000e-01, 5.98311921e-06, 4.37395551e-07],
-       [2.59130000e-01, 4.62009138e-06, 1.91421079e-06],
-       [2.72090000e-01, 5.26448317e-06, 7.60196695e-07],
-       [2.85690000e-01, 3.87688210e-06, 1.58919038e-06],
-       [2.99980000e-01, 3.32000977e-06, 9.66587677e-07],
-       [3.14970000e-01, 2.55089569e-06, 1.42532845e-06],
-       [3.30720000e-01, 2.47160766e-06, 2.05164337e-06],
-       [3.47260000e-01, 2.98962280e-06, 9.00292392e-07],
-       [3.64620000e-01, 2.56562350e-06, 1.72964923e-06],
-       [3.82850000e-01, 3.11854151e-06, 1.19004677e-06],
-       [4.02000000e-01, 3.81861649e-06, 9.42054790e-07],
-       [4.22100000e-01, 2.84775170e-06, 1.35148769e-06],
-       [4.43200000e-01, 3.18641045e-06, 9.43023194e-07],
-       [4.65360000e-01, 2.35539925e-06, 1.31638307e-06],
-       [4.88630000e-01, 2.28829696e-06, 2.43791529e-06],
-       [5.13060000e-01, 1.92801054e-06, 1.40507268e-06],
-       [5.38710000e-01, 2.57486368e-06, 1.74631384e-06],
-       [5.65650000e-01, 1.86361171e-06, 7.61124749e-07],
-       [5.88770000e-01, 2.26481318e-06, 1.77379229e-06]])], layerSlds=[[array([[1.99227340e+01, 7.64847988e-06, 4.99609735e+00],
-       [7.88019260e+00, 1.16813056e-06, 3.56607645e+00]])], [array([[ 1.99227340e+01, -4.89001992e-08,  4.99609735e+00],
-       [ 7.88019260e+00,  7.95142412e-06,  3.56607645e+00]])]], sldProfiles=[[array([[0.00000000e+00, 0.00000000e+00],
-       [1.00000000e+00, 0.00000000e+00],
-       [2.00000000e+00, 0.00000000e+00],
-       [3.00000000e+00, 0.00000000e+00],
-       [4.00000000e+00, 0.00000000e+00],
-       [5.00000000e+00, 0.00000000e+00],
-       [6.00000000e+00, 0.00000000e+00],
-       [7.00000000e+00, 0.00000000e+00],
-       [8.00000000e+00, 0.00000000e+00],
-       [9.00000000e+00, 8.49151847e-22],
-       [1.00000000e+01, 4.67033516e-21],
-       [1.10000000e+01, 2.25025239e-20],
-       [1.20000000e+01, 1.08266860e-19],
-       [1.30000000e+01, 4.98452134e-19],
-       [1.40000000e+01, 2.20949310e-18],
-       [1.50000000e+01, 9.41369737e-18],
-       [1.60000000e+01, 3.85599854e-17],
-       [1.70000000e+01, 1.51860618e-16],
-       [1.80000000e+01, 5.75051150e-16],
-       [1.90000000e+01, 2.09382928e-15],
-       [2.00000000e+01, 7.33112699e-15],
-       [2.10000000e+01, 2.46841564e-14],
-       [2.20000000e+01, 7.99298672e-14],
-       [2.30000000e+01, 2.48926219e-13],
-       [2.40000000e+01, 7.45646417e-13],
-       [2.50000000e+01, 2.14846746e-12],
-       [2.60000000e+01, 5.95516965e-12],
-       [2.70000000e+01, 1.58806590e-11],
-       [2.80000000e+01, 4.07469811e-11],
-       [2.90000000e+01, 1.00605778e-10],
-       [3.00000000e+01, 2.39058472e-10],
-       [3.10000000e+01, 5.46761672e-10],
-       [3.20000000e+01, 1.20384428e-09],
-       [3.30000000e+01, 2.55207883e-09],
-       [3.40000000e+01, 5.21016234e-09],
-       [3.50000000e+01, 1.02455119e-08],
-       [3.60000000e+01, 1.94108525e-08],
-       [3.70000000e+01, 3.54405641e-08],
-       [3.80000000e+01, 6.23782976e-08],
-       [3.90000000e+01, 1.05874842e-07],
-       [4.00000000e+01, 1.73359792e-07],
-       [4.10000000e+01, 2.73964354e-07],
-       [4.20000000e+01, 4.18072019e-07],
-       [4.30000000e+01, 6.16414269e-07],
-       [4.40000000e+01, 8.78716635e-07],
-       [4.50000000e+01, 1.21202642e-06],
-       [4.60000000e+01, 1.61898748e-06],
-       [4.70000000e+01, 2.09642510e-06],
-       [4.80000000e+01, 2.63461983e-06],
-       [4.90000000e+01, 3.21755638e-06],
-       [5.00000000e+01, 3.82423987e-06],
-       [5.10000000e+01, 4.43092312e-06],
-       [5.20000000e+01, 5.01385842e-06],
-       [5.30000000e+01, 5.55204804e-06],
-       [5.40000000e+01, 6.02946646e-06],
-       [5.50000000e+01, 6.43636091e-06],
-       [5.60000000e+01, 6.76945695e-06],
-       [5.70000000e+01, 7.03112495e-06],
-       [5.80000000e+01, 7.22772611e-06],
-       [5.90000000e+01, 7.36741428e-06],
-       [6.00000000e+01, 7.45764390e-06],
-       [6.10000000e+01, 7.50260392e-06],
-       [6.20000000e+01, 7.50087260e-06],
-       [6.30000000e+01, 7.44382331e-06],
-       [6.40000000e+01, 7.31561638e-06],
-       [6.50000000e+01, 7.09570708e-06],
-       [6.60000000e+01, 6.76433641e-06],
-       [6.70000000e+01, 6.31032710e-06],
-       [6.80000000e+01, 5.73907897e-06],
-       [6.90000000e+01, 5.07782290e-06],
-       [7.00000000e+01, 4.37575819e-06],
-       [7.10000000e+01, 3.69860593e-06],
-       [7.20000000e+01, 3.11917888e-06],
-       [7.30000000e+01, 2.70631140e-06],
-       [7.40000000e+01, 2.51361850e-06],
-       [7.50000000e+01, 2.56859382e-06],
-       [7.60000000e+01, 2.86343225e-06],
-       [7.70000000e+01, 3.35141356e-06],
-       [7.80000000e+01, 3.95360637e-06],
-       [7.90000000e+01, 4.57709365e-06],
-       [8.00000000e+01, 5.13910222e-06],
-       [8.10000000e+01, 5.58672167e-06],
-       [8.20000000e+01, 5.90383526e-06],
-       [8.30000000e+01, 6.10430584e-06],
-       [8.40000000e+01, 6.21757620e-06],
-       [8.50000000e+01, 6.27482634e-06],
-       [8.60000000e+01, 6.30072197e-06],
-       [8.70000000e+01, 6.31120706e-06],
-       [8.80000000e+01, 6.31500783e-06],
-       [8.90000000e+01, 6.31624139e-06],
-       [9.00000000e+01, 6.31659985e-06],
-       [9.10000000e+01, 6.31669313e-06],
-       [9.20000000e+01, 6.31671486e-06],
-       [9.30000000e+01, 6.31671939e-06],
-       [9.40000000e+01, 6.31672024e-06],
-       [9.50000000e+01, 6.31672038e-06],
-       [9.60000000e+01, 6.31672040e-06],
-       [9.70000000e+01, 6.31672040e-06],
-       [9.80000000e+01, 6.31672040e-06],
-       [9.90000000e+01, 6.31672040e-06],
-       [1.00000000e+02, 6.31672040e-06],
-       [1.01000000e+02, 6.31672040e-06],
-       [1.02000000e+02, 6.31672040e-06],
-       [1.03000000e+02, 6.31672040e-06],
-       [1.04000000e+02, 6.31672040e-06],
-       [1.05000000e+02, 6.31672040e-06],
-       [1.06000000e+02, 6.31672040e-06],
-       [1.07000000e+02, 6.31672040e-06],
-       [1.08000000e+02, 6.31672040e-06],
-       [1.09000000e+02, 6.31672040e-06],
-       [1.10000000e+02, 6.31672040e-06],
-       [1.11000000e+02, 6.31672040e-06],
-       [1.12000000e+02, 6.31672040e-06],
-       [1.13000000e+02, 6.31672040e-06],
-       [1.14000000e+02, 6.31672040e-06],
-       [1.15000000e+02, 6.31672040e-06],
-       [1.16000000e+02, 6.31672040e-06],
-       [1.17000000e+02, 6.31672040e-06],
-       [1.18000000e+02, 6.31672040e-06],
-       [1.19000000e+02, 6.31672040e-06],
-       [1.20000000e+02, 6.31672040e-06],
-       [1.21000000e+02, 6.31672040e-06],
-       [1.22000000e+02, 6.31672040e-06],
-       [1.23000000e+02, 6.31672040e-06],
-       [1.24000000e+02, 6.31672040e-06],
-       [1.25000000e+02, 6.31672040e-06],
-       [1.26000000e+02, 6.31672040e-06],
-       [1.27000000e+02, 6.31672040e-06],
-       [1.28000000e+02, 6.31672040e-06],
-       [1.29000000e+02, 6.31672040e-06],
-       [1.30000000e+02, 6.31672040e-06],
-       [1.31000000e+02, 6.31672040e-06],
-       [1.32000000e+02, 6.31672040e-06],
-       [1.33000000e+02, 6.31672040e-06],
-       [1.34000000e+02, 6.31672040e-06],
-       [1.35000000e+02, 6.31672040e-06],
-       [1.36000000e+02, 6.31672040e-06],
-       [1.37000000e+02, 6.31672040e-06],
-       [1.38000000e+02, 6.31672040e-06],
-       [1.39000000e+02, 6.31672040e-06],
-       [1.40000000e+02, 6.31672040e-06],
-       [1.41000000e+02, 6.31672040e-06],
-       [1.42000000e+02, 6.31672040e-06],
-       [1.43000000e+02, 6.31672040e-06],
-       [1.44000000e+02, 6.31672040e-06],
-       [1.45000000e+02, 6.31672040e-06],
-       [1.46000000e+02, 6.31672040e-06],
-       [1.47000000e+02, 6.31672040e-06],
-       [1.48000000e+02, 6.31672040e-06],
-       [1.49000000e+02, 6.31672040e-06],
-       [1.50000000e+02, 6.31672040e-06],
-       [1.51000000e+02, 6.31672040e-06],
-       [1.52000000e+02, 6.31672040e-06],
-       [1.53000000e+02, 6.31672040e-06],
-       [1.54000000e+02, 6.31672040e-06],
-       [1.55000000e+02, 6.31672040e-06],
-       [1.56000000e+02, 6.31672040e-06],
-       [1.57000000e+02, 6.31672040e-06],
-       [1.58000000e+02, 6.31672040e-06],
-       [1.59000000e+02, 6.31672040e-06],
-       [1.60000000e+02, 6.31672040e-06],
-       [1.61000000e+02, 6.31672040e-06],
-       [1.62000000e+02, 6.31672040e-06],
-       [1.63000000e+02, 6.31672040e-06],
-       [1.64000000e+02, 6.31672040e-06],
-       [1.65000000e+02, 6.31672040e-06],
-       [1.66000000e+02, 6.31672040e-06],
-       [1.67000000e+02, 6.31672040e-06],
-       [1.68000000e+02, 6.31672040e-06],
-       [1.69000000e+02, 6.31672040e-06],
-       [1.70000000e+02, 6.31672040e-06],
-       [1.71000000e+02, 6.31672040e-06],
-       [1.72000000e+02, 6.31672040e-06],
-       [1.73000000e+02, 6.31672040e-06],
-       [1.74000000e+02, 6.31672040e-06],
-       [1.75000000e+02, 6.31672040e-06],
-       [1.76000000e+02, 6.31672040e-06],
-       [1.77000000e+02, 6.31672040e-06]])], [array([[ 0.00000000e+00,  0.00000000e+00],
-       [ 1.00000000e+00,  0.00000000e+00],
-       [ 2.00000000e+00,  0.00000000e+00],
-       [ 3.00000000e+00,  0.00000000e+00],
-       [ 4.00000000e+00,  0.00000000e+00],
-       [ 5.00000000e+00,  0.00000000e+00],
-       [ 6.00000000e+00,  0.00000000e+00],
-       [ 7.00000000e+00,  0.00000000e+00],
-       [ 8.00000000e+00,  0.00000000e+00],
-       [ 9.00000000e+00, -5.42901271e-24],
-       [ 1.00000000e+01, -2.98595699e-23],
-       [ 1.10000000e+01, -1.43868837e-22],
-       [ 1.20000000e+01, -6.92199120e-22],
-       [ 1.30000000e+01, -3.18683046e-21],
-       [ 1.40000000e+01, -1.41262911e-20],
-       [ 1.50000000e+01, -6.01860349e-20],
-       [ 1.60000000e+01, -2.46531467e-19],
-       [ 1.70000000e+01, -9.70913775e-19],
-       [ 1.80000000e+01, -3.67656270e-18],
-       [ 1.90000000e+01, -1.33867998e-17],
-       [ 2.00000000e+01, -4.68712184e-17],
-       [ 2.10000000e+01, -1.57817002e-16],
-       [ 2.20000000e+01, -5.11027877e-16],
-       [ 2.30000000e+01, -1.59149816e-15],
-       [ 2.40000000e+01, -4.76725558e-15],
-       [ 2.50000000e+01, -1.37361264e-14],
-       [ 2.60000000e+01, -3.80740993e-14],
-       [ 2.70000000e+01, -1.01532252e-13],
-       [ 2.80000000e+01, -2.60513923e-13],
-       [ 2.90000000e+01, -6.43218349e-13],
-       [ 3.00000000e+01, -1.52840919e-12],
-       [ 3.10000000e+01, -3.49569524e-12],
-       [ 3.20000000e+01, -7.69672223e-12],
-       [ 3.30000000e+01, -1.63165969e-11],
-       [ 3.40000000e+01, -3.33109298e-11],
-       [ 3.50000000e+01, -6.55042023e-11],
-       [ 3.60000000e+01, -1.24102380e-10],
-       [ 3.70000000e+01, -2.26587593e-10],
-       [ 3.80000000e+01, -3.98812735e-10],
-       [ 3.90000000e+01, -6.76905862e-10],
-       [ 4.00000000e+01, -1.10836774e-09],
-       [ 4.10000000e+01, -1.75157831e-09],
-       [ 4.20000000e+01, -2.67292395e-09],
-       [ 4.30000000e+01, -3.94101587e-09],
-       [ 4.40000000e+01, -5.61803380e-09],
-       [ 4.50000000e+01, -7.74903435e-09],
-       [ 4.60000000e+01, -1.03509208e-08],
-       [ 4.70000000e+01, -1.34033956e-08],
-       [ 4.80000000e+01, -1.68443158e-08],
-       [ 4.90000000e+01, -2.05712789e-08],
-       [ 5.00000000e+01, -2.44500071e-08],
-       [ 5.10000000e+01, -2.83284551e-08],
-       [ 5.20000000e+01, -3.20538758e-08],
-       [ 5.30000000e+01, -3.54884822e-08],
-       [ 5.40000000e+01, -3.85172580e-08],
-       [ 5.50000000e+01, -4.10369112e-08],
-       [ 5.60000000e+01, -4.29040253e-08],
-       [ 5.70000000e+01, -4.37978944e-08],
-       [ 5.80000000e+01, -4.29165128e-08],
-       [ 5.90000000e+01, -3.83817653e-08],
-       [ 6.00000000e+01, -2.62165770e-08],
-       [ 6.10000000e+01,  1.16012435e-09],
-       [ 6.20000000e+01,  5.67180285e-08],
-       [ 6.30000000e+01,  1.60231411e-07],
-       [ 6.40000000e+01,  3.38192920e-07],
-       [ 6.50000000e+01,  6.20922413e-07],
-       [ 6.60000000e+01,  1.03613369e-06],
-       [ 6.70000000e+01,  1.59964928e-06],
-       [ 6.80000000e+01,  2.30572712e-06],
-       [ 6.90000000e+01,  3.12048919e-06],
-       [ 7.00000000e+01,  3.98126185e-06],
-       [ 7.10000000e+01,  4.80240966e-06],
-       [ 7.20000000e+01,  5.48603067e-06],
-       [ 7.30000000e+01,  5.93546010e-06],
-       [ 7.40000000e+01,  6.07089559e-06],
-       [ 7.50000000e+01,  5.84712686e-06],
-       [ 7.60000000e+01,  5.27071316e-06],
-       [ 7.70000000e+01,  4.40908868e-06],
-       [ 7.80000000e+01,  3.38244848e-06],
-       [ 7.90000000e+01,  2.33561195e-06],
-       [ 8.00000000e+01,  1.39896795e-06],
-       [ 8.10000000e+01,  6.55825124e-07],
-       [ 8.20000000e+01,  1.30445997e-07],
-       [ 8.30000000e+01, -2.01294553e-07],
-       [ 8.40000000e+01, -3.88607328e-07],
-       [ 8.50000000e+01, -4.83241875e-07],
-       [ 8.60000000e+01, -5.26036569e-07],
-       [ 8.70000000e+01, -5.43361292e-07],
-       [ 8.80000000e+01, -5.49640738e-07],
-       [ 8.90000000e+01, -5.51678613e-07],
-       [ 9.00000000e+01, -5.52270783e-07],
-       [ 9.10000000e+01, -5.52424858e-07],
-       [ 9.20000000e+01, -5.52460753e-07],
-       [ 9.30000000e+01, -5.52468241e-07],
-       [ 9.40000000e+01, -5.52469639e-07],
-       [ 9.50000000e+01, -5.52469873e-07],
-       [ 9.60000000e+01, -5.52469908e-07],
-       [ 9.70000000e+01, -5.52469913e-07],
-       [ 9.80000000e+01, -5.52469913e-07],
-       [ 9.90000000e+01, -5.52469914e-07],
-       [ 1.00000000e+02, -5.52469914e-07],
-       [ 1.01000000e+02, -5.52469914e-07],
-       [ 1.02000000e+02, -5.52469914e-07],
-       [ 1.03000000e+02, -5.52469914e-07],
-       [ 1.04000000e+02, -5.52469914e-07],
-       [ 1.05000000e+02, -5.52469914e-07],
-       [ 1.06000000e+02, -5.52469914e-07],
-       [ 1.07000000e+02, -5.52469914e-07],
-       [ 1.08000000e+02, -5.52469914e-07],
-       [ 1.09000000e+02, -5.52469914e-07],
-       [ 1.10000000e+02, -5.52469914e-07],
-       [ 1.11000000e+02, -5.52469914e-07],
-       [ 1.12000000e+02, -5.52469914e-07],
-       [ 1.13000000e+02, -5.52469914e-07],
-       [ 1.14000000e+02, -5.52469914e-07],
-       [ 1.15000000e+02, -5.52469914e-07],
-       [ 1.16000000e+02, -5.52469914e-07],
-       [ 1.17000000e+02, -5.52469914e-07],
-       [ 1.18000000e+02, -5.52469914e-07],
-       [ 1.19000000e+02, -5.52469914e-07],
-       [ 1.20000000e+02, -5.52469914e-07],
-       [ 1.21000000e+02, -5.52469914e-07],
-       [ 1.22000000e+02, -5.52469914e-07],
-       [ 1.23000000e+02, -5.52469914e-07],
-       [ 1.24000000e+02, -5.52469914e-07],
-       [ 1.25000000e+02, -5.52469914e-07],
-       [ 1.26000000e+02, -5.52469914e-07],
-       [ 1.27000000e+02, -5.52469914e-07],
-       [ 1.28000000e+02, -5.52469914e-07],
-       [ 1.29000000e+02, -5.52469914e-07],
-       [ 1.30000000e+02, -5.52469914e-07],
-       [ 1.31000000e+02, -5.52469914e-07],
-       [ 1.32000000e+02, -5.52469914e-07],
-       [ 1.33000000e+02, -5.52469914e-07],
-       [ 1.34000000e+02, -5.52469914e-07],
-       [ 1.35000000e+02, -5.52469914e-07],
-       [ 1.36000000e+02, -5.52469914e-07],
-       [ 1.37000000e+02, -5.52469914e-07],
-       [ 1.38000000e+02, -5.52469914e-07],
-       [ 1.39000000e+02, -5.52469914e-07],
-       [ 1.40000000e+02, -5.52469914e-07],
-       [ 1.41000000e+02, -5.52469914e-07],
-       [ 1.42000000e+02, -5.52469914e-07],
-       [ 1.43000000e+02, -5.52469914e-07],
-       [ 1.44000000e+02, -5.52469914e-07],
-       [ 1.45000000e+02, -5.52469914e-07],
-       [ 1.46000000e+02, -5.52469914e-07],
-       [ 1.47000000e+02, -5.52469914e-07],
-       [ 1.48000000e+02, -5.52469914e-07],
-       [ 1.49000000e+02, -5.52469914e-07],
-       [ 1.50000000e+02, -5.52469914e-07],
-       [ 1.51000000e+02, -5.52469914e-07],
-       [ 1.52000000e+02, -5.52469914e-07],
-       [ 1.53000000e+02, -5.52469914e-07],
-       [ 1.54000000e+02, -5.52469914e-07],
-       [ 1.55000000e+02, -5.52469914e-07],
-       [ 1.56000000e+02, -5.52469914e-07],
-       [ 1.57000000e+02, -5.52469914e-07],
-       [ 1.58000000e+02, -5.52469914e-07],
-       [ 1.59000000e+02, -5.52469914e-07],
-       [ 1.60000000e+02, -5.52469914e-07],
-       [ 1.61000000e+02, -5.52469914e-07],
-       [ 1.62000000e+02, -5.52469914e-07],
-       [ 1.63000000e+02, -5.52469914e-07],
-       [ 1.64000000e+02, -5.52469914e-07],
-       [ 1.65000000e+02, -5.52469914e-07],
-       [ 1.66000000e+02, -5.52469914e-07],
-       [ 1.67000000e+02, -5.52469914e-07],
-       [ 1.68000000e+02, -5.52469914e-07],
-       [ 1.69000000e+02, -5.52469914e-07],
-       [ 1.70000000e+02, -5.52469914e-07],
-       [ 1.71000000e+02, -5.52469914e-07],
-       [ 1.72000000e+02, -5.52469914e-07],
-       [ 1.73000000e+02, -5.52469914e-07],
-       [ 1.74000000e+02, -5.52469914e-07],
-       [ 1.75000000e+02, -5.52469914e-07],
-       [ 1.76000000e+02, -5.52469914e-07],
-       [ 1.77000000e+02, -5.52469914e-07]])]], resampledLayers=[[array([[0., 0., 0.]])], [array([[0., 0., 0.]])]], calculationResults=CalculationResults(chiValues=array([15.32099818, 76.08846334]), sumChi=91.40946151977752), contrastParams=ContrastParams(backgroundParams=array([3.52601782e-07, 5.84837824e-06]), scalefactors=array([0.2478306, 0.2478306]), bulkIn=array([0., 0.]), bulkOut=array([ 6.31672040e-06, -5.52469914e-07]), resolutionParams=array([0.03, 0.03]), subRoughs=array([2.9962268, 2.9962268]), resample=array([0., 0.])), fitParams=array([2.9962268]), fitNames=['Substrate Roughness', 'Tails Thickness', 'Heads Thickness', 'Tails Roughness', 'Heads Roughness', 'Deuterated Tails SLD', 'Hydrogenated Tails SLD', 'Deuterated Heads SLD', 'Hydrogenated Heads SLD', 'Heads Hydration', 'Backs Value ACMW', 'Backs Value D2O', 'Scalefactor 1', 'SLD D2O', 'SLD ACMW'])
-
-</pre>
 </div>
 </div>
 <p>This contains the results of our calculations, so for us including the SLD profiles and reflectivities calculated from our <em>problemDef</em> class. We can now plot the output, either manually (by taking the relevant parts from the <em>results</em> array), or using one of the supplied plotting utilities:</p>
@@ -2049,7 +778,7 @@ PYTHON</label><div class="sd-tab-content docutils">
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>

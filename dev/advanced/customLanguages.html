@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Custom Models in Python or C++ &#8212; RAT 1.0.0-beta documentation</title>
   
@@ -29,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7138875e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=3fd7a760"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'advanced/customLanguages';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -384,14 +383,12 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsCustomModels.html">Custom Models with Domains</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../calcTypes/oilWater.html">Reflectivity from Oil/Water Samples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../calcTypes/magnetic.html">Reflectivity from Magnetic Samples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../utilities/index.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuns.html">Basic Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Events and Live Updating Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Live Updating Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL1</a></li>
 </ul>
 </li>
@@ -456,7 +453,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="custom-models-in-python-or-c">
-<span id="customlanguages"></span><h1>Custom Models in Python or C++<a class="headerlink" href="#custom-models-in-python-or-c" title="Permalink to this heading">#</a></h1>
+<span id="customlanguages"></span><h1>Custom Models in Python or C++<a class="headerlink" href="#custom-models-in-python-or-c" title="Link to this heading">#</a></h1>
 <p>Custom models are usually written in Matlab, but RAT allows alternative languages to be used. You can write your custom models either in Python or C++.
 The reason for the Python functionality is mainly since this is the more natural choice when using RAT from Python with pythonRAT, but also because the user might choose to incorporate Python libraries into the custom models that are not available in Matlab.
 The reason for C++ if for pure speed, where very computationally demanding custom models calculations are required. Both options are easy to use in RAT.</p>
@@ -465,7 +462,7 @@ The reason for C++ if for pure speed, where very computationally demanding custo
 <p>Examples of using Python and C++ custom models can be found in the /examples/miscellaneous/alternativeLanguages folder</p>
 </div>
 <section id="python-custom-models">
-<h2>Python Custom Models<a class="headerlink" href="#python-custom-models" title="Permalink to this heading">#</a></h2>
+<h2>Python Custom Models<a class="headerlink" href="#python-custom-models" title="Link to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Before you use Python from your Matlab session, please ensure that Python is <a class="reference external" href="https://uk.mathworks.com/help/matlab/matlab_external/create-object-from-python-class.html">configured correctly on your system.</a></p>
@@ -646,7 +643,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 <p>You can then use this in your calculations in the same way as a normal, Matlab custom model.</p>
 </section>
 <section id="c-custom-models">
-<h2>C++ Custom Models<a class="headerlink" href="#c-custom-models" title="Permalink to this heading">#</a></h2>
+<h2>C++ Custom Models<a class="headerlink" href="#c-custom-models" title="Link to this heading">#</a></h2>
 <p>If Matlab or Python custom models are too slow, you also have the option of providing a C++ custom model. You then have to compile and build this into a shared library in order to use it with RAT.</p>
 <p>Following on from our custom bilayer examples, the equivalent C++ custom model should follow this format.</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">//customBilayer.cpp</span>
@@ -806,7 +803,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 <p>You can then use your C++ custom model in your project as normal.</p>
 </section>
 <section id="performance-comparisons">
-<h2>Performance Comparisons<a class="headerlink" href="#performance-comparisons" title="Permalink to this heading">#</a></h2>
+<h2>Performance Comparisons<a class="headerlink" href="#performance-comparisons" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -881,7 +878,7 @@ PYTHON</label><div class="sd-tab-content docutils">
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>

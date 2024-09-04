@@ -27,22 +27,23 @@ So, an input into RAT always conforms to this picture: a model definition class 
 .. image:: ../images/ratInput.png
     :alt: RAT input model
 
-The outputs are always another *problemDef* class, and a results block. The new *problemDef* class is identical to the inputted one, except with updated values of the fitted parameters (e.g. after running a fit). The results block as a set of arrays containing the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions. We will discuss more about these in the next chapter where we look at the outputs in more detail. Similarly, we will look in more detail at the input classes in the next section.
+The outputs are always another *problemDef* class, and a results block. The new *problemDef* class is identical to the inputted one, except with updated values of the fitted parameters (e.g. after running a fit). The results block as a set of arrays containing the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions. 
+We will discuss more about these in :ref:`next Section<chapter2>` where we look at the inputs and outputs in more detail.
 
 In the next section, we will look at an example calculation, in order to introduce the basics of the RAT toolbox. Before we proceed, it is useful to keep a couple of things in mind:
 
 
-* **Different model types?** - There are many possible types of model, and this is done by having more than one version of
-    the *problemDef* class. These are (those in italics not initial release):
+* **Different model types** - There are many possible types of model, and this is done by having more than one version of
+    the *problemDef* class:
 
     * Standard Problem: Problem types which are well described by a non-polarised beam, with no absorption (i.e., real refractive index only).
     * Standard Problem with imaginary refractive index.
     * Domains Problem Type ('incoherent summing').
-    * *Oil/Water problem type (phase 2)*
+
+..  * *Oil/Water problem type (phase 2)*
     * *Polarised problem type (phase 2)*
 
-Within each problem class, there is the option of *Custom Layer* or *Custom XY* model definitions. These will be discussed in
-more detail in a later section.
+Within each problem class, there is the option of *Custom Layer* or *Custom XY* model definitions. These will be discussed in more detail in a later section.
 
 In this section we'll look at the project definition class in more detail, we'll see how we can use the class methods to build and modify a model, and how to carry out the analysis.
 
@@ -77,9 +78,9 @@ group the layers along with data into contrasts. The advantage of this approach 
 layers, so a layer representing deuterated headgroups should share the same thickness and roughness parameters as a
 layer representing hydrogenated heads, but they should differ from each other in their SLD.
 
-The problem definition in RAT is done by making an instance of a *projectClass* object, and then using the class methods to
+The problem definition in RAT is done by making an instance of a project class object, and then using the class methods to
 set up the parameters, layers and so on this instance. The details of setting up a *projectClass* object is
-discussed in chapter 2, but for now, we'll look at a pre-prepared example.
+discussed in :ref:`next Section<chapter2>`, but for now, we'll look at a pre-prepared example.
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -207,8 +208,8 @@ we want to consider, so two contrasts. We have the relevant instrument parameter
 **(b) Running our Model.**
 
 As implied from figure (1), running RAT requires not only our input model specification, but also a controls block telling RAT what to do. We 
-will discuss the controls block in more detail in Chapter 4, but for this demo we will just make an instance of the controls block and modify 
-a few parameters to run the demo:
+will discuss the controls block in more detail in :ref:`controlsInfo`, but for this demo we will just make an instance 
+of the controls block and modify a few parameters to run the demo:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -220,7 +221,7 @@ a few parameters to run the demo:
     .. code-block:: Python
 
         # Make an instance of controls class
-        controls = RAT.set_controls()
+        controls = RAT.Controls()
         print(controls)
 
 .. tab-set::

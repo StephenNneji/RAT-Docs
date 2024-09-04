@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Contrasts Class &#8212; RAT 1.0.0-beta documentation</title>
   
@@ -29,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=7138875e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/documentation_options.js?v=3fd7a760"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/matlab/contrastsClass';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -428,12 +427,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="contrasts-class">
-<h1>Contrasts Class<a class="headerlink" href="#contrasts-class" title="Permalink to this heading">#</a></h1>
+<h1>Contrasts Class<a class="headerlink" href="#contrasts-class" title="Link to this heading">#</a></h1>
 <p>Contrast Class is a class to responsible to manipulate contrasts. While adding the contrast, the input(cell array) goes through some checks and if no input is given, the contrast is
 automatically named and counter is incremented. If only name was given, contrast is incremented and the cell array’s name is set to current name.</p>
 <p>The cell array of contrasts is sent to Contrast Class to get converted to a struct <cite>parseContrastInput</cite> method which gets attached to the class object.</p>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Adding a contrast (D20 Contrast)</span><a class="headerlink" href="#id1" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Adding a contrast (D20 Contrast)</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">problem</span><span class="p">.</span><span class="n">addContrast</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;Bilayer / D2O&#39;</span><span class="p">,</span><span class="k">...</span>
 <span class="w">        </span><span class="s">&#39;background&#39;</span><span class="p">,</span><span class="s">&#39;Background D2O&#39;</span><span class="p">,</span><span class="k">...</span>
 <span class="w">        </span><span class="s">&#39;resolution&#39;</span><span class="p">,</span><span class="s">&#39;Resolution 1&#39;</span><span class="p">,</span><span class="k">...</span>
@@ -449,7 +448,7 @@ automatically named and counter is incremented. If only name was given, contrast
 is and the cell array containing the information about the model. The main purpose of this method is to set the contrast to a model based on specified type of model. Based
 on the type of model, the code checks whether some of the contrast names are allowed or not. If not, it throws an error.</p>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Setting a contrast to a model</span><a class="headerlink" href="#id2" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Setting a contrast to a model</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c">% 1 refers to the contrast number and the rest Layer information</span>
 <span class="w">    </span><span class="n">problem</span><span class="p">.</span><span class="n">setContrastModel</span><span class="p">(</span><span class="mi">1</span><span class="p">,{</span><span class="s">&#39;Oxide Layer&#39;</span><span class="p">,</span><span class="k">...</span>
 <span class="w">          </span><span class="s">&#39;Water Layer&#39;</span><span class="p">,</span><span class="k">...</span>
@@ -461,17 +460,17 @@ on the type of model, the code checks whether some of the contrast names are all
 </div>
 </div>
 <section id="domains-contrasts-class">
-<h2>Domains Contrasts Class<a class="headerlink" href="#domains-contrasts-class" title="Permalink to this heading">#</a></h2>
+<h2>Domains Contrasts Class<a class="headerlink" href="#domains-contrasts-class" title="Link to this heading">#</a></h2>
 <p>The Domains Contrasts Class is a simplified model only contrasts class for the Domains calculation.</p>
 </section>
 <section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h2>
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.contrastsClass">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">contrastsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">calcType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">contrastsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">calcType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass" title="Link to this definition">#</a></dt>
 <dd><dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.contrastsClass.contrastsClass">
-<span class="sig-name descname"><span class="pre">contrastsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">calcType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass.contrastsClass" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">contrastsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">calcType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass.contrastsClass" title="Link to this definition">#</a></dt>
 <dd><p>Class Constructor
 The (optional) inputs are logical flags to state whether
 or not this is a domains calculation and wheter or not this
@@ -481,7 +480,7 @@ is an oil-water calculation.</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.contrastsClass.parseContrastInput">
-<span class="sig-name descname"><span class="pre">parseContrastInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">allowedNames</span></em>, <em class="sig-param"><span class="pre">inputValues</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass.parseContrastInput" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">parseContrastInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">allowedNames</span></em>, <em class="sig-param"><span class="pre">inputValues</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass.parseContrastInput" title="Link to this definition">#</a></dt>
 <dd><p>Parse the parameters given for the contrast, assigning
 default values to those unspecified and ensuring specified
 values are of the correct type, and included in the list of
@@ -495,13 +494,13 @@ allowed names where necessary.</p>
 
 <dl class="mat staticmethod">
 <dt class="sig sig-object mat" id="API.projectClass.contrastsClass.setDefaultValues">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">setDefaultValues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrast</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass.setDefaultValues" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">setDefaultValues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrast</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass.setDefaultValues" title="Link to this definition">#</a></dt>
 <dd><p>Set non-empty default values when adding a contrast.</p>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.contrastsClass.toStruct">
-<span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">allowedNames</span></em>, <em class="sig-param"><span class="pre">modelType</span></em>, <em class="sig-param"><span class="pre">dataTable</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass.toStruct" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">allowedNames</span></em>, <em class="sig-param"><span class="pre">modelType</span></em>, <em class="sig-param"><span class="pre">dataTable</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass.toStruct" title="Link to this definition">#</a></dt>
 <dd><p>Convert the contrasts class to a struct.
 This routine builds on that in the base class by dealing with
 the additional properties defined in this subclass.
@@ -512,7 +511,7 @@ the model type and the data table from the data class.</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.contrastsClass.updateDataName">
-<span class="sig-name descname"><span class="pre">updateDataName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nameChange</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass.updateDataName" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">updateDataName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nameChange</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass.updateDataName" title="Link to this definition">#</a></dt>
 <dd><p>Update the “data” parameter in a contrast if the name is
 changed in the data class.           
 This function is only really called from projectClass if a
@@ -526,10 +525,10 @@ then this is updated to nameChange.newName</p>
 
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.domainContrastsClass">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">domainContrastsClass</span></span><a class="headerlink" href="#API.projectClass.domainContrastsClass" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">domainContrastsClass</span></span><a class="headerlink" href="#API.projectClass.domainContrastsClass" title="Link to this definition">#</a></dt>
 <dd><dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.domainContrastsClass.parseContrastInput">
-<span class="sig-name descname"><span class="pre">parseContrastInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">~</span></em>, <em class="sig-param"><span class="pre">~</span></em>, <em class="sig-param"><span class="pre">inputValues</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.domainContrastsClass.parseContrastInput" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">parseContrastInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">~</span></em>, <em class="sig-param"><span class="pre">~</span></em>, <em class="sig-param"><span class="pre">inputValues</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.domainContrastsClass.parseContrastInput" title="Link to this definition">#</a></dt>
 <dd><p>Parse the parameters given for the contrast, assigning
 default values to those unspecified and ensuring specified
 values are of the correct type, and included in the list of
@@ -539,13 +538,13 @@ allowed names where necessary.</p>
 
 <dl class="mat staticmethod">
 <dt class="sig sig-object mat" id="API.projectClass.domainContrastsClass.setDefaultValues">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">setDefaultValues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrast</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.domainContrastsClass.setDefaultValues" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">setDefaultValues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrast</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.domainContrastsClass.setDefaultValues" title="Link to this definition">#</a></dt>
 <dd><p>Set non-empty default values when adding a contrast.</p>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.domainContrastsClass.toStruct">
-<span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">allowedNames</span></em>, <em class="sig-param"><span class="pre">~</span></em>, <em class="sig-param"><span class="pre">~</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.domainContrastsClass.toStruct" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">allowedNames</span></em>, <em class="sig-param"><span class="pre">~</span></em>, <em class="sig-param"><span class="pre">~</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.domainContrastsClass.toStruct" title="Link to this definition">#</a></dt>
 <dd><p>Convert the contrasts class to a struct.
 This routine builds on that in the base class by dealing with
 the additional properties defined in this subclass.
@@ -628,7 +627,7 @@ The expected input is the allowed names for each parameter.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>

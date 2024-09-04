@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Adding the Imaginary Refractive Index &#8212; RAT 1.0.0-beta documentation</title>
   
@@ -29,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7138875e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=3fd7a760"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'calcTypes/imaginary';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -384,14 +383,12 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="domainsCustomModels.html">Custom Models with Domains</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="oilWater.html">Reflectivity from Oil/Water Samples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="magnetic.html">Reflectivity from Magnetic Samples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../utilities/index.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuns.html">Basic Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Events and Live Updating Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Live Updating Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL1</a></li>
 </ul>
 </li>
@@ -456,7 +453,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="adding-the-imaginary-refractive-index">
-<span id="imaginary"></span><h1>Adding the Imaginary Refractive Index<a class="headerlink" href="#adding-the-imaginary-refractive-index" title="Permalink to this heading">#</a></h1>
+<span id="imaginary"></span><h1>Adding the Imaginary Refractive Index<a class="headerlink" href="#adding-the-imaginary-refractive-index" title="Link to this heading">#</a></h1>
 <p>In contrast to RasCAL1, RAT allows the inclusion of the imaginary part of the refractive index to the project. The exact method of doing this varies according to the calculation type,
 but at the project top-level, the method of enabling it is always the same. If the project is called ‘problem’, then:</p>
 <div class="sd-tab-set docutils">
@@ -477,37 +474,22 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 <p>How this is then handled depends on the calculation type.</p>
 <section id="standard-layers-models">
-<h2>Standard Layers Models<a class="headerlink" href="#standard-layers-models" title="Permalink to this heading">#</a></h2>
+<h2>Standard Layers Models<a class="headerlink" href="#standard-layers-models" title="Link to this heading">#</a></h2>
 <p>The imaginary refractive index appears as a new column in the ‘Layers’ block.</p>
 <div class="sd-tab-set tab-label-hidden docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
-
-    <strong>p</strong>            <strong>Name</strong>                <strong>Thickness</strong>                <strong>SLD Real</strong>            <strong>SLD Imaginary</strong>        <strong>Roughness</strong>            <strong>Hydration</strong>        <strong>Hydrate with</strong>
-    <strong>_</strong>    <strong>____________________</strong>    <strong>_________________</strong>    <strong>________________________</strong>    <strong>_____________</strong>    <strong>_________________</strong>    <strong>_________________</strong>    <strong>____________</strong>
-
-    1    "Hydrogenated Heads"    "Heads Thickness"    "Hydrogenated Heads SLD"         ""          "Heads Roughness"    "Heads Hydration"     "bulk out" 
-    2    "Deuterated Heads"      "Heads Thickness"    "Deuterated Heads SLD"           ""          "Heads Roughness"    "Heads Hydration"     "bulk out" 
-    3    "Hydrogenated Tails"    "Tails Thickness"    "Hydrogenated Tails SLD"         ""          "Tails Roughness"    ""                    "bulk out" 
-    4    "Deuterated Tails"      "Tails Thickness"    "Deuterated Tails SLD"           ""          "Tails Roughness"    ""                    "bulk out" 
-
-</pre>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-problem.layers.displayTable()
-
-</pre>
 </div>
 </div>
 <p>Then, the value of this column are set (from the Parameters block) in the same way as all the other cells in the table.</p>
 </section>
 <section id="custom-models">
-<h2>Custom Models<a class="headerlink" href="#custom-models" title="Permalink to this heading">#</a></h2>
+<h2>Custom Models<a class="headerlink" href="#custom-models" title="Link to this heading">#</a></h2>
 <p>For custom models, an extra column is also required in the output from the custom function.</p>
 <p>So, for example, in the <em>/examples/miscellaneous/absorption</em> folder, there is a Custom Layers example including absorption. In this example (a bilayer on a gold surface)
 an imaginary SLD is required for the metal layers:</p>
@@ -632,7 +614,7 @@ PYTHON</label><div class="sd-tab-content docutils">
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>

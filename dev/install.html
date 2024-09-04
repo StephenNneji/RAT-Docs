@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Installation &#8212; RAT 1.0.0-beta documentation</title>
   
@@ -29,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=7138875e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/documentation_options.js?v=3fd7a760"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=881e7dcd"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'install';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -398,10 +397,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h1>
 <p>This section provides more detailed information about installing RAT for Matlab and Python users</p>
-<section id="install-for-matlab">
-<h2>Install for Matlab<a class="headerlink" href="#install-for-matlab" title="Permalink to this heading">#</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
+For Matlab</label><div class="sd-tab-content docutils">
 <p>RAT can be used either by running the m-files directly or using a compiled mex file.
 RAT ships with a pre-compiled MEX file which is available to download from the <a href="https://github.com/RascalSoftware/RAT/releases/latest" target="_blank">Github Release</a> page.
 To use the mex do the following:</p>
@@ -413,8 +414,7 @@ To use the mex do the following:</p>
 <li><p>Run your script.</p></li>
 </ol>
 <p>However, if you want to build RAT on your local machine, you need to follow the steps below.</p>
-<section id="build-the-mex-on-your-local-machine">
-<h3>Build the MEX on your local machine<a class="headerlink" href="#build-the-mex-on-your-local-machine" title="Permalink to this heading">#</a></h3>
+<p><strong>Build the MEX on your local machine</strong></p>
 <p>A C/C++ compiler and MATLAB (2021 or later) is required for building the mex. The following MATLAB toolboxes are also required:</p>
 <ul class="simple">
 <li><p>MATLAB Coder</p></li>
@@ -426,16 +426,26 @@ To use the mex do the following:</p>
 <ol class="arabic simple">
 <li><p>Download the RAT source code from the <a href="https://github.com/RascalSoftware/RAT/releases/latest" target="_blank">Github Release</a> page.</p></li>
 <li><p>Open MATLAB and navigate to the folder containing the RAT source code.</p></li>
-<li><p>Run <em>addPaths.m</em> then run <em>buildScript.m</em> in MATLAB. This will add the necessary paths and builds the MEX file.
-This could take several minutes depending on your machine.</p></li>
+<li><p>Run <em>addPaths.m</em> then run <em>buildScript.m</em> in MATLAB. This will add the necessary paths and builds the MEX file. This could take several minutes depending on your machine.</p></li>
 <li><p>The MEX files will be created in the <strong>RAT/compile</strong> folder.</p></li>
 </ol>
 <p>If no error shows up, you should be able to run the MEX file.</p>
-</section>
-</section>
-<section id="install-for-python">
-<h2>Install for Python<a class="headerlink" href="#install-for-python" title="Permalink to this heading">#</a></h2>
-</section>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
+For Python</label><div class="sd-tab-content docutils">
+<p>The RAT API for Python can be installed from PyPI as follows</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install RATapi</span>
+</pre></div>
+</div>
+<p>matlabengine is an optional dependency only required for Matlab related action such as running Matlab custom functions and converting RasCAL1 projects.
+The version of matlabengine should match the version of Matlab installed on the computer. For example, if Matlab 2023a is installed on the computer,
+matlabengine can be installed as shown below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install RATapi[Matlab-2023a]</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
 
@@ -451,22 +461,6 @@ This could take several minutes depending on your machine.</p></li>
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-for-matlab">Install for Matlab</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-mex-on-your-local-machine">Build the MEX on your local machine</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-for-python">Install for Python</a></li>
-</ul>
-  </nav></div>
 
   <div class="sidebar-secondary-item">
 
@@ -511,7 +505,7 @@ This could take several minutes depending on your machine.</p></li>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>

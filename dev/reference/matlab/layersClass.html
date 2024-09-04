@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Layers Class &#8212; RAT 1.0.0-beta documentation</title>
   
@@ -29,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=7138875e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/documentation_options.js?v=3fd7a760"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/matlab/layersClass';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -428,11 +427,11 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="layers-class">
-<h1>Layers Class<a class="headerlink" href="#layers-class" title="Permalink to this heading">#</a></h1>
+<h1>Layers Class<a class="headerlink" href="#layers-class" title="Link to this heading">#</a></h1>
 <p>Layers can be added as a group or individually. When added as a group, <cite>addLayerGroup</cite> method in projectClass iterates over the list of layers and
 adds them one by one using <cite>addLayer</cite> method which is used to add individual layers.</p>
 <table class="table" id="id1">
-<caption><span class="caption-text">The methods on the left call the methods on the right in the table.</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">The methods on the left call the methods on the right in the table.</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -455,13 +454,13 @@ adds them one by one using <cite>addLayer</cite> method which is used to add ind
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Adding layers as a group. Can set to a class using projectClass.addLayerGroup(Layers)</span><a class="headerlink" href="#id2" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Adding layers as a group. Can set to a class using projectClass.addLayerGroup(Layers)</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">projectClass</span><span class="p">.</span><span class="n">addLayerGroup</span><span class="p">({</span><span class="n">waterLayer</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">bilInnerHead</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">bilTails</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">bilOuterHead</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Adding layers individually. Can set to a class using projectClass.addLayer(Layer)</span><a class="headerlink" href="#id3" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Adding layers individually. Can set to a class using projectClass.addLayer(Layer)</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">waterLayer</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="s">&#39;Water Layer&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">           % Layer name</span>
 <span class="w">        </span><span class="s">&#39;Water thick&#39;</span><span class="p">,</span><span class="k">...</span>
@@ -476,13 +475,13 @@ adds them one by one using <cite>addLayer</cite> method which is used to add ind
 </div>
 </div>
 <section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h2>
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.layersClass">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">layersClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">SLDValues</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">layersClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">SLDValues</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass" title="Link to this definition">#</a></dt>
 <dd><dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.layersClass.addLayer">
-<span class="sig-name descname"><span class="pre">addLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">paramNames</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.addLayer" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">addLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">paramNames</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.addLayer" title="Link to this definition">#</a></dt>
 <dd><p>Add a layer to the layers table
 The expected input is a string array of parameter names
 defined in the project’s parameter class and a variable
@@ -498,7 +497,7 @@ layers.addLayer(parameters.varTable{:, 1}, ‘Another layer’, 1, 2, 3);</p>
 
 <dl class="mat staticmethod">
 <dt class="sig sig-object mat" id="API.projectClass.layersClass.findParameter">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">findParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">inputVal</span></em>, <em class="sig-param"><span class="pre">paramNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.findParameter" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">findParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">inputVal</span></em>, <em class="sig-param"><span class="pre">paramNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.findParameter" title="Link to this definition">#</a></dt>
 <dd><p>Find whether or not a proposed layer parameter is included
 in a list of parameters, or obtain a parameter by index.
 The expected inputs are the potential layer parameter value
@@ -507,7 +506,7 @@ The expected inputs are the potential layer parameter value
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.layersClass.layersClass">
-<span class="sig-name descname"><span class="pre">layersClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">SLDValues</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.layersClass" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">layersClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">SLDValues</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.layersClass" title="Link to this definition">#</a></dt>
 <dd><p>Construct a layers class including an empty layers table
 The optional input is a cell array of the required SLD
 parameters.</p>
@@ -516,7 +515,7 @@ parameters.</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.layersClass.setLayerValue">
-<span class="sig-name descname"><span class="pre">setLayerValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">col</span></em>, <em class="sig-param"><span class="pre">inputValue</span></em>, <em class="sig-param"><span class="pre">paramNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.setLayerValue" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">setLayerValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">col</span></em>, <em class="sig-param"><span class="pre">inputValue</span></em>, <em class="sig-param"><span class="pre">paramNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.setLayerValue" title="Link to this definition">#</a></dt>
 <dd><p>Change the value of a given layer parameter in the table
 (excluding the layer name). The row and column of the
 parameter can both be specified by either name or index.
@@ -529,7 +528,7 @@ defined in the project’s parameter class.</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.layersClass.toStruct">
-<span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">paramNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.toStruct" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">paramNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.toStruct" title="Link to this definition">#</a></dt>
 <dd><p>Convert the layers class to a struct.</p>
 <p>layers.toStruct()</p>
 </dd></dl>
@@ -608,7 +607,7 @@ defined in the project’s parameter class.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>

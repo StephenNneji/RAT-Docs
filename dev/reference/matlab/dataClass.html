@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Data Class &#8212; RAT 1.0.0-beta documentation</title>
   
@@ -29,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=7138875e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/documentation_options.js?v=3fd7a760"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/matlab/dataClass';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -428,7 +427,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="data-class">
-<h1>Data Class<a class="headerlink" href="#data-class" title="Permalink to this heading">#</a></h1>
+<h1>Data Class<a class="headerlink" href="#data-class" title="Link to this heading">#</a></h1>
 <p>Data Class is a class to helps add or set data. Data can be addded using <cite>addData</cite> method. The <cite>addData</cite> method expects a cell array of cell array. Like other methods there’s
 a check that directs different cases based on the length of inputs (1 meaning only name or data entered. If only name is entered, error prompted saying ‘Single input is expected
 to be data name’. Case 2 being both name and data supplied and data is added accordingly). It uses <a class="reference external" href="https://uk.mathworks.com/help/matlab/tables.html">table</a> data type to do that.
@@ -442,7 +441,7 @@ the second element is the maximum value of the data. (optional)</p></li>
 simulation, and the second element is the maximum value of the simulation. (optional)</p></li>
 </ol>
 <table class="table" id="id1">
-<caption><span class="caption-text">The methods on the left call the methods on the right in the table.</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">The methods on the left call the methods on the right in the table.</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -465,27 +464,27 @@ simulation, and the second element is the maximum value of the simulation. (opti
 and if so, it stores it. If not, it has proper conditional statements to pinpoint the error. Like warning about duplicate names, number of inputs, type of an
 input .. etc.</p>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Adding data. Usually, the data is in .dat files. So, <cite>dlmread</cite> built-in method is used to read the data into a variable.</span><a class="headerlink" href="#id2" title="Permalink to this code">#</a></div>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">D2O_data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dlmread</span><span class="p">(</span><span class="s">&#39;c_PLP0016596.dat&#39;</span><span class="p">);</span>
+<div class="code-block-caption"><span class="caption-text">Adding data. Usually, the data is in .dat files. So, <cite>readmatrix</cite> built-in method is used to read the data into a variable.</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">D2O_data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readmatrix</span><span class="p">(</span><span class="s">&#39;c_PLP0016596.dat&#39;</span><span class="p">);</span>
 <span class="w">    </span><span class="c">% Add the data to the project</span>
 <span class="w">    </span><span class="n">projectClass</span><span class="p">.</span><span class="n">addData</span><span class="p">(</span><span class="s">&#39;Bilayer / D2O&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">D2O_data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Setting data range. (Min and Max values)</span><a class="headerlink" href="#id3" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Setting data range. (Min and Max values)</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">problem</span><span class="p">.</span><span class="n">setData</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s">&#39;dataRange&#39;</span><span class="p">,[</span><span class="mf">0.013</span><span class="w"> </span><span class="mf">0.35</span><span class="p">]);</span>
 </pre></div>
 </div>
 </div>
 <section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h2>
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.dataClass">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">dataClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">dataClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass" title="Link to this definition">#</a></dt>
 <dd><dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.dataClass.addData">
-<span class="sig-name descname"><span class="pre">addData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.addData" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">addData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.addData" title="Link to this definition">#</a></dt>
 <dd><p>Adds a dataset to the data table. Default values are used if no 
 arguments are provided, otherwise a subset of the arguments can 
 be provided.
@@ -501,7 +500,7 @@ data.addData(‘Sim’, ones(5, 3), [0.2, 0.9],  [-3, 6]);</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.dataClass.dataClass">
-<span class="sig-name descname"><span class="pre">dataClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.dataClass" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">dataClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.dataClass" title="Link to this definition">#</a></dt>
 <dd><p>Creates a Data object. The argument should be contents of the first
 dataset which should consists of a name (string), data (N by 3 array), 
 dataRange (1 by 2 or empty array), and simRange (1 by 2 or empty array).</p>
@@ -510,7 +509,7 @@ dataRange (1 by 2 or empty array), and simRange (1 by 2 or empty array).</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.dataClass.displayTable">
-<span class="sig-name descname"><span class="pre">displayTable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.displayTable" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">displayTable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.displayTable" title="Link to this definition">#</a></dt>
 <dd><p>Displays the table object. The actual obj.varTable has the 
 format {string, cell, double, double}, but for display we 
 make a table that is all strings.</p>
@@ -518,7 +517,7 @@ make a table that is all strings.</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.dataClass.setData">
-<span class="sig-name descname"><span class="pre">setData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.setData" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">setData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.setData" title="Link to this definition">#</a></dt>
 <dd><p>Sets the values of an existing dataset. Expects the
 index or name of dataset and keyword/value pairs to set</p>
 <p>data.setData(2, ‘name’, ‘new_name’);</p>
@@ -526,7 +525,7 @@ index or name of dataset and keyword/value pairs to set</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.dataClass.setDataName">
-<span class="sig-name descname"><span class="pre">setDataName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">whichData</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.setDataName" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">setDataName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">whichData</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.setDataName" title="Link to this definition">#</a></dt>
 <dd><p>Sets the name of an existing dataset. Expects index of data  
 and the new name. Name must be a char and not an existing name.
 Returns a structure with the new name and old name</p>
@@ -535,7 +534,7 @@ Returns a structure with the new name and old name</p>
 
 <dl class="mat staticmethod">
 <dt class="sig sig-object mat" id="API.projectClass.dataClass.validateData">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">validateData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.validateData" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">validateData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.validateData" title="Link to this definition">#</a></dt>
 <dd><p>Carry out checks of Data type and ranges in a table row.
 Expects the row of the data table as input.</p>
 <p>row = obj.validateData(row);</p>
@@ -615,7 +614,7 @@ Expects the row of the data table as input.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Controls Class &#8212; RAT 1.0.0-beta documentation</title>
   
@@ -29,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=7138875e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/documentation_options.js?v=3fd7a760"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/matlab/controlClass';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -425,7 +424,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="controls-class">
-<h1>Controls Class<a class="headerlink" href="#controls-class" title="Permalink to this heading">#</a></h1>
+<h1>Controls Class<a class="headerlink" href="#controls-class" title="Link to this heading">#</a></h1>
 <p>ControlsClass is all about control. It is necessary in determining the way RAT works. It deals with how the user interacts with the software. From type of parallelization,
 to whether the users wants to calculate SLD during fit, and even how many iteration an algorithm should do etc.</p>
 <p>There are 5 different <cite>controlsClass.procedures</cite> that can be used with RAT. They are:</p>
@@ -441,7 +440,7 @@ automatically updated based on the procedure selected.</p>
 <p>RAT uses parallelization to speed up the calculation. This is achieved using Parallel Computing Toolbox. The user can choose to use the parallelisation or not and
 if yes, what to parallelize on. (Single, Points or Contrasts)</p>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Sample usage of controlsClass.</span><a class="headerlink" href="#id1" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Sample usage of controlsClass.</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
 <span class="w">    </span><span class="n">controls</span><span class="p">.</span><span class="n">procedure</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">procedures</span><span class="p">.</span><span class="n">Dream</span><span class="p">;</span>
 <span class="w">    </span><span class="n">controls</span><span class="p">.</span><span class="n">nSamples</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">6000</span><span class="p">;</span>
@@ -451,7 +450,7 @@ if yes, what to parallelize on. (Single, Points or Contrasts)</p>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Alternate usage of controlsClass.</span><a class="headerlink" href="#id2" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Alternate usage of controlsClass.</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
 <span class="w">    </span><span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controls</span><span class="p">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s">&#39;dream&#39;</span><span class="p">,</span><span class="k">...</span>
 <span class="w">                                     </span><span class="p">{</span><span class="s">&#39;nSamples&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">6000</span><span class="p">,</span><span class="k">...</span>
@@ -461,115 +460,115 @@ if yes, what to parallelize on. (Single, Points or Contrasts)</p>
 </div>
 </div>
 <section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h2>
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.controlsClass">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.</span></span><span class="sig-name descname"><span class="pre">controlsClass</span></span><a class="headerlink" href="#API.controlsClass" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.</span></span><span class="sig-name descname"><span class="pre">controlsClass</span></span><a class="headerlink" href="#API.controlsClass" title="Link to this definition">#</a></dt>
 <dd><dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.boundHandling">
-<span class="sig-name descname"><span class="pre">boundHandling</span></span><a class="headerlink" href="#API.controlsClass.boundHandling" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">boundHandling</span></span><a class="headerlink" href="#API.controlsClass.boundHandling" title="Link to this definition">#</a></dt>
 <dd><p>Boundary handling</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.calcSldDuringFit">
-<span class="sig-name descname"><span class="pre">calcSldDuringFit</span></span><a class="headerlink" href="#API.controlsClass.calcSldDuringFit" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">calcSldDuringFit</span></span><a class="headerlink" href="#API.controlsClass.calcSldDuringFit" title="Link to this definition">#</a></dt>
 <dd><p>Indicates if SLD should be calculated (Default: false)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.crossoverProbability">
-<span class="sig-name descname"><span class="pre">crossoverProbability</span></span><a class="headerlink" href="#API.controlsClass.crossoverProbability" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">crossoverProbability</span></span><a class="headerlink" href="#API.controlsClass.crossoverProbability" title="Link to this definition">#</a></dt>
 <dd><p>The crossover probability or recombination constant (Default: 0.8)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.display">
-<span class="sig-name descname"><span class="pre">display</span></span><a class="headerlink" href="#API.controlsClass.display" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">display</span></span><a class="headerlink" href="#API.controlsClass.display" title="Link to this definition">#</a></dt>
 <dd><p>Display Option (Default: displayOptions.Iter)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.fWeight">
-<span class="sig-name descname"><span class="pre">fWeight</span></span><a class="headerlink" href="#API.controlsClass.fWeight" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">fWeight</span></span><a class="headerlink" href="#API.controlsClass.fWeight" title="Link to this definition">#</a></dt>
 <dd><p>Differential weight (Default: 0.5)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.jumpProbability">
-<span class="sig-name descname"><span class="pre">jumpProbability</span></span><a class="headerlink" href="#API.controlsClass.jumpProbability" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">jumpProbability</span></span><a class="headerlink" href="#API.controlsClass.jumpProbability" title="Link to this definition">#</a></dt>
 <dd><p>Jump probabilities (Default: 0.5)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.maxFuncEvals">
-<span class="sig-name descname"><span class="pre">maxFuncEvals</span></span><a class="headerlink" href="#API.controlsClass.maxFuncEvals" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">maxFuncEvals</span></span><a class="headerlink" href="#API.controlsClass.maxFuncEvals" title="Link to this definition">#</a></dt>
 <dd><p>Maximum number of function evaluations for simplex  (Default: 10000)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.maxIterations">
-<span class="sig-name descname"><span class="pre">maxIterations</span></span><a class="headerlink" href="#API.controlsClass.maxIterations" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">maxIterations</span></span><a class="headerlink" href="#API.controlsClass.maxIterations" title="Link to this definition">#</a></dt>
 <dd><p>Maximum number of iterations for simplex  (Default: 1000)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.nChains">
-<span class="sig-name descname"><span class="pre">nChains</span></span><a class="headerlink" href="#API.controlsClass.nChains" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">nChains</span></span><a class="headerlink" href="#API.controlsClass.nChains" title="Link to this definition">#</a></dt>
 <dd><p>Number of MCMC chains (Default: 10)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.nLive">
-<span class="sig-name descname"><span class="pre">nLive</span></span><a class="headerlink" href="#API.controlsClass.nLive" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">nLive</span></span><a class="headerlink" href="#API.controlsClass.nLive" title="Link to this definition">#</a></dt>
 <dd><p>Number of live points for Nested Sampler (Default: 150)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.nSamples">
-<span class="sig-name descname"><span class="pre">nSamples</span></span><a class="headerlink" href="#API.controlsClass.nSamples" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">nSamples</span></span><a class="headerlink" href="#API.controlsClass.nSamples" title="Link to this definition">#</a></dt>
 <dd><p>Total number of samples for DREAM (Default: 50000)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.nsTolerance">
-<span class="sig-name descname"><span class="pre">nsTolerance</span></span><a class="headerlink" href="#API.controlsClass.nsTolerance" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">nsTolerance</span></span><a class="headerlink" href="#API.controlsClass.nsTolerance" title="Link to this definition">#</a></dt>
 <dd><p>Target stopping tolerance for Nested Sampler (Default: 0.1)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.numGenerations">
-<span class="sig-name descname"><span class="pre">numGenerations</span></span><a class="headerlink" href="#API.controlsClass.numGenerations" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">numGenerations</span></span><a class="headerlink" href="#API.controlsClass.numGenerations" title="Link to this definition">#</a></dt>
 <dd><p>Maximum number of generations (Default: 500)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.parallel">
-<span class="sig-name descname"><span class="pre">parallel</span></span><a class="headerlink" href="#API.controlsClass.parallel" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">parallel</span></span><a class="headerlink" href="#API.controlsClass.parallel" title="Link to this definition">#</a></dt>
 <dd><p>Parallelisation Option (Default: parallelOptions.Single)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.populationSize">
-<span class="sig-name descname"><span class="pre">populationSize</span></span><a class="headerlink" href="#API.controlsClass.populationSize" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">populationSize</span></span><a class="headerlink" href="#API.controlsClass.populationSize" title="Link to this definition">#</a></dt>
 <dd><p>Differential Evolution population size (Default: 20)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.procedure">
-<span class="sig-name descname"><span class="pre">procedure</span></span><a class="headerlink" href="#API.controlsClass.procedure" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">procedure</span></span><a class="headerlink" href="#API.controlsClass.procedure" title="Link to this definition">#</a></dt>
 <dd><p>Optimization procedure (Default: procedures.Calculate)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.propScale">
-<span class="sig-name descname"><span class="pre">propScale</span></span><a class="headerlink" href="#API.controlsClass.propScale" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">propScale</span></span><a class="headerlink" href="#API.controlsClass.propScale" title="Link to this definition">#</a></dt>
 <dd><p>Used if MCMC is used</p>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.controlsClass.setProcedure">
-<span class="sig-name descname"><span class="pre">setProcedure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">procedure</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.controlsClass.setProcedure" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">setProcedure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">procedure</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.controlsClass.setProcedure" title="Link to this definition">#</a></dt>
 <dd><p>Method sets the properties of the class based on the selected procedures.</p>
 <dl class="simple">
 <dt>USAGE: </dt><dd><p>obj.setProcedure(procedure, varargin)</p>
@@ -585,19 +584,19 @@ if yes, what to parallelize on. (Single, Points or Contrasts)</p>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.strategy">
-<span class="sig-name descname"><span class="pre">strategy</span></span><a class="headerlink" href="#API.controlsClass.strategy" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">strategy</span></span><a class="headerlink" href="#API.controlsClass.strategy" title="Link to this definition">#</a></dt>
 <dd><p>differential evolution strategy (Default: searchStrategy.RandomWithPerVectorDither)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.targetValue">
-<span class="sig-name descname"><span class="pre">targetValue</span></span><a class="headerlink" href="#API.controlsClass.targetValue" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">targetValue</span></span><a class="headerlink" href="#API.controlsClass.targetValue" title="Link to this definition">#</a></dt>
 <dd><p>Target Value (Default: 1)</p>
 </dd></dl>
 
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.xTolerance">
-<span class="sig-name descname"><span class="pre">xTolerance</span></span><a class="headerlink" href="#API.controlsClass.xTolerance" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">xTolerance</span></span><a class="headerlink" href="#API.controlsClass.xTolerance" title="Link to this definition">#</a></dt>
 <dd><p>optimization tolerance for simplex (Default: 1e-6)</p>
 </dd></dl>
 
@@ -675,7 +674,7 @@ if yes, what to parallelize on. (Single, Points or Contrasts)</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>

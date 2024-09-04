@@ -29,7 +29,7 @@ To select the simplex in RAT, we use the 'procedure' attribute of the controls b
     
     .. code-block:: Python
     
-        controls = RAT.set_controls('simplex')
+        controls = RAT.Controls('simplex')
 
 Then, a number of additional fields become visible in the controls block, which are the parameters
 for the simplex:-

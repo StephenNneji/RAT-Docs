@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Parameters Class &#8212; RAT 1.0.0-beta documentation</title>
   
@@ -29,22 +28,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=7138875e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/documentation_options.js?v=3fd7a760"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/matlab/parametersClass';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -428,12 +427,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="parameters-class">
-<h1>Parameters Class<a class="headerlink" href="#parameters-class" title="Permalink to this heading">#</a></h1>
+<h1>Parameters Class<a class="headerlink" href="#parameters-class" title="Link to this heading">#</a></h1>
 <p>Parameters Class helps to add, set or remove parameters to the Project Class. The class has a constructor that gets initiated when Parameter class is called. This constructor
 sets important initial values to the class obj (object) like variable name, types. It also initiates a “table” that helps to store all the parameters. Table is a really useful
 data type provided by matlab. Check this link to know more about <a class="reference external" href="https://uk.mathworks.com/help/matlab/tables.html">table</a>.</p>
 <table class="table" id="id1">
-<caption><span class="caption-text">The methods on the left call the methods on the right in the table.</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-text">The methods on the left call the methods on the right in the table.</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -464,7 +463,7 @@ data type provided by matlab. Check this link to know more about <a class="refer
 <p>When adding parameters, they can be added individually or as a group (see below). When added as a group, <cite>addParameterGroup</cite> method in projectClass iterates over the
 list of parameters and adds them one by one using <cite>addParameter</cite> method which is used to add individual parameters.</p>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Adding parameters as a group. Can set to a class using projectClass.addParameterGroup(Parameters)</span><a class="headerlink" href="#id2" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Adding parameters as a group. Can set to a class using projectClass.addParameterGroup(Parameters)</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Parameters</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c">%   Name                min         val         max     fit?</span>
 <span class="w">    </span><span class="p">{</span><span class="s">&#39;Oxide thick&#39;</span><span class="p">,</span><span class="w">         </span><span class="mi">5</span><span class="p">,</span><span class="w">         </span><span class="mi">20</span><span class="p">,</span><span class="w">         </span><span class="mi">60</span><span class="p">,</span><span class="w">     </span><span class="nb">true</span><span class="w">   </span><span class="p">};</span>
@@ -474,7 +473,7 @@ list of parameters and adds them one by one using <cite>addParameter</cite> meth
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Adding parameters individually. Can set to a class using projectClass.addParameter(Parameter)</span><a class="headerlink" href="#id3" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Adding parameters individually. Can set to a class using projectClass.addParameter(Parameter)</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Oxide</span><span class="w"> </span><span class="p">=</span><span class="w">     </span><span class="p">{</span><span class="s">&#39;Oxide Layer&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">          % Name of the layer</span>
 <span class="w">                </span><span class="s">&#39;Oxide thick&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">           % Layer thickness</span>
 <span class="w">                </span><span class="s">&#39;Oxide SLD&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">             % Layer SLD</span>
@@ -499,15 +498,15 @@ to set the name of a parameter.</p>
 </ol>
 </div>
 <section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h2>
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">parametersClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">parametersClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass" title="Link to this definition">#</a></dt>
 <dd><p>This is the class definition for
 the parameters block.</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.addParameter">
-<span class="sig-name descname"><span class="pre">addParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.addParameter" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">addParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.addParameter" title="Link to this definition">#</a></dt>
 <dd><p>Adds an new parameter to the parameters table. Default 
 values are used when adding the parameter if no arguments are 
 provided, otherwise a subset of the arguments can be provided.
@@ -522,13 +521,13 @@ for 8 inputs, all parameter properties are provided</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.displayTable">
-<span class="sig-name descname"><span class="pre">displayTable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.displayTable" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">displayTable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.displayTable" title="Link to this definition">#</a></dt>
 <dd><p>Displays the parameter table</p>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.parametersClass">
-<span class="sig-name descname"><span class="pre">parametersClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.parametersClass" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">parametersClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.parametersClass" title="Link to this definition">#</a></dt>
 <dd><p>Class constructor.
 Creates a Parameter object. The arguments should be 
 the content of the first parameter. A parameter consists of
@@ -549,7 +548,7 @@ for 8 inputs, all parameter properties are provided</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.removeParameter">
-<span class="sig-name descname"><span class="pre">removeParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.removeParameter" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">removeParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.removeParameter" title="Link to this definition">#</a></dt>
 <dd><p>Removes a parameter from the parameters table. 
 Expects a single parameter name or index/array of parameter
 names or indices to remove</p>
@@ -558,7 +557,7 @@ names or indices to remove</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.setFit">
-<span class="sig-name descname"><span class="pre">setFit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">fitFlag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setFit" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">setFit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">fitFlag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setFit" title="Link to this definition">#</a></dt>
 <dd><p>Sets the ‘fit’ to off or on for parameter.
 Expects index or name of parameter and new fit flag</p>
 <p>params.setFit(2, true);</p>
@@ -566,7 +565,7 @@ Expects index or name of parameter and new fit flag</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.setLimits">
-<span class="sig-name descname"><span class="pre">setLimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">min</span></em>, <em class="sig-param"><span class="pre">max</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setLimits" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">setLimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">min</span></em>, <em class="sig-param"><span class="pre">max</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setLimits" title="Link to this definition">#</a></dt>
 <dd><p>Sets the limits of an existing parameter. Expects index
 or name of parameter and new min and max of the parameter’s
 value</p>
@@ -575,7 +574,7 @@ value</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.setName">
-<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setName" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setName" title="Link to this definition">#</a></dt>
 <dd><p>Sets the name of an existing parameter.
 Expects index or name of parameter and the new name</p>
 <p>params.setName(2, ‘new name’);</p>
@@ -583,7 +582,7 @@ Expects index or name of parameter and the new name</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.setParameter">
-<span class="sig-name descname"><span class="pre">setParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setParameter" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">setParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setParameter" title="Link to this definition">#</a></dt>
 <dd><p>General purpose set parameter method. Expects index or name
 of parameter and keyword/value pairs to set</p>
 <p>params.setParameter(2, ‘value’, 50);</p>
@@ -591,7 +590,7 @@ of parameter and keyword/value pairs to set</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.setPrior">
-<span class="sig-name descname"><span class="pre">setPrior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setPrior" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">setPrior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setPrior" title="Link to this definition">#</a></dt>
 <dd><p>Sets the prior of an existing parameter. Expects index or
 name of parameter and the new prior type (‘uniform’,
 ‘gaussian’, ‘jeffreys’) with mu and sigma value if applicable</p>
@@ -600,7 +599,7 @@ name of parameter and the new prior type (‘uniform’,
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.setValue">
-<span class="sig-name descname"><span class="pre">setValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setValue" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">setValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setValue" title="Link to this definition">#</a></dt>
 <dd><p>Sets the value of an existing parameter. Expects index or
 name of parameter and the new value</p>
 <p>params.setValue(2, 3.4);</p>
@@ -608,7 +607,7 @@ name of parameter and the new value</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.toStruct">
-<span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.toStruct" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.toStruct" title="Link to this definition">#</a></dt>
 <dd><p>Converts the class parameters into a structure array.</p>
 </dd></dl>
 
@@ -686,7 +685,7 @@ name of parameter and the new value</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>
