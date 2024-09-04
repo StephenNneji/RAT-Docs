@@ -16,7 +16,7 @@ Making an instance of the controls class is quite simple:-
 
     .. code-block:: Python
         
-        controls = RAT.set_controls()
+        controls = RAT.Controls()
 
 
 This then creates an instance of controls class with a number of options defined:
@@ -48,7 +48,7 @@ SLD with any associated problem. If we select 'simplex' as the algorithm, a diff
 
     .. code-block:: Python
         
-        controls = RAT.set_controls('simplex')
+        controls = RAT.Controls('simplex')
 
 
 .. tab-set::
@@ -67,7 +67,7 @@ SLD with any associated problem. If we select 'simplex' as the algorithm, a diff
         .. raw:: html
             :file: ../_outputs/python/controlSimplexDefaults.txt
 
-...which allow the user to set things such as tolerance targets and so on. There is a different set of options for each algorithm.
+which allow the user to set things such as tolerance targets and so on. There is a different set of options for each algorithm.
 We will now look at each of the available options in turn.
 
 ******************************

@@ -26,7 +26,7 @@ The first input, *problem*, is an instance of a class called project class:
 .. tab-set-code::
     .. code-block:: Matlab
 
-        >> problem = projectClass('my project');
+        >> problem = createProject(name='my project');
         >> class(problem)
 
         ans =
@@ -58,18 +58,15 @@ And if we take a look at it, we can see the class contains a series of sections,
         .. raw:: html
             :file: ../_outputs/python/tutorialProblem.txt
 
-We can see that the class has a number of attributes, defining all we need for our analysis. In our case, we have no parameters or data, and have not defined any contrasts, so this will not do anything useful in RAT. Defining a model is a case of populating the sections in the project class, which we do using the class methods:
+We can see that the class has a number of attributes, defining all we need for our analysis. In the default case, we have no parameters or data, and have not defined any contrasts, so this will not do anything useful in RAT. 
+Defining a model is a case of populating the sections in the project class, which we do using the methods in the **project Class**,:
 
-.. image:: ../images/userManual/chapter2/projectClassMethods.png
-    :alt: Project Class Methods
-
-It is clear from the method names (i.e. *addData*) that these methods are going to be useful to us for building our model. In the following sections,
-we will look at each of these methods and see how they can be used to define our reflectivity analysis problem. (There is also a utility which will convert a RasCAL model into a *projectClass* for use in RAT.
+In the following sections, we will look at each of these methods and see how they can be used to define our reflectivity analysis problem. (There is also a utility which will convert a RasCAL model into a *projectClass* for use in RAT.
 This means that you can use the RasCAL GUI to set up your model if you like and then use the speed of RAT to conduct your analysis.)
 
-In terms of the outputs, note that we have called the first output *problem*, but we don't need to do that. The first of the two outputs is another **projectClass**, but updated with the results of the calculation.
+In terms of the outputs, note that we have called the first output *problem*, but we don't need to do that. The first of the two outputs is another **project Class**, but updated with the results of the calculation.
 So, if we run a fit, the fitted parameters will be updated with the best fit values of our procedure. In giving the output the same name as the input, we're overwriting our input with best fit values, but if you don't
-want to do this, you can give the inputs and outputs different names (e.g. '[outProblem,results] = RAT(problem,controls)'' or whatever you like). The second output can also be called whatever you like, and this is a struct
+want to do this, you can give the inputs and outputs different names TODO(e.g. '[outProblem,results] = RAT(problem,controls)'' or whatever you like). The second output can also be called whatever you like, and this is a struct
 containing the simulated reflectivities, SLD's and so on from whatever procedure you have asked RAT to do:
 
 .. tab-set::
@@ -88,31 +85,31 @@ containing the simulated reflectivities, SLD's and so on from whatever procedure
         .. raw:: html
             :file: ../_outputs/python/tutorialFullRunResult.txt
 
-In the next sections, we'll discuss the methods of the project class, and see how they allow us to build up a model by populating the various sections.
+In the next sections, we will discuss the methods of the project class, and see how they allow us to build up a model by populating the various sections.
 
-******************************
-The Components of ProjectClass
-******************************
+*******************************
+The Components of Project Class
+*******************************
 
 Project Defining Methods
 ========================
 
-The first step is always to create an instance of the project class to hold our model. This is always done by assigning **projectClass** to our variable name (we will mostly use *problem* in this manual, but it can be anything), which always requires a name for our project as an input:
+The first step is always to create an instance of the project class to hold our model. This is always done by assigning **project Class** to our variable name (we will mostly use *problem* in this manual, but it can be anything), which always requires a name for our project as an input:
 
 .. tab-set-code::
     .. code-block:: Matlab
 
-        problem = projectClass('My Problem');
+        problem = createProject(name='My Problem');
     
     .. code-block:: Python
     
         problem = RAT.Project('my project')
     
-This creates an instance of **projectClass** and assigns it to the variable *problem*, and gives it the title 'My Problem'.
+This creates an instance of **project Class** and assigns it to the variable *problem*, and gives it the title 'My Problem'.
 
 The first part of the created *problem* has two other settable fields: *modelType* and *Geometry*.
 
-**Geometry -** This can be set to either *air/substrate* or *substrate/liquid* using the **setGeometry** method. It can take the values of *air/substrate* or *substrate/liquid*. 
+**Geometry -** This can be set to either *air/substrate* or *substrate/liquid* as below. 
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -130,7 +127,7 @@ there are always n+1 associated interfaces, and hence n+1 roughness parameters r
 is a protected parameter and always exists, and this parameter controls where this roughness is placed in the layer stack. So, for two layers defined with thickness,
 SLD and roughness as [d\ :sub:`1`, :math:`\rho_\mathrm{1}`, r\ :sub:`1`] and [d\ :sub:`2`, :math:`\rho_\mathrm{2}`, r\ :sub:`2`], then for the *substrate/liquid* geometry
 the substrate roughness is placed as the first roughness the beam meets, and the layer roughness's refer to the interface after the particular layer.
-or the *air/substrate* case, the opposite is true, and the substrate roughness is the last roughness in the stack, with the layer roughness referring to the interface before each layer.
+But in the *air/substrate* case, the opposite is true, and the substrate roughness is the last roughness in the stack, with the layer roughness referring to the interface before each layer.
 
 ModelType - As is the case for RasCAL, there are three ways of defining models in RAT:-
 
@@ -138,7 +135,7 @@ ModelType - As is the case for RasCAL, there are three ways of defining models i
 * **Custom Layers** - Parameters are again defined and grouped into layers, but this time the layer definitions come from a user model script. This then gives complete flexibility of how layers are defined, so allowing models to be written in terms of area per molecule or material density, for example. This custom script controls translating these input parameters into a [d, :math:`\rho`, r] model. This is probably the most useful operating mode for RasCAL.
 * **Custom XY-Profile** - This modelling mode also relies on a custom model function, but in this case does away with [d, :math:`\rho`, r] layers completely. Instead, the custom function uses the parameters to define a continuous SLD profile, which RAT then uses to calculate the reflectivity.
 
-The model type is set using the **setModelType** method:
+The model type of the project can be changed as follows:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -153,7 +150,7 @@ The model type is set using the **setModelType** method:
         problem.model = 'custom layers'
         problem.model = 'custom XY'
 
-Custom modelling is described in more depth in a later section.
+Custom modelling is described in more depth in a :ref:`later section<customModels>`.
 
 The Parameters Block
 ====================
@@ -179,7 +176,7 @@ Any model, whether it be layers or anything else is always defined by parameters
 
 The substrate roughness is a protected parameter in all cases (it defines the Fresnel roughness) and cannot be renamed or deleted. Its values can be set to any numerical values however.
 
-To add a parameter, you can use the **addParam** method, either by just specifying a name, in which case the parameter takes on default values, or by specifying the whole parameter at once (note the Matlab cell array curly brackets syntax for the latter):
+To add a parameter, you can just specify a name, in which case the parameter takes on default values, or specify the whole parameter at once:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -192,7 +189,7 @@ To add a parameter, you can use the **addParam** method, either by just specifyi
         problem.parameters.append(name='My new param', min=1, value=2, max=3)
         problem.parameters.append(name='My other new param', min=10, value=20, max=30, fit=False)
 
-To avoid having to make a whole load of **addParam** statements for large projects with many parameters, you can define them at once in a cell array, and add them using the **addParamGroup** method (again notice the curly brackets syntax - this is a {cell array of {cell arrays}} : 
+To avoid having to make a whole load of statements for large projects with many parameters, you can define them at once in an array, and add them as a group: 
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -233,7 +230,7 @@ The resulting parameters block looks like this:
     Parameters can't have duplicate names. Attempting to duplicate a name will throw an error. This can cause problems when loading in RasCAL1 projects
     where duplicate names are allowed.
 
-To subsequently change the values of the parameters (including names), there are a few methods you can use. For each of the methods, you can refer to the parameter by its name or its number. There are dedicated methods for each of the attributes of the parameters:
+To subsequently change the values of the parameters (including names), there are a few methods you can use. For each of the methods, you can refer to the parameter by its index number. In Matlab, you can refer to a parameter by name:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -267,7 +264,7 @@ To subsequently change the values of the parameters (including names), there are
         .. raw:: html
             :file: ../_outputs/python/tutorialSetParameters.txt
 
-Alternatively, you can set a number of properties of a given parameter at once using name / value pairs.
+Alternatively, you can set a number of properties of a given parameter at once using name/value pairs.
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -294,7 +291,8 @@ Alternatively, you can set a number of properties of a given parameter at once u
         .. raw:: html
             :file: ../_outputs/python/tutorialSetParameters2.txt
 
-You can remove a parameter from the block using its name or number. Note that if you remove a parameter from the middle of the block, subsequent parameter numbers will change. Also, if you try to remove the substrate roughness you will get an error:
+You can remove a parameter from the block using its index number or name (Matlab only). Note that if you remove a parameter from the middle of the block, subsequent parameter index numbers will change. 
+Also, if you try to remove the substrate roughness you will get an error:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -348,10 +346,11 @@ You can remove a parameter from the block using its name or number. Note that if
         .. raw:: html
             :file: ../_outputs/python/tutorialRemoveProtectedParameters.txt
 
+
 The Layers Block (Standard Layers models only)
 ==============================================
 
-For each of the custom models cases, the model building is done using a script (discussed in detail in chapter 3). For standard layers models however, model building is done by grouping the parameters into layers, and then into contrasts (as is the case for RasCAL). The layers block is not visible when either of the two custom modes is selected. Again, layers are built using methods of the project class. As an example here, we make a new project class, add some parameters, and create some layers.
+For each of the custom models cases, the model building is done using a script (discussed in :ref:`customModels`). For standard layers models however, model building is done by grouping the parameters into layers, and then into contrasts (as is the case for RasCAL). The layers block is not visible when either of the two custom modes is selected. Again, layers are built using methods of the project class. As an example here, we make a new project class, add some parameters, and create some layers.
 
 For this example, we will make two layers representing a deuterated and hydrogenated version of the same layer. So, the layers will share all their parameters except for the SLD.
 
@@ -360,7 +359,7 @@ Start by making a new project, and adding the parameters we will need:
 .. tab-set-code::
     .. code-block:: Matlab
 
-        problem = projectClass('Layers Example');
+        problem = createProject(name='Layers Example');
     
         params = {{'Layer Thickness', 10, 20, 30, false};
                 {'H SLD', -6e-6, -4e-6, -1e-6, false};
@@ -450,18 +449,21 @@ Note that in RAT, hydration is percent hydration between 0 and 100. It is not ne
             :file: ../_outputs/python/tutorialLayers2.txt
 
 
-To set the value of an existing layer, you can use the 'setLayerValue' method, at the moment using numbers for the layer number, layer parameter and parameter to be changed. So for example:
+The value of an existing layer can be changed by specifying the layer number, layer parameter to be changed and the value to change to. So for example below, 
+changes parameter 2 (Thickness) of Layer 1 (H Layer) to the 3rd Parameter of the parameter block (H SLD):
 
 .. tab-set-code::
     .. code-block:: Matlab
 
         problem.setLayerValue(1, 2, 3);
+        
+        % Alternative: setLayerValue allows the use of names so the following is the same as the line above
+
+        problem.setLayerValue('H Layer', 'Thickness, 'H SLD');
 
     .. code-block:: Python
 
-        problem.layers.set_fields(0, thickness='H SLD')
-
-changes parameter 2 (Thickness) of Layer 1 (H Layer) to the 3rd Parameter of the parameter block (H SLD): 
+        problem.layers.set_fields(0, thickness='H SLD') 
 
 .. tab-set::
     :class: tab-label-hidden
@@ -479,9 +481,6 @@ changes parameter 2 (Thickness) of Layer 1 (H Layer) to the 3rd Parameter of the
         .. raw:: html
             :file: ../_outputs/python/tutorialSetLayers.txt
 
-
-.. note::
-    SetLayerValue allows the use of names rather than numbers if required because numbers are not very intuitive.
 
 The layers are then used to set up the contrasts as usual with a standard layers model.
 
@@ -517,20 +516,27 @@ These are treated in the same way as parameters e.g.
         .. raw:: html
             :file: ../_outputs/python/tutorialBulkPhase.txt
 
-There are no individual methods for each parameter of these, but the values can be modified using name / value pairs as is the case for parameters, using the **setBulkIn** and **setBulkOut** methods e.g.
+The values of BulkIn and BulkOut can be modified as shown below:
 
 .. tab-set-code::
     .. code-block:: Matlab
 
         problem.setBulkOut(1, 'value', 5.9e-6, 'fit', true);
+        
+        % Similarly BulkIn can be changed
+        % problem.setBulkIn('Silicon', 'value', 5.9e-6, 'fit', true);
 
     .. code-block:: Python
 
         problem.bulk_out.set_fields(0, value=5.9e-6, fit=True)
+        
+        # similarly bulk in can be changed
+        # problem.bulk_in.set_fields(0, value=5.9e-6, fit=True)
+
 
 Scalefactors
 ============
-The *scalefactors* are another parameters block like the bulk phases. You can add *scalefactors* with the **addScalefactor** method. Similarly, you can set the values with the **setScalefactor** method as with the previous blocks.
+The *scalefactors* are another parameters block like the bulk phases. You can add and modify *scalefactors* similar as with the previous blocks.
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -617,21 +623,21 @@ This is then available to be used by any of our contrasts (see later).
 
         problem.backgrounds.append(name='Data Background 1', type='data', value_1='My Background Data')
 
-.. tab-set::
-    :class: tab-label-hidden
-    :sync-group: code
+.. .. tab-set::
+..     :class: tab-label-hidden
+..     :sync-group: code
 
-    .. tab-item:: Matlab
-        :sync: Matlab
+..     .. tab-item:: Matlab
+..         :sync: Matlab
 
-        .. raw:: html
-            :file: ../_outputs/matlab/tutorialDataBackground.txt
+..         .. raw:: html
+..             :file: ../_outputs/matlab/tutorialDataBackground.txt
 
-    .. tab-item:: Python 
-        :sync: Python
+..     .. tab-item:: Python 
+..         :sync: Python
 
-        .. raw:: html
-            :file: ../_outputs/python/tutorialDataBackground.txt
+..         .. raw:: html
+..             :file: ../_outputs/python/tutorialDataBackground.txt
 
 This is then used in the reflectivity calculation for any contrast in which it is specified.
 
@@ -640,7 +646,7 @@ This is then used in the reflectivity calculation for any contrast in which it i
 
 Resolutions
 ===========
-As is the case for the backgrounds, the resolutions block is also splot into two parts: a parameters block which defines the fittable parameters, and then the main Resolutions block which groups these as required into actual resolutions.
+As is the case for the backgrounds, the resolutions block is also split into two parts: a parameters block which defines the fittable parameters, and then the main Resolutions block which groups these as required into actual resolutions.
 The three types are:
 
 *   **Constant**: The default type. A resolutionParameter defines the width of a sliding Gaussian window convolution applied to the data.
@@ -746,13 +752,14 @@ To add data, we first load it into Matlab, then create a new data entry containi
 .. tab-set-code::
     .. code-block:: Matlab
 
-        myData = dlmread('c_PLP0016596.dat');
+        root = getappdata(0, 'root');
+        myData = readmatrix(fullfile(root, '/examples/normalReflectivity/customXY/c_PLP0016596.dat'));
         problem.addData('My new datafile', myData)
     
     .. code-block:: Python
 
         import numpy as np
-        myData = np.loadtxt('c_PLP0016596.dat'delimiter=",")
+        myData = np.loadtxt('c_PLP0016596.dat', delimiter=",")
         problem.data.append(name='My new datafile', data=myData)
 
 and out new dataset appears in the table:
@@ -800,7 +807,8 @@ As is the case for RasCAL, once we have defined the various aspects of our proje
 
 The values which we add must refer to names within the other blocks of the project. So, if you try to add a *scalefactor* called 'scalefactor1' when this name doesn't exist in the *scalefactors* block, then an error will result.
 
-Once we have added the contrasts, then we need to set the model, either by adding layers for a *standard layers* project, or a custom model file (we will discuss these in chapter 3). To add either layers or a custom file, we use the **setModel** method. In the case of layers, we give a list of layer names, in order from bulk in to bulk out. So for a monolayer for example, we would specify tails and then heads in a cell array:
+Once we have added the contrasts, then we need to set the model, either by adding layers for a *standard layers* project, or a custom model file (we discuss these in :ref:`customModels`). 
+In the case of layers, we give a list of layer names, in order from bulk in to bulk out. So for a monolayer for example, we would specify tails and then heads in as shown below:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -823,14 +831,14 @@ To start, we first make an instance of the project class:
 .. tab-set-code::
     .. code-block:: Matlab
 
-        problem = projectClass('DSPC monolayers');
+        problem = createProject(name='DSPC monolayers');
     
     .. code-block:: Python
 
-        import RATpy as RAT
+        import RATapi as RAT
         problem = RAT.Project(name='DSPC monolayers')
 
-Then we need to define the parameters we need. We'll do this by making a parameters block, and adding these to project class with the **addParamGroup** method:
+Then we need to define the parameters we need. We'll do this by making a parameters block, and adding these to project class:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -912,7 +920,7 @@ Next we need to group the parameters into our layers. We need four layers in all
 .. note:: 
     The headgroups are hydrated and so share a hydration parameter, whereas the tails are not. 
 
-We add our layers to the project using the **addLayerGroup** method:
+We now add our layers to the project:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -923,7 +931,7 @@ We add our layers to the project using the **addLayerGroup** method:
 
         problem.layers.extend([H_Heads, D_Heads, H_Tails, D_Tails])
 
-We are using two different sub-phases: D2O and ACMW. We need a different constant background for each, so we need two 'backPar' parameters. There is already one background parameter in the project as a default, so we rename this and add a second one:
+We are using two different sub-phases: D2O and ACMW. We need a different constant background for each, so we need two bckground parameters. There is already one background parameter in the project as a default, so we rename this and add a second one:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -967,8 +975,10 @@ Now we need to add the data. We read in the two files into MATLAB, and put the d
 .. tab-set-code::
     .. code-block:: Matlab
 
-        d13ACM = dlmread('d13acmw20.dat');
-        d70d2O = dlmread('d70d2o20.dat');
+        root = getappdata(0, 'root');
+        dataPath = '/examples/miscellaneous/convertRasCAL1Project/';
+        d13ACM = readmatrix(fullfile(root, dataPath, 'd13acmw20.dat'));
+        d70d2O = readmatrix(fullfile(root, dataPath, 'd70d2o20.dat'));
         problem.addData('H-tail / D-head / ACMW', d13ACM);
         problem.addData('D-tail / H-head / D2O', d70d2O);
     
@@ -1075,7 +1085,7 @@ Now we'll calculate this to check the agreement with the data. We need an instan
     
     .. code-block:: Python
 
-        controls = RAT.set_controls();
+        controls = RAT.Controls();
         print(controls)
 
 .. tab-set::
@@ -1147,7 +1157,7 @@ and modify the output to only display the final result (rather than each iterati
     
     .. code-block:: Python
 
-        controls = RAT.set_controls('simplex', parallel='contrasts', display='final')
+        controls = RAT.Controls('simplex', parallel='contrasts', display='final')
         problem, results = RAT.run(problem, controls)
 
 .. tab-set::

@@ -34,9 +34,9 @@ and if so, it stores it. If not, it has proper conditional statements to pinpoin
 input .. etc. 
 
 .. code-block:: MATLAB
-    :caption: Adding data. Usually, the data is in .dat files. So, `dlmread` built-in method is used to read the data into a variable.
+    :caption: Adding data. Usually, the data is in .dat files. So, `readmatrix` built-in method is used to read the data into a variable.
 
-        D2O_data = dlmread('c_PLP0016596.dat');
+        D2O_data = readmatrix('c_PLP0016596.dat');
         % Add the data to the project
         projectClass.addData('Bilayer / D2O', D2O_data(:,1:3));
 

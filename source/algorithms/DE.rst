@@ -24,7 +24,7 @@ As with all the RAT algorithms, DE is selected using the 'procedure' attribute o
 
     .. code-block:: Python
     
-        controls = RAT.set_controls('DE')
+        controls = RAT.Controls('DE')
 
 This reveals the DE specific parameters in controls:- 
 

@@ -19,7 +19,7 @@ import datetime
 # ones.
 exclude_patterns = []
 current_dir = os.path.dirname(os.path.abspath(__file__))
-matlab_src_dir = os.path.abspath(os.path.join(current_dir, '..', 'API', 'RAT'))
+matlab_src_dir = os.path.abspath(os.path.join(current_dir, '..', 'API'))
 sys.path.insert(0, matlab_src_dir)
 
 project = 'RAT'
@@ -42,7 +42,6 @@ with open(VERSION_FILE, 'r') as version_file:
         doc_version = f'{major}.{minor}'
     
 # -- General configuration ---------------------------------------------------
-# extensions = ['sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx_design']
 extensions = ['sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx_design', 'sphinx_copybutton']
 
 # Add any paths that contain templates here, relative to this directory.

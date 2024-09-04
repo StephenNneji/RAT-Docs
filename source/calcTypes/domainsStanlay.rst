@@ -79,8 +79,8 @@ The example (in the examples folder), we define the layers as for conventional S
         .. raw:: html
             :file: ../_outputs/python/calcTypesDomainsLayers.txt
 
-From this point, the model diverges from the usual Standard Layers case, in that these are grouped into 'domain contrasts', which appear in an additional table in the
-display projectClass. Domains contrasts consist of only layers, with no bulk phases etc..
+From this point, the model diverges from the usual Standard Layers case, in that these are grouped into 'domain contrasts', which appears in an additional table in the
+printout of the project class. Domains contrasts consist of only layers, with no bulk phases etc..
 
 .. tab-set::
     :class: tab-label-hidden

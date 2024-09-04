@@ -1,4 +1,0 @@
-<pre>
-problem.layers.displayTable()
-
-</pre>

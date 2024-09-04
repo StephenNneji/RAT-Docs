@@ -1,8 +1,6 @@
-name: Docs
+name: Publish Docs
 
-on:  
-  push:
-    branches: [main]
+on:
   release:
     types: [published]
 

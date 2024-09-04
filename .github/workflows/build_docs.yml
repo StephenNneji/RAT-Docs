@@ -1,0 +1,42 @@
+name: Buld Docs
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4      
+      with:
+        submodules: true
+    - name: Checkout gh-pages
+      uses: actions/checkout@v4
+      with:
+        ref: gh-pages
+        path: _web
+    - name: Set up MATLAB
+      uses: matlab-actions/setup-matlab@v2
+    - name: Run script
+      uses: matlab-actions/run-command@v2
+      with:
+        command: generateOutputs
+    - name: Set up Python 
+      uses: actions/setup-python@v4
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install RATapi numpy
+    - name: Build docs
+      run: |
+        python generate_output.py
+        python build_docs.py
+    - name: Upload build
+      uses: actions/upload-artifact@v4
+      with:
+        path: build
