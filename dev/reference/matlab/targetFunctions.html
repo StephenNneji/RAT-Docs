@@ -194,8 +194,8 @@ document.write(`
                 
 
                     <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../index.html">
-                        API Reference
+                      <a class="nav-link nav-internal" href="index.html">
+                        MATLAB API Reference
                       </a>
                     </li>
                 
@@ -310,8 +310,8 @@ document.write(`
                 
 
                     <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../index.html">
-                        API Reference
+                      <a class="nav-link nav-internal" href="index.html">
+                        MATLAB API Reference
                       </a>
                     </li>
                 
@@ -404,7 +404,7 @@ document.write(`
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">MATLAB API Reference</a></li>
     
     <li class="breadcrumb-item active" aria-current="page">Target...</li>
   </ul>
@@ -446,7 +446,7 @@ The types of available target functions are:</em></p>
 <span id="commonfunctions"></span><h2>Common Functions<a class="headerlink" href="#common-functions" title="Link to this heading">#</a></h2>
 <dl class="mat function" id="module-targetFunctions.common">
 <dt class="sig sig-object mat" id="targetFunctions.common.backSort">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">backSort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrastBackgrounds</span></em>, <em class="sig-param"><span class="pre">contrastQzshifts</span></em>, <em class="sig-param"><span class="pre">contrastScalefactors</span></em>, <em class="sig-param"><span class="pre">contrastBulkIns</span></em>, <em class="sig-param"><span class="pre">contrastBulkOuts</span></em>, <em class="sig-param"><span class="pre">contrastResolutions</span></em>, <em class="sig-param"><span class="pre">backgroundParams</span></em>, <em class="sig-param"><span class="pre">qzshifts</span></em>, <em class="sig-param"><span class="pre">scalefactors</span></em>, <em class="sig-param"><span class="pre">bulkIn</span></em>, <em class="sig-param"><span class="pre">bulkOut</span></em>, <em class="sig-param"><span class="pre">resolutionParams</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.backSort" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">backSort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrastBackgroundParams</span></em>, <em class="sig-param"><span class="pre">contrastQzshifts</span></em>, <em class="sig-param"><span class="pre">contrastScalefactors</span></em>, <em class="sig-param"><span class="pre">contrastBulkIns</span></em>, <em class="sig-param"><span class="pre">contrastBulkOuts</span></em>, <em class="sig-param"><span class="pre">contrastResolutionParams</span></em>, <em class="sig-param"><span class="pre">backgroundParams</span></em>, <em class="sig-param"><span class="pre">qzshifts</span></em>, <em class="sig-param"><span class="pre">scalefactors</span></em>, <em class="sig-param"><span class="pre">bulkIn</span></em>, <em class="sig-param"><span class="pre">bulkOut</span></em>, <em class="sig-param"><span class="pre">resolutionParams</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.backSort" title="Link to this definition">#</a></dt>
 <dd><p>Distributes the background and shift values among the different contrasts</p>
 <p>USAGE:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">backgroundParams</span><span class="p">,</span><span class="n">qzshift</span><span class="p">,</span><span class="n">scalefactor</span><span class="p">,</span><span class="n">bulkIn</span><span class="p">,</span><span class="n">bulkOut</span><span class="p">,</span><span class="n">resolutionParams</span><span class="p">]</span> <span class="o">=</span> <span class="n">backsort</span><span class="p">(</span><span class="n">contrastBackgrounds</span><span class="p">,</span><span class="n">contrastQzshifts</span><span class="p">,</span><span class="n">contrastScalefactors</span><span class="p">,</span><span class="n">contrastBulkIns</span><span class="p">,</span><span class="n">contrastBulkOuts</span><span class="p">,</span><span class="n">contrastResolutions</span><span class="p">,</span><span class="n">backs</span><span class="p">,</span><span class="n">qzshifts</span><span class="p">,</span><span class="n">scalefactor</span><span class="p">,</span><span class="n">bulkIn</span><span class="p">,</span><span class="n">bulkOut</span><span class="p">,</span><span class="n">res</span><span class="p">)</span>
@@ -454,27 +454,27 @@ The types of available target functions are:</em></p>
 </div>
 <dl class="simple">
 <dt>INPUTS:</dt><dd><ul class="simple">
-<li><p>contrastBackgrounds: Which background value is associated with each contrast</p></li>
+<li><p>contrastBackgroundParams: Which background value is associated with each contrast</p></li>
 <li><p>contrastQzshifts: Which qz_shift value is associated with each contrast</p></li>
 <li><p>contrastScalefactors: Which scalefactor value is associated with each contrast</p></li>
 <li><p>contrastBulkIns: Which BulkIn value is associated with each contrast</p></li>
 <li><p>contrastBulkOuts: Which BulkOut value is associated with each contrast</p></li>
-<li><p>contrastResolutions: Which resolution value is associated with each contrast</p></li>
-<li><p>backgroundParams: List of all background values.</p></li>
+<li><p>contrastResolutionParams: Which resolution value is associated with each contrast</p></li>
+<li><p>backgroundParams: List of all background parameter values.</p></li>
 <li><p>qzshifts: List of all qzshift values</p></li>
 <li><p>scalefactors: List of all scalefactor values</p></li>
 <li><p>bulkIn: List of all bulkIn values</p></li>
 <li><p>bulkOut: List of all bulkOut values</p></li>
-<li><p>resolutionParams: List of all resolution values</p></li>
+<li><p>resolutionParams: List of all resolution parameter values</p></li>
 </ul>
 </dd>
 <dt>OUTPUTS:</dt><dd><ul class="simple">
-<li><p>outBackground: list of actual background values for each contrast</p></li>
+<li><p>outBackground: list of actual background parameter values for each contrast</p></li>
 <li><p>outQzshift: list of actual qzshift values for each contrast</p></li>
 <li><p>outScalefactor: list of actual scalefactor values for each contrast</p></li>
 <li><p>outBulkIn: list of actual bulkIn values for each contrast</p></li>
 <li><p>outBulkOut: list of actual bulkOut values for each contrast</p></li>
-<li><p>outResolution: list of actual resolution for each contrast</p></li>
+<li><p>outResolution: list of actual resolution parameter for each contrast</p></li>
 </ul>
 </dd>
 </dl>

@@ -22,5 +22,6 @@ In each case, the Resolutions can either be added to or subtracted from the data
 *********
 Reference
 *********
+.. default-domain:: mat
 .. autoclass:: API.projectClass.resolutionsClass
     :members:

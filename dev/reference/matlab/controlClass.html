@@ -194,8 +194,8 @@ document.write(`
                 
 
                     <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../index.html">
-                        API Reference
+                      <a class="nav-link nav-internal" href="index.html">
+                        MATLAB API Reference
                       </a>
                     </li>
                 
@@ -310,8 +310,8 @@ document.write(`
                 
 
                     <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../index.html">
-                        API Reference
+                      <a class="nav-link nav-internal" href="index.html">
+                        MATLAB API Reference
                       </a>
                     </li>
                 
@@ -404,7 +404,7 @@ document.write(`
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">MATLAB API Reference</a></li>
     
     <li class="breadcrumb-item active" aria-current="page">Controls Class</li>
   </ul>
@@ -494,6 +494,26 @@ if yes, what to parallelize on. (Single, Points or Contrasts)</p>
 <dd><p>Differential weight (Default: 0.5)</p>
 </dd></dl>
 
+<dl class="mat method">
+<dt class="sig sig-object mat" id="API.controlsClass.getIPCFilePath">
+<span class="sig-name descname"><span class="pre">getIPCFilePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.controlsClass.getIPCFilePath" title="Link to this definition">#</a></dt>
+<dd><p>Returns the path of the IPC file.</p>
+<dl class="simple">
+<dt>USAGE:</dt><dd><p>path = obj.getIPCFilePath()</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="API.controlsClass.initialiseIPC">
+<span class="sig-name descname"><span class="pre">initialiseIPC</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.controlsClass.initialiseIPC" title="Link to this definition">#</a></dt>
+<dd><p>Method setup the inter-process communication file.</p>
+<dl class="simple">
+<dt>USAGE:</dt><dd><p>obj.initialiseIPC()</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.jumpProbability">
 <span class="sig-name descname"><span class="pre">jumpProbability</span></span><a class="headerlink" href="#API.controlsClass.jumpProbability" title="Link to this definition">#</a></dt>
@@ -527,7 +547,7 @@ if yes, what to parallelize on. (Single, Points or Contrasts)</p>
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.controlsClass.nSamples">
 <span class="sig-name descname"><span class="pre">nSamples</span></span><a class="headerlink" href="#API.controlsClass.nSamples" title="Link to this definition">#</a></dt>
-<dd><p>Total number of samples for DREAM (Default: 50000)</p>
+<dd><p>Total number of samples for DREAM (Default: 20000)</p>
 </dd></dl>
 
 <dl class="mat attribute">
@@ -566,14 +586,36 @@ if yes, what to parallelize on. (Single, Points or Contrasts)</p>
 <dd><p>Used if MCMC is used</p>
 </dd></dl>
 
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="API.controlsClass.resampleMinAngle">
+<span class="sig-name descname"><span class="pre">resampleMinAngle</span></span><a class="headerlink" href="#API.controlsClass.resampleMinAngle" title="Link to this definition">#</a></dt>
+<dd><p>minimum angle for resampling (Default: 0.9)</p>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="API.controlsClass.resampleNPoints">
+<span class="sig-name descname"><span class="pre">resampleNPoints</span></span><a class="headerlink" href="#API.controlsClass.resampleNPoints" title="Link to this definition">#</a></dt>
+<dd><p>number of points for resampling (Default: 50)</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="API.controlsClass.sendStopEvent">
+<span class="sig-name descname"><span class="pre">sendStopEvent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.controlsClass.sendStopEvent" title="Link to this definition">#</a></dt>
+<dd><p>Sends the stop event via IPC file.</p>
+<dl class="simple">
+<dt>USAGE:</dt><dd><p>obj.sendStopEvent()</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.controlsClass.setProcedure">
 <span class="sig-name descname"><span class="pre">setProcedure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">procedure</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.controlsClass.setProcedure" title="Link to this definition">#</a></dt>
 <dd><p>Method sets the properties of the class based on the selected procedures.</p>
 <dl class="simple">
-<dt>USAGE: </dt><dd><p>obj.setProcedure(procedure, varargin)</p>
+<dt>USAGE:</dt><dd><p>obj.setProcedure(procedure, varargin)</p>
 </dd>
-<dt>EXAMPLE: </dt><dd><ul class="simple">
+<dt>EXAMPLE:</dt><dd><ul class="simple">
 <li><p>obj.setProcedure(‘simplex’, {‘xTolerance’, 1e-6, ‘funcTolerance’, 1e-6,’maxFuncEvals’, 1000})</p></li>
 <li><p>obj.setProcedure(‘dream’)</p></li>
 <li><p>obj.setProcedure(‘ns’, {‘nLive’, 150,’nMCMC’, 0, ‘propScale’, 0.1, ‘nsTolerance’, 0.1})</p></li>

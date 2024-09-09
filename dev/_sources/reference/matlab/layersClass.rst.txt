@@ -41,5 +41,6 @@ adds them one by one using `addLayer` method which is used to add individual lay
 *********
 Reference
 *********
+.. default-domain:: mat
 .. autoclass:: API.projectClass.layersClass
     :members:

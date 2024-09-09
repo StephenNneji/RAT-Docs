@@ -48,5 +48,6 @@ input .. etc.
 *********
 Reference
 *********
+.. default-domain:: mat
 .. autoclass:: API.projectClass.dataClass
     :members:

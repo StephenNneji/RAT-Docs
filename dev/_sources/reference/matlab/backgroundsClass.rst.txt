@@ -47,5 +47,6 @@ In each case, the background can either be added to the simulation or subtracted
 *********
 Reference
 *********
+.. default-domain:: mat
 .. autoclass:: API.projectClass.backgroundsClass
     :members:

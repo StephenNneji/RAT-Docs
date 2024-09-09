@@ -43,6 +43,7 @@ The Domains Contrasts Class is a simplified model only contrasts class for the D
 *********
 Reference
 *********
+.. default-domain:: mat
 .. autoclass:: API.projectClass.contrastsClass
     :members:
 
