@@ -36,7 +36,18 @@ jobs:
       run: |
         python generate_output.py
         python build_docs.py
-    - name: Upload build
-      uses: actions/upload-artifact@v4
+    - name: Checkout gh-pages
+      uses: actions/checkout@v4
       with:
-        path: build
+        ref: gh-pages
+        path: _web
+    - name: Build and Deploy Docs
+      run: |
+        make html
+        python deploy.py ${{github.ref}}
+        cd _web
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add -A
+        git commit -m "Publish Documentation" || true
+        git push

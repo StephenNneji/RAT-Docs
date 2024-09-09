@@ -40,5 +40,6 @@ if yes, what to parallelize on. (Single, Points or Contrasts)
 *********
 Reference
 *********
+.. default-domain:: mat
 .. autoclass:: API.controlsClass
     :members:

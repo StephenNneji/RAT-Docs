@@ -9,7 +9,7 @@ VERSION_REGEX = re.compile(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
                            r"(?:\.(?:0|[1-9]\d*|\d *[a-zA-Z-][0-9a-zA-Z-]*))*))?"
                            r"(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?")
 DOCS_PATH = os.path.abspath(os.path.dirname(__file__))
-VERSION_FILE = os.path.join(DOCS_PATH, 'API', 'RAT', 'version.txt')
+VERSION_FILE = os.path.join(DOCS_PATH, 'API', 'version.txt')
 
 doc_version = 'dev'
 

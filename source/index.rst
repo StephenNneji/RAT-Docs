@@ -47,5 +47,5 @@ Home
    
    install
    guide
-   reference/index
+   reference/matlab/index
    support

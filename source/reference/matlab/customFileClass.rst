@@ -39,5 +39,6 @@ properly on terminal.
 *********
 Reference
 *********
+.. default-domain:: mat
 .. autoclass:: API.projectClass.customFileClass
     :members:

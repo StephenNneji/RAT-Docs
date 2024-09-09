@@ -62,6 +62,7 @@ RAT currently supports two calculation types (nonPolarised and Domains). The Dom
 *********
 Reference
 *********
+.. default-domain:: mat
 .. autofunction:: API.createProject
 
 .. autoclass:: API.projectClass.projectClass

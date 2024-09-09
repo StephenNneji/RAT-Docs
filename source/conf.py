@@ -22,6 +22,9 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 matlab_src_dir = os.path.abspath(os.path.join(current_dir, '..', 'API'))
 sys.path.insert(0, matlab_src_dir)
 
+import RATapi
+sys.path.insert(0, os.path.dirname(os.path.abspath(RATapi.__file__)))
+
 project = 'RAT'
 copyright = u'2022-{}, ISIS Neutron and Muon Source'.format(datetime.date.today().year)
 author = 'Arwel Hughes, Sethu Pastula, Rabiya Farooq, Paul Sharp, Stephen Nneji'
@@ -42,14 +45,14 @@ with open(VERSION_FILE, 'r') as version_file:
         doc_version = f'{major}.{minor}'
     
 # -- General configuration ---------------------------------------------------
-extensions = ['sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx_design', 'sphinx_copybutton']
+extensions = ['sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'sphinx_design', 'sphinx_copybutton']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
 # -- Options for HTML output -------------------------------------------------
 #set primary_domain = 'matlab'
-primary_domain = 'mat'
+primary_domain = None
 matlab_keep_package_prefix = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
@@ -72,11 +75,6 @@ html_theme_options = {'show_prev_next': False,
                                    'version_match': doc_version,
                                    "check_switcher": False,},
                      }
-
-html_sidebars = {
-    "install": [],
-    "support": [],
-}
 
 copybutton_prompt_text = r">>> |>> "
 copybutton_prompt_is_regexp = True

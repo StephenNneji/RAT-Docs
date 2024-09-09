@@ -1,6 +1,7 @@
 ================================
 Target Functions (Low Level API)
 ================================
+.. default-domain:: mat
 .. automodule:: targetFunctions
     :members:
 

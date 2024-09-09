@@ -25,6 +25,7 @@ which starts the reflectivity calculation.
 Some interesting data type changes are needed because of how things work with coder. Coder wont accept variable sized cell arrays contains variable sized arrays (strings for eg) 
 in a field of a struct. So, look at `parseClassToStructs` function to understand how the data is converted.
 
+.. default-domain:: mat
 .. autofunction:: API.RAT
 
 

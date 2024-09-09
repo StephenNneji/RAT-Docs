@@ -65,5 +65,6 @@ to set the name of a parameter.
 *********
 Reference
 *********
+.. default-domain:: mat
 .. autoclass:: API.projectClass.parametersClass
     :members:
