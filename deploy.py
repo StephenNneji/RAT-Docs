@@ -46,10 +46,10 @@ if not os.path.exists(INDEX_FILE) or os.environ.get('github.ref', 'main') != 'ma
         '<!DOCTYPE html>\n',
         '<html>\n',
         '  <head>\n',
-        f'    <title>Redirecting to https://rascalsoftware.github.io/RAT-Docs/{doc_version}/</title>\n',
+        f'    <title>Redirecting to https://StephenNneji.github.io/RAT-Docs/{doc_version}/</title>\n',
         '    <meta charset="utf-8">\n',
-        f'    <meta http-equiv="refresh" content="0; URL=https://rascalsoftware.github.io/RAT-Docs/{doc_version}/index.html">\n',
-        f'    <link rel="canonical" href="https://rascalsoftware.github.io/RAT-Docs/{doc_version}/index.html">\n',
+        f'    <meta http-equiv="refresh" content="0; URL=https://StephenNneji.github.io/RAT-Docs/{doc_version}/index.html">\n',
+        f'    <link rel="canonical" href="https://StephenNneji.github.io/RAT-Docs/{doc_version}/index.html">\n',
         '  </head>\n',
         '</html>',
     ]
