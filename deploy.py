@@ -11,7 +11,7 @@ VERSION_REGEX = re.compile(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
 DOCS_PATH = os.path.abspath(os.path.dirname(__file__))
 VERSION_FILE = os.path.join(DOCS_PATH, 'API', 'version.txt')
 
-doc_version = '1.0'
+doc_version = '2.0'
 
 # with open(VERSION_FILE, 'r') as version_file:
 #     version = version_file.read()
