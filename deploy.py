@@ -11,13 +11,13 @@ VERSION_REGEX = re.compile(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
 DOCS_PATH = os.path.abspath(os.path.dirname(__file__))
 VERSION_FILE = os.path.join(DOCS_PATH, 'API', 'version.txt')
 
-doc_version = 'dev'
+doc_version = '1.0'
 
-with open(VERSION_FILE, 'r') as version_file:
-    version = version_file.read()
-    if os.environ.get('github.ref', 'main') != 'main':
-        major, minor, *other = list(VERSION_REGEX.match(version.replace(' ', '')).groups())
-        doc_version = f'{version[0]}.{version[1]}'
+# with open(VERSION_FILE, 'r') as version_file:
+#     version = version_file.read()
+#     if os.environ.get('github.ref', 'main') != 'main':
+#         major, minor, *other = list(VERSION_REGEX.match(version.replace(' ', '')).groups())
+#         doc_version = f'{version[0]}.{version[1]}'
 
 BUILD_PATH = os.path.join(DOCS_PATH, 'build', 'html')
 WEB_PATH = os.path.join(DOCS_PATH, '_web', doc_version)
