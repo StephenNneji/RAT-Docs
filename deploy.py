@@ -33,7 +33,7 @@ switch_list = []
 for release in releases:
     switch_list.append({'name': release, 
                         'version': release, 
-                        'url': f'https://rascalsoftware.github.io/RAT-Docs/{release}/'})
+                        'url': f'https://StephenNneji.github.io/RAT-Docs/{release}/'})
 
 SWITCHER_FILE = os.path.join(DOCS_PATH, '_web', 'switcher.json')
 with open(SWITCHER_FILE, 'w') as switcher_file:
