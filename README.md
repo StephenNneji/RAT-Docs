@@ -9,7 +9,7 @@ folder while the build will be placed in a build folder. The build requires a py
 in the requirements.txt. You need MATLAB version and python version or RAT software installed in your system.
 
 ```bash
-   conda create -n RAT python=3.9
+   conda create -n RAT python=3.10
    conda activate RAT
    pip install -r requirements.txt
 ```
