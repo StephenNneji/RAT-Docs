@@ -23,7 +23,7 @@ jobs:
     - name: Set up Python 
       uses: actions/setup-python@v4
       with:
-        python-version: '3.11' 
+        python-version: '3.10' 
     - name: Build docs
       run: |
         # create an x11 display because otherwise MATLAB refuses to export live scripts...
@@ -48,7 +48,7 @@ jobs:
         wget https://github.com/jgm/pandoc/releases/download/3.6.2/pandoc-3.6.2-1-amd64.deb
         sudo apt install -y ./pandoc-3.6.2-1-amd64.deb
         
-        pip install matlabengine==24.1.*
+        pip install matlabengine==9.14.*
         pip install -r requirements.txt
         python build_docs.py
     - name: Checkout gh-pages
